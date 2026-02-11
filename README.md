@@ -55,7 +55,7 @@ We deliver the complete infrastructure in **14-30 days** at **$75K-$195K** — a
 
 ## Repository Overview
 
-This repository contains all strategic, operational, and client-facing documentation for the InvestOS platform and Light Brands Consulting's four-offer ecosystem.
+This repository contains all strategic, operational, and client-facing documentation for InvestOS™, the fundraising infrastructure platform from Light Brands Consulting.
 
 ---
 
@@ -102,7 +102,7 @@ Regulatory compliance documentation and legal routing frameworks.
 
 ### For New Team Members
 1. **Start with:** [POSITIONING_ONE_PAGER.md](./Strategy/POSITIONING_ONE_PAGER.md) — Understand the four-offer ecosystem
-2. **Then read:** [INVESTOS_COMPLETE_OFFERING.md](./InvestOS/INVESTOS_COMPLETE_OFFERING.md) — Deep dive on InvestOS (Offer 4)
+2. **Then read:** [INVESTOS_COMPLETE_OFFERING.md](./InvestOS/INVESTOS_COMPLETE_OFFERING.md) — Deep dive on InvestOS
 3. **Finally review:** [CLIENT_PRICING_GUIDE.md](./Pricing/CLIENT_PRICING_GUIDE.md) — Understand pricing and packages
 
 ### For Sales Conversations
@@ -123,16 +123,9 @@ Regulatory compliance documentation and legal routing frameworks.
 
 ---
 
-## 🎯 The Four-Offer Ecosystem
+## 🎯 About Light Brands Consulting
 
-This documentation supports Light Brands' four-offer product ecosystem:
-
-1. **Offer 1: Clarity & Strategy** — Strategic diagnostic and positioning foundation (entry point)
-2. **Offer 2: Superintelligent Operating System** — AI-powered business intelligence platform
-3. **Offer 3: Growth & Scale** — Operational expansion and market entry support
-4. **Offer 4: Capital & Raise (InvestOS)** — Complete fundraising infrastructure and investor platform
-
-InvestOS is Offer 4 — the fundraising platform that delivers strategy, financials, legal architecture, market research, operations, an interactive investor platform, and a data room in 14-30 days.
+Light Brands Consulting delivers InvestOS™ — a complete fundraising operating system that provides everything founders need to raise institutional capital. InvestOS is our sole product offering, delivering strategy, financials, legal architecture, market research, operations, an interactive investor platform, and a data room in 14-30 days.
 
 ---
 

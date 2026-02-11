@@ -256,7 +256,7 @@ Here's what emerges over 24–36 months:
 4. Establish InvestOS as category leader
 
 ### Phase 2: Internal Intelligence Deployment (Months 12-24)
-1. Use InvestOS internally on Transformational Epicenter
+1. Use InvestOS internally on Light Brands Consulting
 2. Validate intelligence quality through real deployment
 3. Quietly design fund structures
 4. Prepare for fund launch
@@ -300,7 +300,7 @@ That keeps you clean, compliant, and premium.
 ### Fund Layer A: Real Estate Fund (Epicenter)
 
 **Purpose:**
-- Transformational Epicenter
+- Light Brands Consulting
 - Strategic real estate
 - Regenerative assets
 

@@ -6,7 +6,7 @@ I’ll give you a **clear-eyed assessment** of InvestOS as a focused product *vs
 
 ## **First: What InvestOS *actually is* (not what it sounds like)**
 
-Based on what you’ve built with **Transformational Epicenter**, InvestOS is **not** a generic AI OS.
+Based on what you’ve built with **Light Brands Consulting**, InvestOS is **not** a generic AI OS.
 
 It’s a:
 
@@ -248,7 +248,7 @@ Do **not** kill the broader AI OS vision — just **sequence it later**.
 
 1. **Rename and lock the category**  
    * InvestOS \= *Investment & Trust Operating System*  
-2. **Turn Transformational Epicenter into the flagship case study**  
+2. **Turn Light Brands Consulting into the flagship case study**  
    * Clear before/after  
    * Time saved  
    * Trust gained  
@@ -421,7 +421,7 @@ InvestOS is already powering real platforms with real complexity — replacing w
 
 All inside one unified OS.
 
-(Flagship case study: Transformational Epicenter)
+(Flagship case study: Light Brands Consulting)
 
 ---
 
@@ -473,7 +473,7 @@ If speed without integrity is the goal — this isn’t it.
 I can:
 
 * Tighten this into a **1-screen hero \+ scroll narrative**  
-* Create a **case-study section** specifically for Transformational Epicenter  
+* Create a **case-study section** specifically for Light Brands Consulting  
 * Productize InvestOS into **3 clean tiers**  
 * Decide whether **Light Brands** sits behind InvestOS or as the parent brand
 
@@ -657,7 +657,7 @@ If you want next, I can:
 * Write the **pricing page copy**  
 * Design the **“Which tier is right for you?” section**  
 * Create a **sales call flow per tier**  
-* Build the **Transformational Epicenter case study mapped to Tier 2**
+* Build the **Light Brands Consulting case study mapped to Tier 2**
 
 Just tell me the next move.
 
@@ -825,7 +825,7 @@ If speed without integrity is the priority — this is not the right solution.
 ## **Proof, Not Theory**
 
 InvestOS is already powering real, complex platforms — including  
-Transformational Epicenter
+Light Brands Consulting
 
 This is built from lived implementation, not hypothetical frameworks.
 
@@ -852,7 +852,7 @@ If you want next, I can:
 
 * Create the **“Which tier is right for you?” decision section**  
 * Write the **application page copy**  
-* Map **Transformational Epicenter** directly to the *Scale* tier  
+* Map **Light Brands Consulting** directly to the *Scale* tier  
 * Design the **sales call flow** around these tiers
 
 Just tell me the move.

@@ -195,7 +195,7 @@
 **NEVER mention on website:**
 - Lightbrand AI Studio
 - Fund strategies
-- Transformational Epicenter (unless case study)
+- Light Brands Consulting (unless case study)
 - Internal production methods
 
 ---
@@ -348,7 +348,7 @@
 
 ### Design System
 
-**Reuse from Transformational Epicenter:**
+**Reuse from Light Brands Consulting:**
 - Botanical green primary colors
 - Warm gold accents
 - Luxury aesthetic
@@ -417,20 +417,20 @@
 **Public-facing (website, marketing):** NO
 
 **Client conversations:** ONLY if directly relevant
-> "We use InvestOS internally on our own ventures, including Transformational Epicenter. We invest with the same infrastructure we sell."
+> "We use InvestOS internally on our own ventures, including Light Brands Consulting. We invest with the same infrastructure we sell."
 
 **Never say:**
 > "We're launching funds" or "We'll invest in your company"
 
 ---
 
-### "What's the relationship between InvestOS and Transformational Epicenter?"
+### "What's the relationship between InvestOS and Light Brands Consulting?"
 
 **Public answer:**
-> "Transformational Epicenter is a separate venture that uses InvestOS for its capital formation infrastructure. It's a proof point that we use our own system."
+> "Light Brands Consulting is a separate venture that uses InvestOS for its capital formation infrastructure. It's a proof point that we use our own system."
 
 **Internal understanding:**
-> "Transformational Epicenter is where we validate InvestOS internally. The intelligence InvestOS generates will eventually feed our fund strategy, but that's not public yet."
+> "Light Brands Consulting is where we validate InvestOS internally. The intelligence InvestOS generates will eventually feed our fund strategy, but that's not public yet."
 
 ---
 

@@ -1,4 +1,4 @@
-# TRANSFORMATIONAL EPICENTER
+# LIGHT BRANDS CONSULTING
 
 ---
 
@@ -9,7 +9,7 @@
 **Date:** February 2026
 **Classification:** STRICTLY CONFIDENTIAL — Internal Use Only
 **Version:** 1.0
-**Prepared by:** Transformational Epicenter Revenue Operations
+**Prepared by:** Light Brands Consulting Revenue Operations
 
 ---
 

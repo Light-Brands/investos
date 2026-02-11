@@ -12,7 +12,7 @@
 This document outlines the complete plan for building the InvestOS website - a high-converting B2B marketing site that positions InvestOS as a credible alternative to Big 4 consulting firms for founders raising institutional capital.
 
 **Key Decisions:**
-- **Brand:** Separate domain (investos.com), independent from Transformational Epicenter
+- **Brand:** Separate domain (investos.com), independent from Light Brands Consulting
 - **Scope:** Full comprehensive build with all interactive features
 - **Design:** Reuse existing botanical/luxury design system from TE codebase
 - **Content:** All content derived from INVESTOS_COMPLETE_OFFERING.md
@@ -78,7 +78,7 @@ InvestOS is a fundraising infrastructure service that delivers in 14-30 days wha
 
 ### Recommended Structure: Separate Next.js Application
 
-**Why separate from Transformational Epicenter:**
+**Why separate from Light Brands Consulting:**
 - Different domain (investos.com)
 - Independent brand identity and navigation
 - Different analytics, forms, integrations
