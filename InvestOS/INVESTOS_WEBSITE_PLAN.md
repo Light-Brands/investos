@@ -12,9 +12,10 @@
 This document outlines the complete plan for building the InvestOS website - a high-converting B2B marketing site that positions InvestOS as a credible alternative to Big 4 consulting firms for founders raising institutional capital.
 
 **Key Decisions:**
-- **Brand:** Separate domain (investos.com), independent from Light Brands Consulting
+- **Brand:** InvestOS is the flagship product of Light Brands Consulting
+- **Domain:** investos.com or lightbrandsconsulting.com/investos
 - **Scope:** Full comprehensive build with all interactive features
-- **Design:** Reuse existing botanical/luxury design system from TE codebase
+- **Design:** Professional botanical/luxury design system
 - **Content:** All content derived from INVESTOS_COMPLETE_OFFERING.md
 - **Timeline:** 6-week phased implementation
 
@@ -47,7 +48,7 @@ This document outlines the complete plan for building the InvestOS website - a h
 
 ### What We're Building
 
-InvestOS is a fundraising infrastructure service that delivers in 14-30 days what traditionally costs $3.35M-$7.7M and takes 6-12 months. The website must:
+The Light Brands Consulting website showcasing InvestOS - our flagship fundraising infrastructure platform that delivers in 14-30 days what traditionally costs $3.35M-$7.7M and takes 6-12 months. The website must:
 
 1. **Sell and wow** visitors immediately with compelling value proposition
 2. **Build credibility** through detailed service descriptions and proof points
@@ -76,25 +77,23 @@ InvestOS is a fundraising infrastructure service that delivers in 14-30 days wha
 
 ## 2. Technical Architecture
 
-### Recommended Structure: Separate Next.js Application
+### Recommended Structure: Next.js Application
 
-**Why separate from Light Brands Consulting:**
-- Different domain (investos.com)
-- Independent brand identity and navigation
-- Different analytics, forms, integrations
-- Cleaner separation of concerns
-- Still imports TE design system and components
+**Website Structure for Light Brands Consulting / InvestOS:**
+- Represents Light Brands Consulting with InvestOS as the core product offering
+- Clean, professional brand identity showcasing our flagship platform
+- Integrated analytics, forms, and conversion tracking
+- Domain options: investos.com (product-led) or lightbrandsconsulting.com (company-led)
 
 ### Directory Structure
 
 ```
-transformational-epicenter/
-├── [existing TE app]
+light-brands-consulting/
 │
-└── investos/                        # NEW: Separate Next.js app
+└── investos/                        # Light Brands Consulting website
     ├── package.json
     ├── next.config.js
-    ├── tailwind.config.ts           # Extends TE design
+    ├── tailwind.config.ts
     ├── tsconfig.json
     │
     ├── app/
@@ -145,24 +144,24 @@ transformational-epicenter/
         └── samples/
 ```
 
-### Component Reusability (80% from TE)
+### Component Architecture
 
-**Import from TE codebase:**
+**Reusable UI Components:**
 ```typescript
-// Reuse primitives
-import { Card, Button, Badge } from '../../components/ui'
-import { CountUp, FadeIn, StaggerContainer } from '../../components/animation'
-import { cn } from '../../lib/utils'
+// Shared primitives
+import { Card, Button, Badge } from '@/components/ui'
+import { CountUp, FadeIn, StaggerContainer } from '@/components/animation'
+import { cn } from '@/lib/utils'
 ```
 
-**Build new (InvestOS-specific):**
+**Custom Components (InvestOS-specific):**
 - TierCard (pricing tier display)
 - ServiceCard (A-J categories)
 - CompetitorMatrix (Big 4 comparison)
 - ROICalculator (savings calculator)
 - TierSelector (recommendation tool)
 - ProcessTimeline (14/21/30 day visualization)
-- Header/Footer (InvestOS branding)
+- Header/Footer (Light Brands Consulting branding with InvestOS focus)
 
 ---
 
@@ -170,37 +169,41 @@ import { cn } from '../../lib/utils'
 
 ### Visual Identity
 
-**Reuse from TE codebase:**
-- Botanical green primary colors
-- Warm gold accents
-- Luxury aesthetic
-- Professional shadows and spacing
-- Fraunces display font
-- Libre Baskerville headings
-- Source Sans 3 body text
+**Light Brands Consulting Design System:**
+- Botanical green primary colors (trust, growth, stability)
+- Warm gold accents (premium, quality)
+- Luxury aesthetic with professional shadows and spacing
+- Fraunces display font (headlines)
+- Libre Baskerville headings (subheads)
+- Source Sans 3 body text (readability)
 
-**InvestOS adaptations:**
-- Slightly larger base font (18px vs 16px) for B2B audience
-- Higher information density (more details per section)
-- Optional investment blue accent for financial credibility
-- More aggressive font weights for pricing (700 vs 500)
+**B2B Optimizations:**
+- 18px base font size for improved readability
+- Higher information density (detailed service descriptions)
+- Investment blue accent option for financial credibility
+- Bold font weights for pricing emphasis (700)
 
 ### Tailwind Configuration
 
 ```typescript
 // investos/tailwind.config.ts
-import teConfig from '../tailwind.config'
-
 export default {
-  ...teConfig,
   content: [
     './app/**/*.{js,ts,jsx,tsx}',
     './components/**/*.{js,ts,jsx,tsx}',
-    '../components/**/*.{js,ts,jsx,tsx}', // Import TE
   ],
   theme: {
     extend: {
-      ...teConfig.theme.extend,
+      colors: {
+        botanical: {
+          50: '#f0fdf4',
+          100: '#dcfce7',
+          // ... botanical green scale
+        },
+        gold: {
+          // ... warm gold accent scale
+        },
+      },
       fontSize: {
         base: '1.125rem', // 18px for B2B
       },
@@ -255,8 +258,9 @@ Homepage (/)
 ### Homepage Structure (11 Sections)
 
 **Section 1: Hero**
+- Company: "Light Brands Consulting" (subtle header/badge)
 - Headline: "14-30 days. Not 6-12 months."
-- Subheadline: "Turn $3M+ of scattered consultants into one unified operating system"
+- Subheadline: "InvestOS™ - Turn $3M+ of scattered consultants into one unified operating system"
 - CTAs: "See How It Works", "View Live Example"
 - Trust indicators: $75K-$750K | 150+ Docs | 30-Day Delivery
 
@@ -267,6 +271,7 @@ Homepage (/)
 
 **Section 3: The Solution**
 - "What Is InvestOS?"
+- Light Brands Consulting's flagship platform
 - Vertical operating system explanation
 - What it replaces (8 vendors → 1 system)
 - Stack collapse narrative
@@ -298,9 +303,9 @@ Homepage (/)
 
 **Section 8: Why We Win**
 - Head-to-head comparison table
-- Big 4 vs Boutique IB vs InvestOS
+- Big 4 vs Boutique IB vs Light Brands Consulting (InvestOS)
 - Dimensions: Cost, timeline, quality, vendors, hidden costs
-- Unique capabilities InvestOS offers
+- Unique capabilities we offer through InvestOS
 
 **Section 9: AI Advantage**
 - "96-98% cost reduction without cutting corners"
@@ -561,9 +566,9 @@ export async function POST(req: Request) {
 **Meta Tags** (per page):
 ```typescript
 export const metadata = {
-  title: 'InvestOS - Fundraising Infrastructure in 14-30 Days',
-  description: '$75K-$750K for what traditionally costs $3.35M-$7.7M...',
-  keywords: ['fundraising consulting', 'financial modeling', ...],
+  title: 'InvestOS by Light Brands Consulting - Fundraising Infrastructure in 14-30 Days',
+  description: 'Light Brands Consulting delivers complete fundraising infrastructure for $75K-$750K in 14-30 days. What traditionally costs $3.35M-$7.7M and takes 6-12 months.',
+  keywords: ['fundraising consulting', 'financial modeling', 'Light Brands', 'InvestOS', ...],
   openGraph: { /* ... */ },
   twitter: { /* ... */ },
 }
@@ -574,6 +579,10 @@ export const metadata = {
 {
   "@context": "https://schema.org",
   "@type": "Service",
+  "provider": {
+    "@type": "Organization",
+    "name": "Light Brands Consulting"
+  },
   "name": "InvestOS Foundation Tier",
   "offers": {
     "@type": "Offer",
