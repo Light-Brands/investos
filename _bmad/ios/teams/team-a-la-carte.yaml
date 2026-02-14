@@ -1,0 +1,9 @@
+# <!-- Powered by BMAD-CORE™ -->
+bundle:
+  name: IOS A La Carte Team
+  icon: "⚡"
+  description: Minimal team for quick flow single deliverables.
+agents:
+  - engagement-lead
+  - quick-flow-delivery
+party: "./default-party.csv"

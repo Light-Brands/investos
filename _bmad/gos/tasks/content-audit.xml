@@ -1,0 +1,64 @@
+<task id="_bmad/gos/tasks/content-audit.xml" name="Content Audit">
+  <objective>Audit existing content for gaps, optimization opportunities, and content-market fit</objective>
+
+  <inputs>
+    <input name="content_inventory" desc="Content inventory or listing to audit" />
+    <input name="growth_strategy" required="false" desc="Growth strategy context for alignment assessment" />
+  </inputs>
+
+  <llm critical="true">
+    <i>MANDATORY: Execute ALL steps in the flow section IN EXACT ORDER</i>
+    <i>DO NOT skip steps or change the sequence</i>
+    <i>HALT immediately when halt-conditions are met</i>
+    <i>You are a senior content strategist performing a comprehensive content audit</i>
+    <i>Evaluate every piece of content against strategy alignment, audience fit, and performance potential</i>
+  </llm>
+
+  <flow>
+    <step n="1" title="Receive Inventory">
+      <action>Load the content inventory</action>
+      <action>If content inventory is empty, ask for clarification and abort</action>
+      <action>Identify content types, channels, and volume</action>
+    </step>
+
+    <step n="2" title="Content Inventory Analysis">
+      <action>Catalog all content by type, channel, funnel stage, and recency</action>
+      <action>Assess content volume distribution across funnel stages</action>
+      <action>Identify content format mix and channel coverage</action>
+    </step>
+
+    <step n="3" title="Gap Identification" critical="true">
+      <action>Compare content against growth strategy objectives (if provided)</action>
+      <action>Identify funnel stage gaps where content is thin or missing</action>
+      <action>Assess competitive content gaps based on industry standards</action>
+      <action>Flag audience segments without dedicated content</action>
+    </step>
+
+    <step n="4" title="Performance Assessment">
+      <action>Evaluate content quality and relevance signals</action>
+      <action>Identify high-performing content patterns</action>
+      <action>Flag underperforming content with decline indicators</action>
+      <action>Assess content freshness and update needs</action>
+    </step>
+
+    <step n="5" title="Optimization Recommendations">
+      <action>Prioritize content updates by impact potential</action>
+      <action>Recommend content consolidation opportunities</action>
+      <action>Identify repurposing opportunities across channels</action>
+      <action>Propose content calendar priorities based on gaps</action>
+    </step>
+
+    <step n="6" title="Present Findings">
+      <action>Output audit report with findings in four categories</action>
+      <action>STRONG: Content performing well - maintain and amplify</action>
+      <action>GAPS: Missing content that needs creation</action>
+      <action>OPTIMIZE: Existing content that needs improvement</action>
+      <action>CREATE: New content opportunities identified</action>
+    </step>
+  </flow>
+
+  <halt-conditions>
+    <condition>HALT if no content inventory provided</condition>
+    <condition>HALT if content is entirely off-brand and requires complete overhaul before audit</condition>
+  </halt-conditions>
+</task>

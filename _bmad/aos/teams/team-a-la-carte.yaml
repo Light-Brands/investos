@@ -1,0 +1,9 @@
+# <!-- Powered by BMAD-CORE™ -->
+bundle:
+  name: AOS A La Carte Team
+  icon: "⚡"
+  description: Minimal team for quick content production.
+agents:
+  - aos-orchestrator
+  - aos-quickflow
+party: "./default-party.csv"

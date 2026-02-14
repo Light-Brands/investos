@@ -1,0 +1,76 @@
+<task id="_bmad/gos/tasks/lead-scoring-validation.xml" name="Lead Scoring Validation">
+  <objective>Validate lead scoring model accuracy against actual conversion outcomes</objective>
+
+  <inputs>
+    <input name="scoring_data" desc="Scored leads with actual conversion outcomes for validation" />
+    <input name="current_model" required="false" desc="Description of current scoring model and its variables" />
+  </inputs>
+
+  <llm critical="true">
+    <i>MANDATORY: Execute ALL steps in the flow section IN EXACT ORDER</i>
+    <i>DO NOT skip steps or change the sequence</i>
+    <i>HALT immediately when halt-conditions are met</i>
+    <i>You are a data analyst validating predictive lead scoring accuracy</i>
+    <i>Statistical rigor matters - do not draw conclusions from insufficient data</i>
+  </llm>
+
+  <flow>
+    <step n="1" title="Receive Data">
+      <action>Load scoring data with outcomes and model description</action>
+      <action>If no scoring data provided, ask for clarification and abort</action>
+      <action>Assess sample size for statistical significance</action>
+      <action>If sample size is too small, halt with explanation</action>
+    </step>
+
+    <step n="2" title="Score Distribution Analysis">
+      <action>Map the distribution of scores across the lead population</action>
+      <action>Identify score clustering, outliers, and distribution shape</action>
+      <action>Assess whether score distribution is well-calibrated</action>
+    </step>
+
+    <step n="3" title="Conversion Rate by Score Band" critical="true">
+      <action>Segment leads into score bands (e.g., deciles or quintiles)</action>
+      <action>Calculate actual conversion rate per score band</action>
+      <action>Verify monotonic relationship (higher score = higher conversion)</action>
+      <action>Identify score bands where prediction breaks down</action>
+    </step>
+
+    <step n="4" title="Precision/Recall Assessment">
+      <action>Calculate precision at various score thresholds</action>
+      <action>Calculate recall at various score thresholds</action>
+      <action>Identify optimal threshold for business objectives</action>
+      <action>Assess false positive and false negative costs</action>
+    </step>
+
+    <step n="5" title="Feature Importance Review">
+      <action>Evaluate which scoring variables correlate most with outcomes</action>
+      <action>Identify variables that may be noise or redundant</action>
+      <action>Suggest new variables that could improve prediction</action>
+    </step>
+
+    <step n="6" title="Model Drift Detection">
+      <action>Compare recent scoring accuracy against historical baseline</action>
+      <action>Identify trends in model accuracy over time</action>
+      <action>Flag if model performance has degraded significantly</action>
+    </step>
+
+    <step n="7" title="Recalibration Recommendations">
+      <action>Propose specific scoring model adjustments</action>
+      <action>Recommend variable weight changes based on analysis</action>
+      <action>Suggest threshold adjustments for lead routing</action>
+      <action>Provide expected accuracy improvement from recommendations</action>
+    </step>
+
+    <step n="8" title="Present Findings">
+      <action>Output validation report with model accuracy scorecard</action>
+      <action>Include score band conversion matrix</action>
+      <action>Provide precision/recall curves and optimal thresholds</action>
+      <action>List prioritized recalibration recommendations</action>
+    </step>
+  </flow>
+
+  <halt-conditions>
+    <condition>HALT if no scoring data provided</condition>
+    <condition>HALT if sample size is too small for statistical significance</condition>
+  </halt-conditions>
+</task>

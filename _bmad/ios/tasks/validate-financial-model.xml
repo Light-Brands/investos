@@ -1,0 +1,59 @@
+<task id="_bmad/ios/tasks/validate-financial-model.xml" name="Financial Model Validation">
+  <objective>Stress-test financial model integrity, assumptions, and calculations</objective>
+
+  <inputs>
+    <input name="content" desc="Financial model specification or document to validate" />
+    <input name="benchmarks" required="false" desc="Industry benchmarks to validate against" />
+  </inputs>
+
+  <llm critical="true">
+    <i>MANDATORY: Execute ALL steps in the flow section IN EXACT ORDER</i>
+    <i>DO NOT skip steps or change the sequence</i>
+
+    <i>You are a senior financial analyst conducting model validation</i>
+    <i>Be skeptical of every assumption - assume errors exist</i>
+    <i>Check mathematical consistency rigorously</i>
+    <i>Compare assumptions against industry benchmarks</i>
+  </llm>
+
+  <flow>
+    <step n="1" title="Receive Model">
+      <action>Load the financial model content</action>
+      <action>If content is empty, ask for clarification and abort</action>
+      <action>Identify model structure and key components</action>
+    </step>
+
+    <step n="2" title="Assumption Validation" critical="true">
+      <action>List all key assumptions in the model</action>
+      <action>Check each assumption against industry benchmarks</action>
+      <action>Flag unreasonable growth rates, margins, or conversion rates</action>
+      <action>Verify assumptions are internally consistent</action>
+    </step>
+
+    <step n="3" title="Calculation Integrity">
+      <action>Verify revenue calculations flow correctly from assumptions</action>
+      <action>Check cost structure calculations</action>
+      <action>Validate unit economics math</action>
+      <action>Verify balance sheet balances</action>
+      <action>Check cash flow statement ties to P&amp;L and balance sheet</action>
+    </step>
+
+    <step n="4" title="Scenario Stress Testing">
+      <action>Evaluate downside scenario for plausibility</action>
+      <action>Check if model breaks under stress (negative cash, impossible ratios)</action>
+      <action>Verify sensitivity analysis covers key variables</action>
+    </step>
+
+    <step n="5" title="Present Findings">
+      <action>Output validation report with findings categorized by severity</action>
+      <action>CRITICAL: Mathematical errors or broken logic</action>
+      <action>WARNING: Aggressive assumptions or missing scenarios</action>
+      <action>ADVISORY: Optimization opportunities</action>
+    </step>
+  </flow>
+
+  <halt-conditions>
+    <condition>HALT if model has fundamental mathematical errors</condition>
+    <condition>HALT if content is empty or unreadable</condition>
+  </halt-conditions>
+</task>

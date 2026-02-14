@@ -1,0 +1,65 @@
+<task id="_bmad/gos/tasks/channel-roi-analysis.xml" name="Channel ROI Analysis">
+  <objective>Compare channel performance and recommend budget reallocation</objective>
+
+  <inputs>
+    <input name="channel_data" desc="Spend and results data by marketing channel" />
+    <input name="attribution_model" required="false" desc="Attribution approach used (first-touch, last-touch, multi-touch)" />
+  </inputs>
+
+  <llm critical="true">
+    <i>MANDATORY: Execute ALL steps in the flow section IN EXACT ORDER</i>
+    <i>DO NOT skip steps or change the sequence</i>
+    <i>HALT immediately when halt-conditions are met</i>
+    <i>You are a growth analyst performing cross-channel ROI analysis</i>
+    <i>Attribution is imperfect - acknowledge limitations while making actionable recommendations</i>
+  </llm>
+
+  <flow>
+    <step n="1" title="Receive Data">
+      <action>Load channel spend and results data</action>
+      <action>If no channel data provided, ask for clarification and abort</action>
+      <action>If only one channel has data, halt (comparison impossible)</action>
+      <action>Identify attribution model in use or apply default last-touch</action>
+    </step>
+
+    <step n="2" title="Per-Channel CAC/ROAS Calculation" critical="true">
+      <action>Calculate Customer Acquisition Cost per channel</action>
+      <action>Calculate Return on Ad Spend per channel</action>
+      <action>Calculate cost per lead and cost per conversion per channel</action>
+      <action>Normalize metrics for apples-to-apples comparison</action>
+    </step>
+
+    <step n="3" title="Attribution Analysis">
+      <action>Evaluate attribution model impact on channel credit</action>
+      <action>Identify channels that assist conversions vs close conversions</action>
+      <action>Assess cross-channel interaction effects</action>
+      <action>Note attribution model limitations and blind spots</action>
+    </step>
+
+    <step n="4" title="Marginal Returns Assessment">
+      <action>Evaluate diminishing returns curve per channel</action>
+      <action>Identify channels with room for increased spend</action>
+      <action>Flag channels showing spend saturation</action>
+      <action>Estimate marginal CAC at different spend levels</action>
+    </step>
+
+    <step n="5" title="Budget Reallocation Model">
+      <action>Propose optimized budget allocation across channels</action>
+      <action>Project expected results from reallocation</action>
+      <action>Calculate expected improvement in blended CAC</action>
+      <action>Provide conservative and aggressive reallocation scenarios</action>
+    </step>
+
+    <step n="6" title="Present Recommendations">
+      <action>Output ROI analysis with channel performance matrix</action>
+      <action>Include current vs recommended allocation comparison</action>
+      <action>Provide projected impact of reallocation</action>
+      <action>List specific action items per channel</action>
+    </step>
+  </flow>
+
+  <halt-conditions>
+    <condition>HALT if no channel data provided</condition>
+    <condition>HALT if only one channel with data (comparison impossible)</condition>
+  </halt-conditions>
+</task>

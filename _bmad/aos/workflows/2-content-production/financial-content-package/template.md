@@ -1,0 +1,200 @@
+---
+template: financial-content-package
+version: 1.0
+output: financial-content-{project_name}-{date}.md
+---
+
+# Financial Content Package: {project_name}
+
+**Created:** {date}
+**Version:** 1.0
+**Owner:** {user_name}
+**Period Covered:** {period}
+**DISCLAIMER:** Financial projections are forward-looking statements and not guarantees. All financial content should be reviewed by qualified professionals.
+
+---
+
+## 1. Financial Context
+
+- **Company Stage:** {stage}
+- **Revenue Model:** {model}
+- **Financial Statements:** {audit_status}
+- **Fiscal Year End:** {fiscal_year}
+- **Reporting Currency:** {currency}
+
+### Communication Goals
+- **Purpose:** {purpose}
+- **Audience:** {audience}
+- **Financial Sophistication Level:** {level}
+- **Core Financial Story:** {story}
+
+---
+
+## 2. Financial Data Summary
+
+### Revenue Data
+| Period | Revenue | Growth Rate | Notes |
+|--------|---------|-------------|-------|
+| {period} | ${revenue} | {growth}% | {notes} |
+
+### Profitability Data
+| Metric | Current | Prior | Change |
+|--------|---------|-------|--------|
+| Gross Margin | {current}% | {prior}% | {change} |
+| Operating Expense | ${current} | ${prior} | {change} |
+| Net Income/Loss | ${current} | ${prior} | {change} |
+| Burn Rate | ${current}/mo | ${prior}/mo | {change} |
+
+### Balance Sheet Highlights
+| Item | Amount | Notes |
+|------|--------|-------|
+| Cash | ${amount} | {notes} |
+| Total Assets | ${amount} | {notes} |
+| Total Liabilities | ${amount} | {notes} |
+| Runway | {months} months | {notes} |
+
+### Key Performance Indicators
+| KPI | Value | Trend | Benchmark |
+|-----|-------|-------|-----------|
+| {kpi} | {value} | {trend} | {benchmark} |
+
+---
+
+## 3. Financial Narrative
+
+### Story Arc
+- **Where We Started:** {origin}
+- **Where We Are:** {current_position}
+- **Where We Are Going:** {trajectory}
+- **How We Get There:** {path}
+- **Why It Matters to Investors:** {thesis}
+
+### Headline Metrics
+1. **{Metric 1}:** {value} -- {narrative}
+2. **{Metric 2}:** {value} -- {narrative}
+3. **{Metric 3}:** {value} -- {narrative}
+
+### Narrative Themes
+- **Growth:** {theme}
+- **Efficiency:** {theme}
+- **Sustainability:** {theme}
+- **Opportunity:** {theme}
+- **Prudence:** {theme}
+
+---
+
+## 4. Key Metrics Dashboard
+
+### Executive Summary
+| Metric | Value | Trend | Status |
+|--------|-------|-------|--------|
+| {metric} | {value} | {direction} | {status} |
+
+### Financial Detail
+| Metric | Value | vs Prior | vs Target | Benchmark |
+|--------|-------|----------|-----------|-----------|
+| {metric} | {value} | {change} | {vs_target} | {benchmark} |
+
+### Metric Definitions
+#### {Metric Name}
+- **Definition:** {calculation}
+- **Why It Matters:** {importance}
+- **Data Source:** {source}
+- **Update Frequency:** {frequency}
+
+---
+
+## 5. Investor FAQ
+
+### About the Offering
+**Q: {question}**
+A: {answer}
+{compliance_note}
+
+### About the Financials
+**Q: {question}**
+A: {answer}
+{compliance_note}
+
+### About the Business
+**Q: {question}**
+A: {answer}
+{compliance_note}
+
+### About the Process
+**Q: {question}**
+A: {answer}
+{compliance_note}
+
+---
+
+## 6. Performance Summary
+
+### Period: {period}
+
+#### Executive Summary
+{Opening paragraph with period headline and overall assessment}
+
+#### Revenue Performance
+{Revenue narrative with data}
+
+#### Profitability Performance
+{Profitability narrative with data}
+
+#### Operational Highlights
+- {highlight_1}
+- {highlight_2}
+- {highlight_3}
+
+#### Challenges and Responses
+- {challenge_1}: {response}
+- {challenge_2}: {response}
+
+### Performance Comparison
+| Metric | {Current Period} | {Prior Period} | Change | Commentary |
+|--------|-----------------|---------------|--------|------------|
+| {metric} | {current} | {prior} | {change} | {commentary} |
+
+---
+
+## 7. Forward Guidance
+
+> **FORWARD-LOOKING STATEMENTS:** {safe_harbor_language}
+
+### Outlook Summary
+{Executive summary of forward guidance}
+
+### Revenue Guidance
+- **Expected Trajectory:** {guidance}
+- **Key Assumptions:** {assumptions}
+- **Risk Factors:** {risks}
+
+### Operational Milestones
+| Milestone | Expected Date | Status | Dependencies |
+|-----------|--------------|--------|-------------|
+| {milestone} | {date} | {status} | {dependencies} |
+
+### Financial Targets
+| Target | Metric | Timeline | Confidence | Assumptions |
+|--------|--------|----------|------------|-------------|
+| {target} | {metric} | {timeline} | {confidence} | {assumptions} |
+
+### Risk Context
+{Specific risks that could cause actual results to differ from guidance}
+
+---
+
+## 8. Distribution Guide
+
+| Channel | Content to Use | Update Frequency |
+|---------|---------------|-----------------|
+| Offering Circular | {sections} | {frequency} |
+| Investor Deck | {sections} | {frequency} |
+| Email Campaigns | {sections} | {frequency} |
+| Landing Pages | {sections} | {frequency} |
+| Investor Updates | {sections} | {frequency} |
+
+---
+
+*Generated by AOS Financial Content Package Workflow*
+*This document does not constitute financial advice. All financial content should be reviewed by qualified professionals.*

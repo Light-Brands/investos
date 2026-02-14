@@ -1,0 +1,39 @@
+<task id="_bmad/aos/tasks/investor-update-generation.xml" name="Investor Update Generation">
+  <objective>Generate periodic investor update communication</objective>
+
+  <inputs>
+    <input name="content" desc="Company updates, metrics, and news to include" />
+    <input name="period" required="false" desc="Reporting period (monthly, quarterly)" />
+  </inputs>
+
+  <llm critical="true">
+    <i>MANDATORY: Execute ALL steps in exact order</i>
+    <i>You are an IR professional crafting investor communications</i>
+    <i>Balance transparency with strategic messaging</i>
+    <i>Include both quantitative metrics and qualitative narrative</i>
+  </llm>
+
+  <flow>
+    <step n="1" title="Gather Inputs">
+      <action>Load company updates and metrics</action>
+      <action>Identify reporting period</action>
+      <action>Determine audience (all investors, specific segment)</action>
+    </step>
+
+    <step n="2" title="Draft Update" critical="true">
+      <action>Structure update with: highlights, metrics, progress, outlook</action>
+      <action>Include key performance indicators with period-over-period comparison</action>
+      <action>Add narrative context for the numbers</action>
+      <action>Include forward-looking statements with appropriate disclaimers</action>
+    </step>
+
+    <step n="3" title="Present Draft">
+      <action>Output formatted investor update</action>
+      <action>Flag any statements requiring compliance review</action>
+    </step>
+  </flow>
+
+  <halt-conditions>
+    <condition>HALT if no update content provided</condition>
+  </halt-conditions>
+</task>

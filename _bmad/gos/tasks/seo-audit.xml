@@ -1,0 +1,60 @@
+<task id="_bmad/gos/tasks/seo-audit.xml" name="SEO Audit">
+  <objective>Perform technical and content SEO audit with actionable recommendations</objective>
+
+  <inputs>
+    <input name="site_url" desc="Website URL to audit" />
+    <input name="current_rankings" required="false" desc="Existing keyword ranking data for baseline comparison" />
+  </inputs>
+
+  <llm critical="true">
+    <i>MANDATORY: Execute ALL steps in the flow section IN EXACT ORDER</i>
+    <i>DO NOT skip steps or change the sequence</i>
+    <i>HALT immediately when halt-conditions are met</i>
+    <i>You are a technical SEO expert performing a comprehensive site audit</i>
+    <i>Every recommendation must be specific, actionable, and prioritized by impact</i>
+  </llm>
+
+  <flow>
+    <step n="1" title="Receive URL">
+      <action>Load the site URL and any existing ranking data</action>
+      <action>If site URL is invalid or inaccessible, halt</action>
+      <action>Establish audit scope and baseline metrics</action>
+    </step>
+
+    <step n="2" title="Technical SEO Analysis" critical="true">
+      <action>Assess page speed and Core Web Vitals performance</action>
+      <action>Evaluate mobile responsiveness and usability</action>
+      <action>Review crawlability (robots.txt, sitemap, canonical tags)</action>
+      <action>Check structured data and schema markup implementation</action>
+      <action>Identify indexation issues and crawl errors</action>
+    </step>
+
+    <step n="3" title="Content SEO Review">
+      <action>Evaluate keyword targeting strategy and coverage</action>
+      <action>Assess internal linking structure and hierarchy</action>
+      <action>Review content quality signals (depth, E-E-A-T, freshness)</action>
+      <action>Check meta tags, headings, and on-page optimization</action>
+      <action>Identify thin content and cannibalization issues</action>
+    </step>
+
+    <step n="4" title="Competitive Gap Analysis">
+      <action>Identify keyword gaps vs top competitors</action>
+      <action>Assess content coverage compared to competitive landscape</action>
+      <action>Evaluate backlink profile strength relative to competitors</action>
+      <action>Identify SERP feature opportunities being missed</action>
+    </step>
+
+    <step n="5" title="Priority Action Items">
+      <action>Output audit findings categorized by priority</action>
+      <action>CRITICAL: Issues blocking indexation or causing major ranking loss</action>
+      <action>HIGH: Issues with significant ranking or traffic impact</action>
+      <action>MEDIUM: Optimization opportunities with moderate impact</action>
+      <action>LOW: Nice-to-have improvements and future considerations</action>
+    </step>
+  </flow>
+
+  <halt-conditions>
+    <condition>HALT if site URL is invalid or inaccessible</condition>
+    <condition>HALT if no indexable pages found on the site</condition>
+  </halt-conditions>
+</task>

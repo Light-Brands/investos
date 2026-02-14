@@ -1,0 +1,17 @@
+# <!-- Powered by BMAD-CORE™ -->
+bundle:
+  name: IOS Full Engagement Team
+  icon: "💼"
+  description: Complete InvestOS capital formation team with all 10 specialist agents.
+agents:
+  - securities-counsel
+  - financial-modeler
+  - investment-strategist
+  - market-intelligence
+  - narrative-director
+  - data-room-architect
+  - operations-strategist
+  - platform-architect
+  - engagement-lead
+  - quick-flow-delivery
+party: "./default-party.csv"

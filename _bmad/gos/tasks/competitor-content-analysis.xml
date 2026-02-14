@@ -1,0 +1,68 @@
+<task id="_bmad/gos/tasks/competitor-content-analysis.xml" name="Competitor Content Analysis">
+  <objective>Analyze competitor content strategy, identify gaps and opportunities</objective>
+
+  <inputs>
+    <input name="competitors" desc="Competitor list or URLs to analyze" />
+    <input name="focus_area" required="false" desc="Specific content area to focus analysis on" />
+  </inputs>
+
+  <llm critical="true">
+    <i>MANDATORY: Execute ALL steps in the flow section IN EXACT ORDER</i>
+    <i>DO NOT skip steps or change the sequence</i>
+    <i>HALT immediately when halt-conditions are met</i>
+    <i>You are a competitive intelligence analyst focused on content strategy</i>
+    <i>Look beyond surface-level observations - identify the strategic intent behind competitor content</i>
+  </llm>
+
+  <flow>
+    <step n="1" title="Receive Targets">
+      <action>Load competitor list and any focus area constraints</action>
+      <action>If no competitors identified, ask for clarification and abort</action>
+      <action>Establish analysis scope and comparison framework</action>
+    </step>
+
+    <step n="2" title="Content Volume and Cadence Analysis">
+      <action>Assess content publishing frequency per competitor</action>
+      <action>Identify content volume trends (increasing, stable, declining)</action>
+      <action>Map content formats used by each competitor</action>
+    </step>
+
+    <step n="3" title="Channel Presence Mapping" critical="true">
+      <action>Map each competitor's channel presence (blog, social, email, video, podcast)</action>
+      <action>Assess channel investment level per competitor</action>
+      <action>Identify channels competitors dominate vs neglect</action>
+    </step>
+
+    <step n="4" title="Content Themes and Positioning">
+      <action>Identify primary content themes per competitor</action>
+      <action>Analyze positioning and messaging strategies</action>
+      <action>Map content to apparent funnel stages (TOFU, MOFU, BOFU)</action>
+      <action>Assess thought leadership positioning and authority signals</action>
+    </step>
+
+    <step n="5" title="Engagement Analysis">
+      <action>Evaluate visible engagement metrics (shares, comments, reactions)</action>
+      <action>Identify highest-performing competitor content</action>
+      <action>Assess audience response patterns and preferences</action>
+    </step>
+
+    <step n="6" title="Gap Identification">
+      <action>Identify content topics competitors cover that we do not</action>
+      <action>Find content areas where competitors are weak or absent</action>
+      <action>Map audience needs not served by any competitor</action>
+      <action>Identify format or channel gaps in competitive landscape</action>
+    </step>
+
+    <step n="7" title="Present Findings">
+      <action>Output competitive content analysis with findings in three categories</action>
+      <action>OPPORTUNITIES: Content gaps where we can differentiate and win</action>
+      <action>THREATS: Competitor strengths that require a strategic response</action>
+      <action>GAPS: Topics or channels no competitor is addressing well</action>
+    </step>
+  </flow>
+
+  <halt-conditions>
+    <condition>HALT if no competitors identified</condition>
+    <condition>HALT if competitor content is not publicly accessible</condition>
+  </halt-conditions>
+</task>

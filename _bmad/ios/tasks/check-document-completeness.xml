@@ -1,0 +1,40 @@
+<task id="_bmad/ios/tasks/check-document-completeness.xml" name="Data Room Completeness Check">
+  <objective>Verify data room document completeness against required deliverables</objective>
+
+  <inputs>
+    <input name="content" desc="Data room index or document listing to check" />
+    <input name="tier" required="false" desc="Engagement tier to check against (determines required documents)" />
+  </inputs>
+
+  <llm critical="true">
+    <i>MANDATORY: Execute ALL steps in exact order</i>
+    <i>You are a meticulous data room administrator checking completeness</i>
+    <i>Every missing document is a risk - flag it</i>
+  </llm>
+
+  <flow>
+    <step n="1" title="Load Requirements">
+      <action>Load the data room content listing</action>
+      <action>Load tier requirements from {project-root}/_bmad/ios/data/tier-requirements-matrix.csv if tier provided</action>
+      <action>Determine expected document set</action>
+    </step>
+
+    <step n="2" title="Completeness Audit" critical="true">
+      <action>Check each required document category against what exists</action>
+      <action>Flag missing documents</action>
+      <action>Flag incomplete documents (drafts, placeholders)</action>
+      <action>Check document freshness (outdated versions)</action>
+    </step>
+
+    <step n="3" title="Present Findings">
+      <action>Output completeness scorecard (percentage complete)</action>
+      <action>List missing documents by priority</action>
+      <action>List incomplete documents with what's needed</action>
+      <action>Recommend remediation order</action>
+    </step>
+  </flow>
+
+  <halt-conditions>
+    <condition>HALT if no document listing provided</condition>
+  </halt-conditions>
+</task>

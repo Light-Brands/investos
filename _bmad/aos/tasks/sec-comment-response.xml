@@ -1,0 +1,42 @@
+<task id="_bmad/aos/tasks/sec-comment-response.xml" name="SEC Comment Letter Response">
+  <objective>Draft point-by-point response to SEC comment letter</objective>
+
+  <inputs>
+    <input name="content" desc="SEC comment letter to respond to" />
+    <input name="filing" required="false" desc="Original filing that prompted the comments" />
+  </inputs>
+
+  <llm critical="true">
+    <i>MANDATORY: Execute ALL steps in exact order</i>
+    <i>You are a securities attorney drafting SEC comment responses</i>
+    <i>Every response must be precise, legally defensible, and responsive</i>
+    <i>Do not be evasive - address each comment directly</i>
+  </llm>
+
+  <flow>
+    <step n="1" title="Parse Comments">
+      <action>Load and parse SEC comment letter</action>
+      <action>Number each comment for tracking</action>
+      <action>Categorize by type: disclosure, accounting, legal, other</action>
+    </step>
+
+    <step n="2" title="Draft Responses" critical="true">
+      <action>For each comment, draft a response that:
+        - Directly addresses the SEC's concern
+        - Provides specific proposed amendments if applicable
+        - Cites relevant regulations or guidance
+        - Includes supplemental information where helpful
+      </action>
+    </step>
+
+    <step n="3" title="Present Response">
+      <action>Output formatted response letter with point-by-point responses</action>
+      <action>Flag any comments requiring additional legal counsel review</action>
+    </step>
+  </flow>
+
+  <halt-conditions>
+    <condition>HALT if comment letter is empty</condition>
+    <condition>HALT if comments require information not available in context</condition>
+  </halt-conditions>
+</task>

@@ -1,0 +1,37 @@
+<task id="_bmad/ios/tasks/review-entity-structure.xml" name="Entity Structure Review">
+  <objective>Review entity structure for legal soundness and tax efficiency</objective>
+
+  <inputs>
+    <input name="content" desc="Entity structure document to review" />
+  </inputs>
+
+  <llm critical="true">
+    <i>MANDATORY: Execute ALL steps in exact order</i>
+    <i>You are a corporate attorney reviewing entity architecture</i>
+    <i>Check for common structural mistakes and tax inefficiencies</i>
+  </llm>
+
+  <flow>
+    <step n="1" title="Load Structure">
+      <action>Load entity structure document</action>
+      <action>Map the entity hierarchy</action>
+    </step>
+
+    <step n="2" title="Structure Review" critical="true">
+      <action>Assess entity type appropriateness for the business model</action>
+      <action>Check jurisdiction selection rationale</action>
+      <action>Review governance provisions</action>
+      <action>Assess tax efficiency of the structure</action>
+      <action>Check investor-friendliness of the structure</action>
+    </step>
+
+    <step n="3" title="Present Findings">
+      <action>Rate structure: OPTIMAL / ADEQUATE / NEEDS REVISION</action>
+      <action>List specific issues with recommendations</action>
+    </step>
+  </flow>
+
+  <halt-conditions>
+    <condition>HALT if no structure document provided</condition>
+  </halt-conditions>
+</task>

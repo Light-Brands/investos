@@ -1,0 +1,12 @@
+content-type,category,compliance-level,agent,review-required,channels,description
+"Offering Circular","legal-document","critical","aos-content","mandatory","portal,email","Full offering document with all required disclosures"
+"Investor Deck","presentation","high","aos-content","mandatory","roadshow,portal,email","Investor presentation with key metrics and narrative"
+"Email Campaign","outreach","high","aos-content","mandatory","email","Multi-touch investor email drip sequence"
+"Video Script","media","high","aos-content","mandatory","website,social,portal","Video content scripts for investor communications"
+"Landing Page","digital","high","aos-content","mandatory","website","Investor-facing landing pages with conversion optimization"
+"Social Content","social","medium","aos-content","required","linkedin,twitter,facebook","Social media posts for investor awareness"
+"Financial Package","financial","critical","aos-fincomm","mandatory","portal,email","Financial communications including metrics and guidance"
+"Investor Update","communications","high","aos-ir","required","email,portal","Periodic investor update communications"
+"Press Release","media","high","aos-content","mandatory","media,website","Public announcements and press releases"
+"FAQ Document","support","medium","aos-content","required","portal,website","Frequently asked questions for investors"
+"Crisis Statement","crisis","critical","aos-crisis","mandatory","all","Crisis response communications"

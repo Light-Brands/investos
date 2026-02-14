@@ -1,0 +1,10 @@
+stage_name,stage_number,typical_conversion_rate,typical_velocity_days,automation_level,key_actions,exit_criteria
+"Visitor","1","2-5%","0","high","website tracking, content engagement scoring","identifies self via form fill or demo request"
+"Lead","2","30-50%","1-3","high","lead capture, initial enrichment, auto-scoring","meets minimum data quality threshold"
+"MQL","3","40-60%","3-7","medium","nurture sequences, behavioral scoring, content delivery","reaches score threshold or triggers intent signal"
+"SQL","4","50-70%","5-14","low","sales outreach, discovery call, needs qualification","confirmed budget, authority, need, and timeline"
+"Opportunity","5","60-80%","7-21","low","solution presentation, stakeholder mapping, value demonstration","stakeholder buy-in and technical validation complete"
+"Proposal","6","50-70%","7-14","medium","proposal generation, pricing configuration, terms negotiation","proposal delivered and reviewed by decision maker"
+"Negotiation","7","60-80%","7-21","low","contract negotiation, legal review, procurement process","mutually agreed terms and contract ready for signature"
+"Closed Won","8","100%","0","high","contract execution, onboarding trigger, CRM update","signed contract and payment terms confirmed"
+"Closed Lost","9","0%","0","medium","loss reason capture, feedback loop, nurture re-entry","loss reason documented and post-mortem complete"

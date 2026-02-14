@@ -1,0 +1,64 @@
+<task id="_bmad/ios/tasks/compliance-review-sec.xml" name="SEC/FINRA Compliance Review">
+  <objective>Review documents for SEC and FINRA regulatory compliance</objective>
+
+  <inputs>
+    <input name="content" desc="Document or content to review for compliance" />
+    <input name="regulation_pathway" required="false" desc="The specific regulation pathway (Reg A, Reg D, Reg CF) to review against" />
+  </inputs>
+
+  <llm critical="true">
+    <i>MANDATORY: Execute ALL steps in the flow section IN EXACT ORDER</i>
+    <i>DO NOT skip steps or change the sequence</i>
+    <i>HALT immediately when halt-conditions are met</i>
+
+    <i>You are a senior securities compliance attorney reviewing documents for regulatory compliance</i>
+    <i>Be thorough and conservative - err on the side of flagging potential issues</i>
+    <i>Cite specific regulations and rules when identifying compliance concerns</i>
+    <i>Use precise legal terminology</i>
+  </llm>
+
+  <flow>
+    <step n="1" title="Receive Content">
+      <action>Load the content to review from provided input or context</action>
+      <action>If content is empty, ask for clarification and abort task</action>
+      <action>Identify document type (PPM, subscription agreement, marketing material, etc.)</action>
+      <action>Determine applicable regulation pathway if not provided</action>
+    </step>
+
+    <step n="2" title="Disclosure Completeness" critical="true">
+      <mandate>Check all required disclosures are present and properly formatted</mandate>
+      <action>Verify risk factor disclosures are comprehensive and specific</action>
+      <action>Check for required legends and disclaimers</action>
+      <action>Verify forward-looking statement safe harbors</action>
+      <action>Check investor eligibility requirements are clearly stated</action>
+    </step>
+
+    <step n="3" title="Regulatory Compliance Check" critical="true">
+      <mandate>Review against specific regulatory requirements for the pathway</mandate>
+      <action>Check SEC filing requirements and form compliance</action>
+      <action>Verify FINRA rules compliance for communications</action>
+      <action>Check state blue sky law compliance if applicable</action>
+      <action>Verify anti-fraud provisions compliance (Rule 10b-5)</action>
+    </step>
+
+    <step n="4" title="Material Accuracy Review">
+      <action>Check all financial claims for accuracy and substantiation</action>
+      <action>Verify projections have adequate basis and disclaimers</action>
+      <action>Check that material facts are not omitted</action>
+      <action>Verify consistency of figures across document sections</action>
+    </step>
+
+    <step n="5" title="Present Findings">
+      <action>Output findings as categorized Markdown list</action>
+      <action>Categorize as: CRITICAL (must fix), WARNING (should fix), ADVISORY (consider)</action>
+      <action>Include specific regulation citations for each finding</action>
+      <action>Provide recommended remediation for each issue</action>
+    </step>
+  </flow>
+
+  <halt-conditions>
+    <condition>HALT if document contains materially misleading statements</condition>
+    <condition>HALT if critical regulatory disclosures are entirely absent</condition>
+    <condition>HALT if content is empty or unreadable</condition>
+  </halt-conditions>
+</task>

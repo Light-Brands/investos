@@ -1,0 +1,63 @@
+<task id="_bmad/gos/tasks/brand-consistency-check.xml" name="Product Brand Consistency Check">
+  <objective>Review content across channels for product brand voice and visual consistency</objective>
+
+  <inputs>
+    <input name="content_samples" desc="Content samples from various channels to review for consistency" />
+    <input name="brand_guidelines" required="false" desc="Brand guide reference document for comparison" />
+  </inputs>
+
+  <llm critical="true">
+    <i>MANDATORY: Execute ALL steps in the flow section IN EXACT ORDER</i>
+    <i>DO NOT skip steps or change the sequence</i>
+    <i>HALT immediately when halt-conditions are met</i>
+    <i>You are a brand strategist performing a cross-channel consistency audit</i>
+    <i>Brand drift is subtle - examine tone, vocabulary, visual cues, and messaging hierarchy carefully</i>
+  </llm>
+
+  <flow>
+    <step n="1" title="Receive Samples">
+      <action>Load content samples and brand guidelines (if provided)</action>
+      <action>If no content samples provided, ask for clarification and abort</action>
+      <action>If no brand guidelines exist and none can be inferred from samples, halt</action>
+      <action>Establish brand baseline from guidelines or strongest sample</action>
+    </step>
+
+    <step n="2" title="Voice Analysis Per Channel" critical="true">
+      <action>Analyze tone and voice in each content sample</action>
+      <action>Compare voice attributes against brand guidelines</action>
+      <action>Identify vocabulary and terminology consistency</action>
+      <action>Flag channels where voice deviates from brand standard</action>
+    </step>
+
+    <step n="3" title="Visual Consistency Check">
+      <action>Review visual elements mentioned or embedded in content</action>
+      <action>Check color, typography, and imagery alignment with guidelines</action>
+      <action>Identify visual inconsistencies across channels</action>
+    </step>
+
+    <step n="4" title="Message Alignment">
+      <action>Evaluate core messaging consistency across samples</action>
+      <action>Check value proposition articulation for uniformity</action>
+      <action>Assess CTA consistency and alignment with brand positioning</action>
+      <action>Identify conflicting or contradictory messaging</action>
+    </step>
+
+    <step n="5" title="Competitive Differentiation">
+      <action>Assess whether brand differentiation is maintained across channels</action>
+      <action>Flag content that sounds generic or could belong to any competitor</action>
+      <action>Evaluate unique brand elements preservation</action>
+    </step>
+
+    <step n="6" title="Present Findings">
+      <action>Output consistency audit report with findings in three categories</action>
+      <action>CONSISTENT: Channels and content maintaining brand standards</action>
+      <action>DRIFT: Content showing gradual deviation from brand voice or visuals</action>
+      <action>VIOLATION: Content that clearly breaks brand guidelines</action>
+    </step>
+  </flow>
+
+  <halt-conditions>
+    <condition>HALT if no content samples provided</condition>
+    <condition>HALT if no brand guidelines exist and none can be inferred from the content</condition>
+  </halt-conditions>
+</task>

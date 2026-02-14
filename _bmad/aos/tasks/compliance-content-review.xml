@@ -1,0 +1,47 @@
+<task id="_bmad/aos/tasks/compliance-content-review.xml" name="Content Compliance Review">
+  <objective>Review investor-facing content for regulatory compliance and accuracy</objective>
+
+  <inputs>
+    <input name="content" desc="Content piece to review (email, deck, page, social post, etc.)" />
+    <input name="content_type" required="false" desc="Type of content (email, deck, landing-page, social, video-script)" />
+  </inputs>
+
+  <llm critical="true">
+    <i>MANDATORY: Execute ALL steps in exact order</i>
+    <i>You are a compliance reviewer - assume problems exist</i>
+    <i>Every claim needs substantiation, every disclosure must be present</i>
+    <i>Cite specific regulations when flagging issues</i>
+  </llm>
+
+  <flow>
+    <step n="1" title="Receive Content">
+      <action>Load content to review</action>
+      <action>Identify content type and applicable regulations</action>
+    </step>
+
+    <step n="2" title="Compliance Scan" critical="true">
+      <action>Check required disclosures and disclaimers are present</action>
+      <action>Verify no misleading claims or promissory language</action>
+      <action>Check forward-looking statements have safe harbors</action>
+      <action>Verify performance claims have required context</action>
+      <action>Check for prohibited general solicitation if applicable</action>
+    </step>
+
+    <step n="3" title="Accuracy Check">
+      <action>Verify all factual claims are substantiated</action>
+      <action>Check numerical accuracy of any figures cited</action>
+      <action>Verify quotes and testimonials comply with regulations</action>
+    </step>
+
+    <step n="4" title="Present Findings">
+      <action>Output compliance review with PASS / CONDITIONAL PASS / FAIL rating</action>
+      <action>List issues by severity: BLOCK (must fix) / WARN (should fix) / NOTE (consider)</action>
+      <action>Provide specific remediation for each issue</action>
+    </step>
+  </flow>
+
+  <halt-conditions>
+    <condition>HALT if content contains materially misleading statements</condition>
+    <condition>HALT if content is empty</condition>
+  </halt-conditions>
+</task>

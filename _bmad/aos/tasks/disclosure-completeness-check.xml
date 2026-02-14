@@ -1,0 +1,39 @@
+<task id="_bmad/aos/tasks/disclosure-completeness-check.xml" name="Disclosure Completeness Check">
+  <objective>Validate all required disclosures are present in investor-facing materials</objective>
+
+  <inputs>
+    <input name="content" desc="Materials to check for disclosure completeness" />
+    <input name="regulation_pathway" required="false" desc="Applicable regulation (Reg A, Reg D, Reg CF)" />
+  </inputs>
+
+  <llm critical="true">
+    <i>MANDATORY: Execute ALL steps in exact order</i>
+    <i>You are a disclosure specialist ensuring investor protection</i>
+    <i>Missing disclosures create legal liability</i>
+  </llm>
+
+  <flow>
+    <step n="1" title="Load Materials">
+      <action>Load materials to check</action>
+      <action>Determine required disclosure set based on regulation pathway</action>
+    </step>
+
+    <step n="2" title="Disclosure Audit" critical="true">
+      <action>Check for required risk factor disclosures</action>
+      <action>Verify investment limitation disclosures</action>
+      <action>Check for required legends and disclaimers</action>
+      <action>Verify conflict of interest disclosures</action>
+      <action>Check compensation and fee disclosures</action>
+    </step>
+
+    <step n="3" title="Present Findings">
+      <action>Output disclosure completeness scorecard</action>
+      <action>List missing disclosures by regulatory requirement</action>
+      <action>Provide template language for missing disclosures</action>
+    </step>
+  </flow>
+
+  <halt-conditions>
+    <condition>HALT if no materials provided</condition>
+  </halt-conditions>
+</task>

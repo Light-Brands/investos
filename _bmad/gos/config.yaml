@@ -1,0 +1,24 @@
+# GOS (GrowthOS) Module Configuration
+# Revenue Engine - Product Marketing, Sales, Growth
+# Version: 6.0.0-Beta.8
+
+project_name: investos
+user_skill_level: intermediate
+planning_artifacts: "{project-root}/_bmad-output/planning-artifacts"
+implementation_artifacts: "{project-root}/_bmad-output/implementation-artifacts"
+project_knowledge: "{project-root}/docs"
+user_name: Lawless
+communication_language: English
+document_output_language: English
+output_folder: _bmad-output
+
+# GOS-Specific Configuration
+growth_artifacts: "{project-root}/_bmad-output/growth-artifacts"
+content_calendar: "{project-root}/_bmad-output/growth-artifacts/content-calendar"
+campaign_artifacts: "{project-root}/_bmad-output/growth-artifacts/campaigns"
+pipeline_config: "{project-root}/_bmad-output/growth-artifacts/pipeline"
+analytics_reports: "{project-root}/_bmad-output/growth-artifacts/analytics"
+product_type: ""
+target_market: ""
+primary_channels: []
+monthly_budget: ""

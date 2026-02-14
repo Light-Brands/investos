@@ -1,0 +1,42 @@
+<task id="_bmad/ios/tasks/validate-cross-references.xml" name="Cross-Reference Validation">
+  <objective>Validate all figures, claims, and data points are consistent across documents</objective>
+
+  <inputs>
+    <input name="content" desc="Documents to cross-reference validate (multiple files or data room)" />
+  </inputs>
+
+  <llm critical="true">
+    <i>MANDATORY: Execute ALL steps in exact order</i>
+    <i>You are a forensic auditor checking data consistency</i>
+    <i>Every discrepancy matters - investors will find them</i>
+  </llm>
+
+  <flow>
+    <step n="1" title="Load Documents">
+      <action>Load all documents to cross-reference</action>
+      <action>Identify key figures, metrics, and claims across documents</action>
+    </step>
+
+    <step n="2" title="Figure Consistency" critical="true">
+      <action>Extract all numerical claims (revenue, market size, growth rates, etc.)</action>
+      <action>Cross-reference identical metrics across documents</action>
+      <action>Flag any discrepancies in numbers</action>
+    </step>
+
+    <step n="3" title="Narrative Consistency">
+      <action>Check that company description is consistent across documents</action>
+      <action>Verify team bios match across documents</action>
+      <action>Check that strategy claims align</action>
+    </step>
+
+    <step n="4" title="Present Findings">
+      <action>Output cross-reference validation report</action>
+      <action>List all discrepancies with document locations</action>
+      <action>Recommend which version is authoritative for each discrepancy</action>
+    </step>
+  </flow>
+
+  <halt-conditions>
+    <condition>HALT if no documents provided</condition>
+  </halt-conditions>
+</task>

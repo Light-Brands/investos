@@ -1,0 +1,17 @@
+# <!-- Powered by BMAD-CORE™ -->
+bundle:
+  name: AOS Full Campaign Team
+  icon: "📢"
+  description: Complete AmplifyOS investor communications team with all 10 specialist agents.
+agents:
+  - aos-compliance
+  - aos-ir
+  - aos-fincomm
+  - aos-content
+  - aos-crisis
+  - aos-intel
+  - aos-orchestrator
+  - aos-reviewer
+  - aos-brand
+  - aos-quickflow
+party: "./default-party.csv"

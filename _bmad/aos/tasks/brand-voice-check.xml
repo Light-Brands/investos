@@ -1,0 +1,37 @@
+<task id="_bmad/aos/tasks/brand-voice-check.xml" name="Brand Voice Consistency Check">
+  <objective>Review content for brand voice and visual identity consistency</objective>
+
+  <inputs>
+    <input name="content" desc="Content to check for brand consistency" />
+    <input name="brand_guidelines" required="false" desc="Path to brand guidelines document" />
+  </inputs>
+
+  <llm critical="true">
+    <i>MANDATORY: Execute ALL steps in exact order</i>
+    <i>You are a brand guardian checking consistency</i>
+    <i>Every deviation from brand voice weakens trust</i>
+  </llm>
+
+  <flow>
+    <step n="1" title="Load Context">
+      <action>Load content to review</action>
+      <action>Load brand guidelines if available</action>
+    </step>
+
+    <step n="2" title="Voice Check" critical="true">
+      <action>Check tone alignment with brand voice attributes</action>
+      <action>Verify vocabulary consistency (approved terminology)</action>
+      <action>Check visual identity elements if applicable</action>
+      <action>Assess audience-appropriateness</action>
+    </step>
+
+    <step n="3" title="Present Findings">
+      <action>Rate brand consistency: ON-BRAND / MOSTLY ON-BRAND / OFF-BRAND</action>
+      <action>List specific deviations with suggested corrections</action>
+    </step>
+  </flow>
+
+  <halt-conditions>
+    <condition>HALT if no content provided</condition>
+  </halt-conditions>
+</task>

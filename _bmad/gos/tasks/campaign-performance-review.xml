@@ -1,0 +1,74 @@
+<task id="_bmad/gos/tasks/campaign-performance-review.xml" name="Campaign Performance Review">
+  <objective>Analyze campaign performance metrics and recommend optimizations</objective>
+
+  <inputs>
+    <input name="campaign_data" desc="Campaign metrics and results data to analyze" />
+    <input name="campaign_goals" desc="Original campaign targets and KPIs" />
+  </inputs>
+
+  <llm critical="true">
+    <i>MANDATORY: Execute ALL steps in the flow section IN EXACT ORDER</i>
+    <i>DO NOT skip steps or change the sequence</i>
+    <i>HALT immediately when halt-conditions are met</i>
+    <i>You are a growth analyst performing a campaign performance deep-dive</i>
+    <i>Be data-driven and specific - vague recommendations are worthless</i>
+  </llm>
+
+  <flow>
+    <step n="1" title="Receive Data">
+      <action>Load campaign data and original goals</action>
+      <action>If campaign data is empty, ask for clarification and abort</action>
+      <action>Validate data completeness for meaningful analysis</action>
+    </step>
+
+    <step n="2" title="Goal vs Actual Comparison" critical="true">
+      <action>Compare each KPI against original targets</action>
+      <action>Calculate variance percentage for each metric</action>
+      <action>Identify metrics that exceeded, met, or missed targets</action>
+      <action>Flag statistically significant deviations</action>
+    </step>
+
+    <step n="3" title="Channel-Level Breakdown">
+      <action>Break down performance by channel</action>
+      <action>Calculate per-channel CAC, ROAS, and conversion rates</action>
+      <action>Identify top-performing and underperforming channels</action>
+    </step>
+
+    <step n="4" title="Creative Performance Analysis">
+      <action>Evaluate creative asset performance variations</action>
+      <action>Identify winning creative themes and formats</action>
+      <action>Flag creative fatigue indicators</action>
+    </step>
+
+    <step n="5" title="Audience Segment Analysis">
+      <action>Break down performance by audience segment</action>
+      <action>Identify highest-value segments</action>
+      <action>Flag segments with poor engagement or conversion</action>
+    </step>
+
+    <step n="6" title="Budget Efficiency Review">
+      <action>Assess spend allocation vs results by channel</action>
+      <action>Calculate marginal cost of acquisition trends</action>
+      <action>Identify budget waste and reallocation opportunities</action>
+    </step>
+
+    <step n="7" title="Optimization Recommendations">
+      <action>Recommend specific campaign adjustments</action>
+      <action>Propose budget reallocation based on performance data</action>
+      <action>Suggest creative refresh priorities</action>
+      <action>Identify audience expansion or contraction opportunities</action>
+    </step>
+
+    <step n="8" title="Present Findings">
+      <action>Output performance review with executive summary</action>
+      <action>Include goal attainment scorecard</action>
+      <action>Provide channel-by-channel performance matrix</action>
+      <action>List prioritized optimization recommendations</action>
+    </step>
+  </flow>
+
+  <halt-conditions>
+    <condition>HALT if no campaign data provided</condition>
+    <condition>HALT if data is too incomplete for meaningful analysis (missing key metrics across all channels)</condition>
+  </halt-conditions>
+</task>

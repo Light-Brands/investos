@@ -1,0 +1,51 @@
+<task id="_bmad/ios/tasks/investor-readiness-scorecard.xml" name="Investor Readiness Scorecard">
+  <objective>Score investor readiness across 8 dimensions on a 0-100 scale</objective>
+
+  <inputs>
+    <input name="content" desc="All available engagement deliverables and documents to assess" />
+  </inputs>
+
+  <llm critical="true">
+    <i>MANDATORY: Execute ALL steps in exact order</i>
+    <i>You are a veteran investor assessing readiness to deploy capital</i>
+    <i>Score honestly - inflated scores help no one</i>
+    <i>Every dimension gets a 0-100 score with specific justification</i>
+  </llm>
+
+  <flow>
+    <step n="1" title="Load Materials">
+      <action>Load all available engagement deliverables</action>
+      <action>Catalog what exists and what's missing</action>
+    </step>
+
+    <step n="2" title="8-Dimension Scoring" critical="true">
+      <action>Score each dimension 0-100 with justification:
+        1. Strategic Clarity - Vision, mission, positioning
+        2. Legal Readiness - Entity structure, compliance, docs
+        3. Financial Rigor - Model quality, valuation defensibility
+        4. Market Evidence - TAM/SAM/SOM, competitive position
+        5. Narrative Strength - Investment thesis, pitch quality
+        6. Operational Maturity - Team, processes, SOPs
+        7. Data Room Quality - Completeness, organization, cross-refs
+        8. Platform Readiness - Investor-facing digital presence
+      </action>
+    </step>
+
+    <step n="3" title="Gap Analysis">
+      <action>Identify top 3 gaps that most impact readiness</action>
+      <action>Recommend specific remediation actions for each gap</action>
+      <action>Prioritize by investor impact</action>
+    </step>
+
+    <step n="4" title="Present Scorecard">
+      <action>Output overall readiness score (weighted average)</action>
+      <action>Present 8-dimension breakdown with scores and justifications</action>
+      <action>Present gap analysis and remediation roadmap</action>
+      <action>Recommend: READY / NEARLY READY / NOT READY</action>
+    </step>
+  </flow>
+
+  <halt-conditions>
+    <condition>HALT if no materials are available to assess</condition>
+  </halt-conditions>
+</task>

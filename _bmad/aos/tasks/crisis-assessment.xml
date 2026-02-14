@@ -1,0 +1,42 @@
+<task id="_bmad/aos/tasks/crisis-assessment.xml" name="Crisis Severity Assessment">
+  <objective>Assess crisis severity and recommend response level</objective>
+
+  <inputs>
+    <input name="content" desc="Description of the crisis situation" />
+  </inputs>
+
+  <llm critical="true">
+    <i>MANDATORY: Execute ALL steps in exact order</i>
+    <i>You are a crisis management expert assessing severity</i>
+    <i>Speed matters - assess quickly but thoroughly</i>
+    <i>Err on the side of higher severity rating</i>
+  </llm>
+
+  <flow>
+    <step n="1" title="Situation Intake">
+      <action>Load crisis description</action>
+      <action>Identify key facts and timeline</action>
+    </step>
+
+    <step n="2" title="Severity Scoring" critical="true">
+      <action>Score across 5 dimensions (1-10 each):
+        1. Investor Impact - Direct effect on investors
+        2. Regulatory Exposure - SEC/FINRA/legal risk
+        3. Reputational Damage - Brand and trust impact
+        4. Financial Impact - Direct monetary consequences
+        5. Contagion Risk - Likelihood of escalation
+      </action>
+      <action>Calculate overall severity: LOW (5-15) / MEDIUM (16-30) / HIGH (31-40) / CRITICAL (41-50)</action>
+    </step>
+
+    <step n="3" title="Response Recommendation">
+      <action>Recommend response level and immediate actions</action>
+      <action>Identify key stakeholders to notify</action>
+      <action>Suggest communication timeline</action>
+    </step>
+  </flow>
+
+  <halt-conditions>
+    <condition>HALT if situation description is unclear - ask for clarification</condition>
+  </halt-conditions>
+</task>

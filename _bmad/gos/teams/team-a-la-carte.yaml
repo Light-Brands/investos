@@ -1,0 +1,9 @@
+# <!-- Powered by BMAD-CORE™ -->
+bundle:
+  name: A La Carte Growth
+  icon: "⚡"
+  description: Lightweight team for quick growth deliverables.
+agents:
+  - growth-strategist
+  - gos-quick-flow
+party: "./default-party.csv"

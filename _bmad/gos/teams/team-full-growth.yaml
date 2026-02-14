@@ -1,0 +1,19 @@
+# <!-- Powered by BMAD-CORE™ -->
+bundle:
+  name: Full Growth Team
+  icon: "🚀"
+  description: Complete GrowthOS team for full-funnel revenue operations.
+agents:
+  - growth-strategist
+  - content-architect
+  - seo-strategist
+  - social-commander
+  - paid-acquisition
+  - email-architect
+  - creative-director
+  - pipeline-architect
+  - sales-strategist
+  - growth-analyst
+  - outreach-director
+  - gos-quick-flow
+party: "./default-party.csv"

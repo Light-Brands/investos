@@ -1,0 +1,37 @@
+<task id="_bmad/ios/tasks/review-valuation-methodology.xml" name="Valuation Methodology Review">
+  <objective>Review valuation methodology for soundness and defensibility</objective>
+
+  <inputs>
+    <input name="content" desc="Valuation report or methodology to review" />
+  </inputs>
+
+  <llm critical="true">
+    <i>MANDATORY: Execute ALL steps in exact order</i>
+    <i>You are a skeptical investor evaluating valuation claims</i>
+    <i>Challenge every assumption and methodology choice</i>
+  </llm>
+
+  <flow>
+    <step n="1" title="Load Valuation">
+      <action>Load valuation content</action>
+      <action>Identify methodologies used</action>
+    </step>
+
+    <step n="2" title="Methodology Review" critical="true">
+      <action>Assess appropriateness of each methodology for company stage</action>
+      <action>Check comparable company selection criteria</action>
+      <action>Validate DCF assumptions (discount rate, terminal value, growth rates)</action>
+      <action>Check precedent transaction relevance</action>
+    </step>
+
+    <step n="3" title="Present Findings">
+      <action>Rate methodology soundness: STRONG / ADEQUATE / WEAK</action>
+      <action>List specific concerns with recommendations</action>
+      <action>Suggest additional analyses if needed</action>
+    </step>
+  </flow>
+
+  <halt-conditions>
+    <condition>HALT if no valuation content provided</condition>
+  </halt-conditions>
+</task>

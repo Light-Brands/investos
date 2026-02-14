@@ -1,0 +1,47 @@
+<task id="_bmad/aos/tasks/offering-type-detection.xml" name="Offering Type Detection">
+  <objective>Detect offering regulation type and configure appropriate parameters</objective>
+
+  <inputs>
+    <input name="content" desc="Offering materials or description to analyze" />
+  </inputs>
+
+  <llm critical="true">
+    <i>MANDATORY: Execute ALL steps in exact order</i>
+    <i>You are a securities expert identifying offering types</i>
+    <i>Correct classification drives all downstream compliance</i>
+  </llm>
+
+  <flow>
+    <step n="1" title="Analyze Offering">
+      <action>Load offering materials or description</action>
+      <action>Extract key parameters: raise amount, investor types, solicitation method</action>
+    </step>
+
+    <step n="2" title="Classify Offering" critical="true">
+      <action>Determine primary regulation pathway:
+        - Regulation D (506b or 506c)
+        - Regulation A+ (Tier 1 or Tier 2)
+        - Regulation CF
+        - S-1 Registration
+        - Other
+      </action>
+      <action>Identify applicable state requirements</action>
+      <action>Determine filing and reporting obligations</action>
+    </step>
+
+    <step n="3" title="Configure Parameters">
+      <action>Output offering classification with:
+        - Regulation pathway and specific exemption
+        - Maximum raise amount
+        - Investor eligibility requirements
+        - Solicitation rules
+        - Filing requirements
+        - Ongoing reporting obligations
+      </action>
+    </step>
+  </flow>
+
+  <halt-conditions>
+    <condition>HALT if insufficient information to classify</condition>
+  </halt-conditions>
+</task>

@@ -1,0 +1,37 @@
+<task id="_bmad/aos/tasks/content-performance-analysis.xml" name="Content Performance Analysis">
+  <objective>Analyze campaign content performance metrics and recommend optimizations</objective>
+
+  <inputs>
+    <input name="content" desc="Campaign performance data and metrics" />
+  </inputs>
+
+  <llm critical="true">
+    <i>MANDATORY: Execute ALL steps in exact order</i>
+    <i>You are a marketing analytics expert analyzing campaign performance</i>
+    <i>Focus on actionable insights, not vanity metrics</i>
+  </llm>
+
+  <flow>
+    <step n="1" title="Load Data">
+      <action>Load campaign performance data</action>
+      <action>Identify channels and content types</action>
+    </step>
+
+    <step n="2" title="Performance Analysis" critical="true">
+      <action>Analyze by channel: email open/click rates, page views, engagement</action>
+      <action>Identify top and bottom performing content</action>
+      <action>Compare against industry benchmarks</action>
+      <action>Identify trends and patterns</action>
+    </step>
+
+    <step n="3" title="Present Findings">
+      <action>Output performance report with key metrics</action>
+      <action>Provide specific optimization recommendations</action>
+      <action>Suggest A/B tests for underperforming content</action>
+    </step>
+  </flow>
+
+  <halt-conditions>
+    <condition>HALT if no performance data provided</condition>
+  </halt-conditions>
+</task>

@@ -1,0 +1,74 @@
+<task id="_bmad/gos/tasks/pipeline-health-check.xml" name="Pipeline Health Check">
+  <objective>Review pipeline stages, conversion rates, velocity, and identify bottlenecks</objective>
+
+  <inputs>
+    <input name="pipeline_data" desc="Pipeline stage counts, conversion rates, and deal data" />
+    <input name="time_period" required="false" desc="Analysis time window for trend assessment" />
+  </inputs>
+
+  <llm critical="true">
+    <i>MANDATORY: Execute ALL steps in the flow section IN EXACT ORDER</i>
+    <i>DO NOT skip steps or change the sequence</i>
+    <i>HALT immediately when halt-conditions are met</i>
+    <i>You are a sales operations expert auditing pipeline health</i>
+    <i>Focus on conversion bottlenecks and velocity - these drive revenue predictability</i>
+  </llm>
+
+  <flow>
+    <step n="1" title="Receive Data">
+      <action>Load pipeline data and time period context</action>
+      <action>If pipeline data is empty, ask for clarification and abort</action>
+      <action>Establish baseline metrics and analysis scope</action>
+    </step>
+
+    <step n="2" title="Stage-by-Stage Conversion Analysis" critical="true">
+      <action>Calculate conversion rate between each pipeline stage</action>
+      <action>Compare conversion rates against industry benchmarks</action>
+      <action>Identify stages with abnormal drop-off rates</action>
+      <action>Assess stage distribution for pipeline shape health</action>
+    </step>
+
+    <step n="3" title="Velocity Measurement">
+      <action>Calculate average time in each pipeline stage</action>
+      <action>Measure overall pipeline velocity (lead to close)</action>
+      <action>Identify stages where deals stall or age excessively</action>
+      <action>Compare velocity against target sales cycle length</action>
+    </step>
+
+    <step n="4" title="Bottleneck Identification">
+      <action>Pinpoint specific stages causing pipeline friction</action>
+      <action>Analyze root causes of bottlenecks (process, content, qualification)</action>
+      <action>Quantify revenue impact of each bottleneck</action>
+    </step>
+
+    <step n="5" title="Lead Quality Assessment">
+      <action>Evaluate lead quality distribution across pipeline</action>
+      <action>Assess qualification criteria effectiveness</action>
+      <action>Identify lead source quality variations</action>
+    </step>
+
+    <step n="6" title="Forecast Accuracy Check">
+      <action>Evaluate pipeline coverage ratio vs revenue targets</action>
+      <action>Assess weighted pipeline accuracy</action>
+      <action>Identify forecast risk factors</action>
+    </step>
+
+    <step n="7" title="Recommendations">
+      <action>Propose specific fixes for identified bottlenecks</action>
+      <action>Recommend process improvements by stage</action>
+      <action>Suggest qualification criteria adjustments if needed</action>
+    </step>
+
+    <step n="8" title="Present Findings">
+      <action>Output pipeline health report with findings categorized</action>
+      <action>CRITICAL: Bottlenecks causing significant revenue leakage</action>
+      <action>WARNING: Metrics trending in wrong direction</action>
+      <action>HEALTHY: Stages performing at or above benchmark</action>
+    </step>
+  </flow>
+
+  <halt-conditions>
+    <condition>HALT if no pipeline data provided</condition>
+    <condition>HALT if pipeline has zero active deals</condition>
+  </halt-conditions>
+</task>
