@@ -1,0 +1,141 @@
+<task id="_bmad/qi/tasks/extract-lessons.xml"
+  name="Extract Lessons"
+  description="Reflect on an episode and extract structured wisdom lessons to intuition memory">
+
+  <objective>Analyze a completed episode across multiple dimensions — positive, growth, moral, and meta — to extract structured wisdom lessons that guide future decisions, and reinforce or weaken previously consulted lessons based on outcomes</objective>
+
+  <inputs>
+    <input name="episode_id" required="true" desc="Reference to the episode to reflect upon (must exist in _memory/intuition/episodes/)" />
+  </inputs>
+
+  <llm critical="true">
+    <i>MANDATORY: Execute ALL steps in the flow section IN EXACT ORDER</i>
+    <i>DO NOT skip steps or change the sequence</i>
+    <i>HALT immediately when halt-conditions are met</i>
+    <i>Each action within a step is a REQUIRED action to complete that step</i>
+
+    <i>You are the Wisdom Extractor — the process by which raw experience becomes lasting insight.</i>
+    <i>Extract lessons with specificity and honesty. Vague platitudes are not wisdom.</i>
+
+    <principles>
+      <i>Lessons must be specific enough to be actionable and general enough to transfer beyond the source episode</i>
+      <i>Quality over quantity: one excellent lesson is worth more than five mediocre ones</i>
+      <i>Apply the 6 quality criteria from lesson-schema.yaml: specificity, generality, testability, non-obvious, consistency, alignment</i>
+      <i>Minimum quality score of 0.6 to keep a lesson — discard those that don't meet the bar</i>
+      <i>Failure lessons are often more valuable than success lessons — extract them with care</i>
+      <i>Reinforcement is asymmetric by design: success adds +0.05, failure subtracts -0.10 (lessons should be cautious)</i>
+    </principles>
+  </llm>
+
+  <flow>
+    <step n="1" title="Load Episode and Schemas">
+      <action>Load the episode from {project-root}/_bmad/_memory/intuition/episodes/{episode_id}.yaml</action>
+      <action>Load lesson schema from {project-root}/_bmad/_memory/intuition/schemas/lesson-schema.yaml</action>
+      <action>Load reinforcement parameters from config: success_delta (+0.05), failure_delta (-0.10)</action>
+      <action>Extract the episode's module, domain, outcomes, moral_context, and feedback</action>
+    </step>
+
+    <step n="2" title="Extract Positive Lessons">
+      <action>Reflect: What worked well in this episode and why?</action>
+      <action>Look at actions that led to successful outcomes (success_degree > 0.7)</action>
+      <action>Identify patterns, approaches, or decisions worth repeating</action>
+      <action>For each positive insight, draft a lesson with:</action>
+      <action>- trigger_pattern: When does this lesson apply?</action>
+      <action>- lesson_core: The actionable wisdom</action>
+      <action>- action_bias: type=strengthen, target=the successful approach</action>
+      <action>- domain: from the episode's module</action>
+      <action>- tags: relevant searchable keywords</action>
+      <action>Storage location: {project-root}/_bmad/_memory/intuition/lessons/{module}/</action>
+    </step>
+
+    <step n="3" title="Extract Growth Lessons">
+      <action>Reflect: What failed, struggled, or could improve and why?</action>
+      <action>Look at unexpected outcomes, poor decisions, or missed alternatives</action>
+      <action>Identify what should be done differently next time</action>
+      <action>For each growth insight, draft a lesson with:</action>
+      <action>- trigger_pattern: Situation where this pitfall occurs</action>
+      <action>- lesson_core: What went wrong and the better approach</action>
+      <action>- action_bias: type=avoid or type=weaken, target=the problematic approach</action>
+      <action>- domain: from the episode's module</action>
+      <action>Storage location: {project-root}/_bmad/_memory/intuition/lessons/{module}/</action>
+    </step>
+
+    <step n="4" title="Extract Moral Lessons (if morally significant)">
+      <action>Check if episode has moral_context with moral_significance > 0.3</action>
+      <action>If not morally significant, skip to step 5</action>
+      <action>Reflect: What moral insight emerged from this episode?</action>
+      <action>Consider: Which Divine Values were at stake? Were they honored?</action>
+      <action>Consider: Were any boundaries approached? What kept them safe (or didn't)?</action>
+      <action>For each moral insight, draft a lesson with:</action>
+      <action>- trigger_pattern: Moral situation pattern</action>
+      <action>- lesson_core: The moral wisdom</action>
+      <action>- action_bias: type=require or type=forbid for moral boundaries</action>
+      <action>- moral_dimensions: value_mapping, ethics_mapping, boundary_relevance</action>
+      <action>Storage location: {project-root}/_bmad/_memory/intuition/moral-lessons/</action>
+    </step>
+
+    <step n="5" title="Extract Meta-Lessons">
+      <action>Reflect: What did we learn about learning itself?</action>
+      <action>Consider: Was the process effective? Were the right questions asked? Were lessons consulted and useful?</action>
+      <action>Consider: What would improve the QI process itself?</action>
+      <action>For each meta-insight, draft a lesson with:</action>
+      <action>- trigger_pattern: Meta-learning situation</action>
+      <action>- lesson_core: Insight about the learning process</action>
+      <action>- action_bias: type=prefer or type=strengthen for process improvements</action>
+      <action>- domain: meta-learning</action>
+      <action>Storage location: {project-root}/_bmad/_memory/intuition/meta-lessons/</action>
+    </step>
+
+    <step n="6" title="Quality Gate">
+      <action>For each drafted lesson, evaluate against the 6 quality criteria:</action>
+      <action>- Specificity (0.20): Is it clear and actionable?</action>
+      <action>- Generality (0.20): Does it apply beyond this one episode?</action>
+      <action>- Testability (0.15): Can we verify if it works?</action>
+      <action>- Non-Obvious (0.15): Does it add wisdom beyond common sense?</action>
+      <action>- Consistency (0.15): Does it conflict with strong existing lessons?</action>
+      <action>- Alignment (0.15): Is it compatible with Divine Values and Ethics?</action>
+      <action>Calculate weighted quality score for each lesson</action>
+      <action>DISCARD any lesson with quality score below 0.6</action>
+    </step>
+
+    <step n="7" title="Finalize and Write Lessons">
+      <action>For each lesson that passed quality gate:</action>
+      <action>- Scan the target directory for existing lessons to determine next sequence number</action>
+      <action>- Generate lesson ID: ls-{domain}-{sequence}</action>
+      <action>- Set initial strength to 0.5</action>
+      <action>- Set confidence based on outcome clarity (higher success_degree or clear failure = higher confidence)</action>
+      <action>- Set created_at and updated_at to current ISO8601 timestamp</action>
+      <action>- Set source_episodes to [episode_id]</action>
+      <action>- Generate keywords from trigger_pattern and lesson_core</action>
+      <action>- Write lesson YAML to the appropriate directory</action>
+    </step>
+
+    <step n="8" title="Reinforce Consulted Lessons">
+      <action>Check episode's feedback.lessons_consulted for any lesson IDs</action>
+      <action>If no lessons were consulted, skip this step</action>
+      <action>For each consulted lesson:</action>
+      <action>- Load the lesson file</action>
+      <action>- If episode outcome success_degree >= 0.7: increase strength by +0.05 (success reinforcement)</action>
+      <action>- If episode outcome success_degree &lt; 0.4: decrease strength by -0.10 (failure weakening)</action>
+      <action>- Otherwise: no change (ambiguous outcome)</action>
+      <action>- Add reinforcement_history entry: date, delta, reason, episode_id</action>
+      <action>- Increment application_count</action>
+      <action>- Update the lesson file</action>
+      <action>- Ensure strength stays within 0.0-1.0 range</action>
+    </step>
+
+    <step n="9" title="Output Results">
+      <action>Output list of extracted lesson IDs with brief summaries</action>
+      <action>Output count by category: positive, growth, moral, meta</action>
+      <action>Output count discarded by quality gate</action>
+      <action>Output any reinforcement changes made to consulted lessons</action>
+    </step>
+  </flow>
+
+  <halt-conditions>
+    <condition>HALT with error if episode_id does not resolve to an existing episode file</condition>
+    <condition>HALT with error if lesson schema cannot be loaded</condition>
+    <condition>If no lessons pass quality gate, output "No lessons met quality threshold for this episode" — this is valid completion, not an error</condition>
+  </halt-conditions>
+
+</task>

@@ -145,3 +145,6 @@ name,description,module,path
 "alignment-certification","Formal certification of spiritual alignment","sos","_bmad/sos/workflows/blessing/alignment-certification/workflow.md"
 "sos-quick-check","Quick alignment check against Living Light principles","sos","_bmad/sos/workflows/sos-quick-flow/sos-quick-check/workflow.md"
 "sos-quick-counsel","Quick spiritual counsel on any question or concern","sos","_bmad/sos/workflows/sos-quick-flow/sos-quick-counsel/workflow.md"
+"moral-gateway","Route requests through moral pre-check with boundary scanning and intuition retrieval","qi","_bmad/qi/workflows/moral-gateway/workflow.md"
+"post-execution-capture","Capture intelligence from workflow execution: episode creation, AIQ/MIQ scoring, TIS calculation, lesson extraction","qi","_bmad/qi/workflows/post-execution-capture/workflow.yaml"
+"qi-reflection","Quick lightweight intelligence reflection without full episode capture","qi","_bmad/qi/workflows/qi-quick-flow/qi-reflection/workflow.md"

@@ -1,0 +1,100 @@
+<task id="_bmad/qi/tasks/create-episode.xml"
+  name="Create Episode"
+  description="Create a structured episode record from a workflow execution per episode-schema.yaml">
+
+  <objective>Generate a complete episode record capturing context, actions, outcomes, and moral dimensions from a workflow execution, and write it to the intuition memory</objective>
+
+  <inputs>
+    <input name="workflow_id" required="true" desc="The workflow that was executed" />
+    <input name="agent_id" required="true" desc="The agent that performed the execution" />
+    <input name="context_summary" required="true" desc="Description of the situation, goals, and constraints" />
+    <input name="actions_summary" required="true" desc="Summary of actions taken, key decisions, reasoning, and alternatives considered" />
+    <input name="outcomes" required="true" desc="Result summary, success degree (0.0-1.0), unexpected effects, artifacts produced" />
+    <input name="moral_context" required="false" desc="Moral significance, values at stake, ethics applicable, boundaries approached, stakeholders affected" />
+    <input name="user_feedback" required="false" desc="User satisfaction (positive/negative/mixed/unknown) and comments" />
+  </inputs>
+
+  <llm critical="true">
+    <i>MANDATORY: Execute ALL steps in the flow section IN EXACT ORDER</i>
+    <i>DO NOT skip steps or change the sequence</i>
+    <i>HALT immediately when halt-conditions are met</i>
+    <i>Each action within a step is a REQUIRED action to complete that step</i>
+
+    <i>You are recording an experience for the Intuition Engine. Accuracy and completeness matter — this episode becomes the raw material for wisdom extraction.</i>
+    <i>Preserve the nuance of what happened. Do not sanitize failures or inflate successes.</i>
+
+    <principles>
+      <i>Record faithfully: capture what actually happened, not what should have happened</i>
+      <i>Include uncertainty: if outcomes are ambiguous, say so</i>
+      <i>Moral dimensions are optional but important: include them when present, never fabricate them</i>
+      <i>Self-reflection is required: every episode must include the agent's honest assessment</i>
+      <i>Learning priority should reflect both outcome significance and novelty</i>
+    </principles>
+  </llm>
+
+  <flow>
+    <step n="1" title="Load Episode Schema">
+      <action>Load episode schema from {project-root}/_bmad/_memory/intuition/schemas/episode-schema.yaml</action>
+      <action>Verify all required fields are understood: id, timestamp, session_id, agent_id, module, context, actions, outcomes, feedback</action>
+    </step>
+
+    <step n="2" title="Generate Episode ID">
+      <action>Extract module from workflow_id (e.g., "bmm" from a BMM workflow)</action>
+      <action>Extract agent short name from agent_id</action>
+      <action>Get current date in YYYY-MM-DD format</action>
+      <action>Scan {project-root}/_bmad/_memory/intuition/episodes/ for existing episodes with today's date and this module/agent combination</action>
+      <action>Determine next sequence number (001, 002, etc.)</action>
+      <action>Generate episode ID: ep-{module}-{agent}-{YYYY-MM-DD}-{sequence}</action>
+    </step>
+
+    <step n="3" title="Populate Required Fields">
+      <action>Set id to generated episode ID</action>
+      <action>Set timestamp to current ISO8601 datetime</action>
+      <action>Set session_id to current conversation/session identifier</action>
+      <action>Set agent_id from input</action>
+      <action>Set module from extracted module</action>
+      <action>Populate context object from context_summary: situation, constraints, goals, domain, workflow_id</action>
+      <action>Populate actions object from actions_summary: summary, key_decisions, reasoning, alternatives_considered, tools_used</action>
+      <action>Populate outcomes object from outcomes input: result_summary, success_degree, unexpected_effects, artifacts_produced</action>
+    </step>
+
+    <step n="4" title="Populate Moral Context (if provided)">
+      <action>If moral_context input is provided, populate the moral_context section</action>
+      <action>Set moral_significance score (0.0-1.0)</action>
+      <action>List values_at_stake (Divine Value names)</action>
+      <action>List ethics_applicable (Divine Ethics names)</action>
+      <action>List boundaries_approached (Divine Moral names)</action>
+      <action>List stakeholders_affected</action>
+      <action>Set boundary_proximity scores for each relevant boundary</action>
+      <action>If moral_context is NOT provided, omit the moral_context section entirely</action>
+    </step>
+
+    <step n="5" title="Populate Feedback and Self-Reflection">
+      <action>If user_feedback provided, set feedback.user_satisfaction and feedback.user_comments</action>
+      <action>If user_feedback not provided, set feedback.user_satisfaction to "unknown"</action>
+      <action>Generate self_reflection: the agent's honest assessment of how the execution went, what worked, what didn't</action>
+      <action>List any lessons_consulted during the workflow (lesson IDs)</action>
+      <action>Calculate learning_priority based on: outcome success_degree, moral_significance (if present), novelty of situation</action>
+      <action>Priority logic: critical if boundary violation or system failure; high if significant moral dimensions or unexpected outcomes; medium for standard execution; low for routine with little novelty</action>
+    </step>
+
+    <step n="6" title="Write Episode to Memory">
+      <action>Format the complete episode as YAML per the schema</action>
+      <action>Write episode file to {project-root}/_bmad/_memory/intuition/episodes/{episode_id}.yaml</action>
+      <action>Verify the file was written successfully</action>
+    </step>
+
+    <step n="7" title="Output Results">
+      <action>Output the episode ID and file path</action>
+      <action>Output a brief summary: module, agent, success_degree, learning_priority, moral_significance (if applicable)</action>
+    </step>
+  </flow>
+
+  <halt-conditions>
+    <condition>HALT with error if episode schema cannot be loaded</condition>
+    <condition>HALT with error if any required input is missing or empty</condition>
+    <condition>HALT with error if episode file cannot be written to memory</condition>
+    <condition>HALT with error if success_degree is not a number between 0.0 and 1.0</condition>
+  </halt-conditions>
+
+</task>

@@ -1,0 +1,85 @@
+<task id="_bmad/qi/tasks/calculate-tis.xml"
+  name="Calculate TIS"
+  description="Calculate True Intelligence Score from AIQ and MIQ with balance modifier">
+
+  <objective>Compute the True Intelligence Score (TIS) by combining cognitive intelligence (AIQ) and moral intelligence (MIQ) with a balance modifier that rewards integrated development and penalizes imbalance</objective>
+
+  <inputs>
+    <input name="aiq_score" required="true" desc="Cognitive intelligence score (0-1000) from the AIQ scoring task" />
+    <input name="miq_score" required="true" desc="Moral intelligence score (0-1000) from the MIQ scoring task" />
+  </inputs>
+
+  <llm critical="true">
+    <i>MANDATORY: Execute ALL steps in the flow section IN EXACT ORDER</i>
+    <i>DO NOT skip steps or change the sequence</i>
+    <i>HALT immediately when halt-conditions are met</i>
+    <i>Each action within a step is a REQUIRED action to complete that step</i>
+
+    <i>You are computing the True Intelligence Score — the unified measure of wisdom.</i>
+    <i>TIS embodies the principle that intelligence without morality is dangerous, and morality without intelligence is ineffective.</i>
+
+    <principles>
+      <i>The formula is deterministic: apply it exactly as specified in config.yaml</i>
+      <i>Balance matters: a system strong in cognition but weak in morality (or vice versa) is penalized</i>
+      <i>The balance modifier is a small nudge (5%), not a dramatic swing — it rewards integration</i>
+      <i>TIS is capped at 1000 — no score can exceed the maximum</i>
+      <i>Present the balance assessment honestly: imbalance is a growth opportunity, not a failure</i>
+    </principles>
+  </llm>
+
+  <flow>
+    <step n="1" title="Load TIS Configuration">
+      <action>Load TIS formula parameters from {project-root}/_bmad/qi/config.yaml → tis</action>
+      <action>Read: aiq_weight (0.6), miq_weight (0.4), balance_bonus_threshold (100), balance_bonus_modifier (1.05), balance_penalty_threshold (300), balance_penalty_modifier (0.95), max_score (1000)</action>
+      <action>Load wisdom_levels from {project-root}/_bmad/qi/config.yaml → wisdom_levels</action>
+    </step>
+
+    <step n="2" title="Validate Inputs">
+      <action>Verify aiq_score is a number between 0 and 1000</action>
+      <action>Verify miq_score is a number between 0 and 1000</action>
+    </step>
+
+    <step n="3" title="Calculate Balance">
+      <action>Calculate balance: |aiq_score - miq_score|</action>
+      <action>Determine balance assessment:</action>
+      <action>If balance less than balance_bonus_threshold (100): assessment = "Balanced" — cognitive and moral intelligence are well-integrated</action>
+      <action>If balance greater than balance_penalty_threshold (300): assessment = "Imbalanced" — significant divergence between cognitive and moral development</action>
+      <action>Otherwise: assessment = "Moderate" — some divergence but within acceptable range</action>
+    </step>
+
+    <step n="4" title="Determine Balance Modifier">
+      <action>If balance less than balance_bonus_threshold: modifier = balance_bonus_modifier (1.05)</action>
+      <action>If balance greater than balance_penalty_threshold: modifier = balance_penalty_modifier (0.95)</action>
+      <action>Otherwise: modifier = 1.00</action>
+    </step>
+
+    <step n="5" title="Calculate TIS">
+      <action>Calculate raw TIS: (aiq_weight * aiq_score + miq_weight * miq_score) * modifier</action>
+      <action>Formula: (0.6 * aiq_score + 0.4 * miq_score) * balance_modifier</action>
+      <action>Cap at max_score (1000) if result exceeds it</action>
+      <action>Round to nearest integer</action>
+    </step>
+
+    <step n="6" title="Determine Wisdom Level">
+      <action>Match the TIS score against wisdom_levels from config</action>
+      <action>Find the level whose range contains the TIS score</action>
+      <action>Record the level name and description</action>
+    </step>
+
+    <step n="7" title="Output Results">
+      <action>Output: TIS score (integer)</action>
+      <action>Output: wisdom level name and description</action>
+      <action>Output: balance assessment (Balanced / Moderate / Imbalanced)</action>
+      <action>Output: balance modifier applied (1.05 / 1.00 / 0.95)</action>
+      <action>Output: component scores (AIQ and MIQ) for reference</action>
+      <action>If imbalanced: note which dimension (cognitive or moral) needs more development</action>
+    </step>
+  </flow>
+
+  <halt-conditions>
+    <condition>HALT with error if config.yaml cannot be loaded or TIS parameters are missing</condition>
+    <condition>HALT with error if aiq_score is not a number between 0 and 1000</condition>
+    <condition>HALT with error if miq_score is not a number between 0 and 1000</condition>
+  </halt-conditions>
+
+</task>

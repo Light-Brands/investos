@@ -1,0 +1,243 @@
+# Lesson Schema
+# Defines the structure for wisdom extracted from episodes
+# Lessons are the persistent knowledge units of the Intuition Engine
+# Version: 1.0.0
+
+schema_version: "1.0.0"
+description: "Structured format for extracted wisdom that guides future decisions"
+
+# ═══════════════════════════════════════════════════════════════════
+# LESSON STRUCTURE
+# ═══════════════════════════════════════════════════════════════════
+
+fields:
+
+  # --- Identity ---
+  id:
+    type: string
+    format: "ls-{domain}-{sequence}"
+    example: "ls-bmm-dev-042"
+    required: true
+
+  version:
+    type: integer
+    default: 1
+    description: "Incremented when lesson is updated or merged"
+
+  created_at:
+    type: ISO8601
+    required: true
+
+  updated_at:
+    type: ISO8601
+    required: true
+
+  # --- Core Content ---
+  trigger_pattern:
+    type: string
+    description: "When does this lesson apply? Describes the situation pattern."
+    required: true
+    example: "When deploying a new feature without sufficient test coverage"
+
+  lesson_core:
+    type: string
+    description: "The actual insight - the wisdom distilled from experience"
+    required: true
+    example: "Deploying without tests leads to 3x more hotfixes. Always ensure coverage above 80% for critical paths before deployment."
+
+  action_bias:
+    type: object
+    description: "How this lesson should adjust future behavior"
+    required: true
+    fields:
+      type:
+        type: string
+        enum: [strengthen, weaken, prefer, avoid, require, forbid]
+        description: "The kind of behavioral adjustment"
+      target:
+        type: string
+        description: "What action or approach to adjust"
+      magnitude:
+        type: number
+        range: [0.0, 1.0]
+        description: "How strongly to apply this adjustment"
+      conditions:
+        type: array
+        items: string
+        description: "Additional conditions for when this applies"
+
+  # --- Classification ---
+  domain:
+    type: string
+    description: "Primary domain (bmm, ios, aos, gos, sos, cross-domain, meta-learning)"
+    required: true
+
+  tags:
+    type: array
+    items: string
+    description: "Searchable tags for retrieval"
+
+  situation_types:
+    type: array
+    items: string
+    description: "Types of situations where this lesson applies"
+
+  # --- Strength & Confidence ---
+  strength:
+    type: number
+    range: [0.0, 1.0]
+    default: 0.5
+    description: "How strongly to apply this lesson. Increases with successful application, decreases with failure."
+
+  confidence:
+    type: number
+    range: [0.0, 1.0]
+    default: 0.5
+    description: "How certain we are that this lesson is correct"
+
+  application_count:
+    type: integer
+    default: 0
+    description: "Number of times successfully applied"
+
+  reinforcement_history:
+    type: array
+    items:
+      type: object
+      fields:
+        date: { type: ISO8601 }
+        delta: { type: number }
+        reason: { type: string }
+        episode_id: { type: string }
+
+  # --- Moral Dimensions (for moral lessons) ---
+  moral_dimensions:
+    type: object
+    required: false
+    description: "Present only for moral lessons stored in moral-lessons/"
+    fields:
+      value_mapping:
+        type: array
+        items:
+          type: object
+          fields:
+            value: { type: string, description: "Divine Value name" }
+            alignment: { type: string, enum: [supports, challenges, neutral] }
+            strength: { type: number, range: [0.0, 1.0] }
+      ethics_mapping:
+        type: array
+        items:
+          type: object
+          fields:
+            ethic: { type: string, description: "Divine Ethic name" }
+            relevance: { type: number, range: [0.0, 1.0] }
+      boundary_relevance:
+        type: array
+        items:
+          type: object
+          fields:
+            moral: { type: string, description: "Divine Moral name" }
+            proximity_warning: { type: number, range: [0.0, 1.0] }
+
+  # --- Provenance ---
+  source_episodes:
+    type: array
+    items: string
+    description: "Episode IDs that generated this lesson"
+    required: true
+
+  derived_from:
+    type: array
+    items: string
+    description: "Parent lesson IDs if this was merged from others"
+
+  contradicts:
+    type: array
+    items: string
+    description: "Lesson IDs that this conflicts with"
+
+  validated_by:
+    type: object
+    required: false
+    fields:
+      validator: { type: string, enum: [council, legion, user, system] }
+      member: { type: string }
+      timestamp: { type: ISO8601 }
+
+  # --- Retrieval ---
+  keywords:
+    type: array
+    items: string
+    description: "Keywords for text-based search"
+
+# ═══════════════════════════════════════════════════════════════════
+# LESSON LIFECYCLE
+# ═══════════════════════════════════════════════════════════════════
+
+lifecycle:
+  birth:
+    initial_strength: 0.5
+    description: "New lessons start at moderate strength"
+
+  reinforcement:
+    success_delta: 0.05
+    description: "Successful application increases strength"
+
+  weakening:
+    failure_delta: -0.10
+    description: "Failed application decreases strength more"
+    note: "Asymmetric to make lessons cautious by default"
+
+  decay:
+    rate_per_week: 0.005
+    moral_decay_rate_per_week: 0.003
+    description: "Unused lessons weaken slowly. Moral lessons decay slower."
+    min_before_decay: 0.2
+    description_archive: "Below 0.2 strength, lessons are archived"
+
+  merge:
+    similarity_threshold: 0.85
+    description: "Lessons above similarity threshold can be merged into stronger principles"
+
+  archive:
+    strength_threshold: 0.2
+    description: "Lessons below this strength are preserved but not actively retrieved"
+
+# ═══════════════════════════════════════════════════════════════════
+# LESSON QUALITY CRITERIA
+# ═══════════════════════════════════════════════════════════════════
+
+quality_criteria:
+  - name: Specificity
+    weight: 0.20
+    description: "Clear, actionable guidance"
+  - name: Generality
+    weight: 0.20
+    description: "Applies beyond the source context"
+  - name: Testability
+    weight: 0.15
+    description: "Can verify if it works"
+  - name: Non-Obvious
+    weight: 0.15
+    description: "Adds wisdom beyond common sense"
+  - name: Consistency
+    weight: 0.15
+    description: "Does not contradict strong existing lessons"
+  - name: Alignment
+    weight: 0.15
+    description: "Compatible with Divine Values and Ethics"
+
+quality_minimum: 0.6
+
+# ═══════════════════════════════════════════════════════════════════
+# FILE STORAGE CONVENTION
+# ═══════════════════════════════════════════════════════════════════
+
+storage:
+  format: yaml
+  locations:
+    general: "_memory/intuition/lessons/{module}/"
+    moral: "_memory/intuition/moral-lessons/"
+    meta: "_memory/intuition/meta-lessons/"
+  naming: "{id}.yaml"
+  retention: permanent

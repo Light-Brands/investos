@@ -1,0 +1,111 @@
+<task id="_bmad/qi/tasks/score-aiq.xml"
+  name="Score AIQ"
+  description="Evaluate cognitive intelligence across 6 weighted dimensions (0-1000) per config.yaml weights">
+
+  <objective>Score a workflow episode across 6 cognitive intelligence dimensions — reasoning depth, pattern recognition, context integration, creativity, adaptability, and self-reflection — and calculate a weighted AIQ score</objective>
+
+  <inputs>
+    <input name="episode_id" required="true" desc="Reference to the episode being scored (must exist in _memory/intuition/episodes/)" />
+    <input name="workflow_context" required="true" desc="Description of what was executed, for additional scoring context" />
+  </inputs>
+
+  <llm critical="true">
+    <i>MANDATORY: Execute ALL steps in the flow section IN EXACT ORDER</i>
+    <i>DO NOT skip steps or change the sequence</i>
+    <i>HALT immediately when halt-conditions are met</i>
+    <i>Each action within a step is a REQUIRED action to complete that step</i>
+
+    <i>You are the AIQ Engine — the cognitive intelligence evaluator. Score with intellectual honesty.</i>
+    <i>High scores should be earned, not given. A routine task executed well is still routine.</i>
+
+    <principles>
+      <i>Score based on evidence in the episode, not aspirations or intentions</i>
+      <i>Each dimension score (0-1000) should reflect the actual cognitive quality demonstrated</i>
+      <i>Use the guiding question from config.yaml for each dimension as your scoring lens</i>
+      <i>Be calibrated: 500 is competent, 700+ is exceptional, 900+ is rare and remarkable</i>
+      <i>A high score in one dimension cannot compensate for absence in another — weights handle the math</i>
+    </principles>
+  </llm>
+
+  <flow>
+    <step n="1" title="Load Configuration">
+      <action>Load AIQ dimension weights from {project-root}/_bmad/qi/config.yaml → aiq.dimensions</action>
+      <action>Load intelligence_levels from {project-root}/_bmad/qi/config.yaml → aiq.intelligence_levels</action>
+      <action>Verify all 6 dimensions are present: reasoning_depth (0.25), pattern_recognition (0.20), context_integration (0.20), creativity (0.15), adaptability (0.10), self_reflection (0.10)</action>
+      <action>Verify weights sum to 1.0</action>
+    </step>
+
+    <step n="2" title="Load Episode">
+      <action>Load the episode from {project-root}/_bmad/_memory/intuition/episodes/{episode_id}.yaml</action>
+      <action>Verify the episode exists and contains required fields: context, actions, outcomes, feedback</action>
+    </step>
+
+    <step n="3" title="Score Reasoning Depth (25%)">
+      <action>Question: "How deeply did the agent reason about cause and effect?"</action>
+      <action>Evaluate the episode's actions.reasoning and actions.key_decisions</action>
+      <action>Assess: How many layers of causal analysis are present? Are root causes identified? Are second-order effects considered?</action>
+      <action>Score 0-1000 based on depth and quality of causal reasoning</action>
+    </step>
+
+    <step n="4" title="Score Pattern Recognition (20%)">
+      <action>Question: "Did the agent connect insights across domains?"</action>
+      <action>Evaluate the episode's actions.key_decisions and actions.alternatives_considered</action>
+      <action>Assess: Were cross-domain connections made? Were analogies drawn from other contexts? Were patterns identified that others might miss?</action>
+      <action>Score 0-1000 based on novelty and quality of connections</action>
+    </step>
+
+    <step n="5" title="Score Context Integration (20%)">
+      <action>Question: "How many stakeholders and constraints were considered?"</action>
+      <action>Evaluate the episode's context (constraints, goals) and actions taken</action>
+      <action>Assess: Breadth of factors considered, stakeholder awareness, constraint handling, environmental awareness</action>
+      <action>Score 0-1000 based on breadth and depth of contextual awareness</action>
+    </step>
+
+    <step n="6" title="Score Creativity (15%)">
+      <action>Question: "Did the agent propose original solutions?"</action>
+      <action>Evaluate the episode's actions.alternatives_considered and the approach taken</action>
+      <action>Assess: Were novel approaches proposed? Were non-obvious solutions considered? Was the final approach original or formulaic?</action>
+      <action>Score 0-1000 based on novelty and originality</action>
+    </step>
+
+    <step n="7" title="Score Adaptability (10%)">
+      <action>Question: "Did the agent adjust when conditions changed?"</action>
+      <action>Evaluate the episode's outcomes.unexpected_effects and actions taken</action>
+      <action>Assess: Did the agent pivot when encountering unexpected conditions? Was the approach modified based on new information?</action>
+      <action>Score 0-1000 based on responsiveness to changing conditions</action>
+    </step>
+
+    <step n="8" title="Score Self-Reflection (10%)">
+      <action>Question: "Did the agent acknowledge uncertainty and limitations?"</action>
+      <action>Evaluate the episode's feedback.self_reflection</action>
+      <action>Assess: Is there genuine meta-cognitive awareness? Are limitations acknowledged? Is the self-assessment honest and calibrated?</action>
+      <action>Score 0-1000 based on quality of meta-cognitive awareness</action>
+    </step>
+
+    <step n="9" title="Calculate Weighted AIQ">
+      <action>Calculate weighted AIQ: sum of (dimension_score * dimension_weight) for all 6 dimensions</action>
+      <action>AIQ = (reasoning_depth * 0.25) + (pattern_recognition * 0.20) + (context_integration * 0.20) + (creativity * 0.15) + (adaptability * 0.10) + (self_reflection * 0.10)</action>
+      <action>Round to nearest integer</action>
+    </step>
+
+    <step n="10" title="Determine Intelligence Level">
+      <action>Match the AIQ score against intelligence_levels from config</action>
+      <action>Find the level whose range contains the AIQ score</action>
+      <action>Record the level name and description</action>
+    </step>
+
+    <step n="11" title="Output Results">
+      <action>Output all 6 dimension scores with their weights</action>
+      <action>Output the weighted AIQ total</action>
+      <action>Output the intelligence level name and description</action>
+      <action>Output a brief narrative explaining the strongest and weakest dimensions</action>
+    </step>
+  </flow>
+
+  <halt-conditions>
+    <condition>HALT with error if config.yaml cannot be loaded or AIQ dimensions are missing</condition>
+    <condition>HALT with error if episode_id does not resolve to an existing episode file</condition>
+    <condition>HALT with error if any dimension score is outside 0-1000 range</condition>
+  </halt-conditions>
+
+</task>

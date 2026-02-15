@@ -1,0 +1,51 @@
+# Post-Execution Intelligence Capture Workflow
+name: "post-execution-capture"
+description: "Capture intelligence from workflow execution: episode creation, AIQ/MIQ scoring, TIS calculation, lesson extraction, and lesson reinforcement"
+author: "QI Master"
+
+config_source: "{project-root}/_bmad/qi/config.yaml"
+output_folder: "{project-root}/_bmad/_memory/intuition/episodes"
+user_name: "{config_source}:user_name"
+communication_language: "{config_source}:communication_language"
+document_output_language: "{config_source}:document_output_language"
+date: system-generated
+
+installed_path: "{project-root}/_bmad/qi/workflows/post-execution-capture"
+template: false
+instructions: "{installed_path}/instructions.md"
+
+required_inputs:
+  - agent_manifest: "{project-root}/_bmad/_config/agent-manifest.csv"
+  - qi_config: "{project-root}/_bmad/qi/config.yaml"
+
+# Smart input file references
+input_file_patterns:
+  episode_schema:
+    description: "Episode structure definition"
+    pattern: "{project-root}/_bmad/_memory/intuition/schemas/episode-schema.yaml"
+    load_strategy: "FULL_LOAD"
+  lesson_schema:
+    description: "Lesson structure definition"
+    pattern: "{project-root}/_bmad/_memory/intuition/schemas/lesson-schema.yaml"
+    load_strategy: "FULL_LOAD"
+  sacred_framework:
+    description: "Divine Values, Ethics, and Morals for MIQ scoring"
+    pattern: "{project-root}/_bmad/qi/data/sacred-framework.yaml"
+    load_strategy: "FULL_LOAD"
+  existing_episodes:
+    description: "Recent episodes for sequence numbering and context"
+    pattern: "{project-root}/_bmad/_memory/intuition/episodes/*.yaml"
+    load_strategy: "SELECTIVE_LOAD"
+  existing_lessons:
+    description: "Relevant domain lessons for reinforcement and deduplication"
+    pattern: "{project-root}/_bmad/_memory/intuition/lessons/**/*.yaml"
+    load_strategy: "SELECTIVE_LOAD"
+
+# Task references
+tasks:
+  create_episode: "{project-root}/_bmad/qi/tasks/create-episode.xml"
+  score_aiq: "{project-root}/_bmad/qi/tasks/score-aiq.xml"
+  score_miq: "{project-root}/_bmad/qi/tasks/score-miq.xml"
+  calculate_tis: "{project-root}/_bmad/qi/tasks/calculate-tis.xml"
+  extract_lessons: "{project-root}/_bmad/qi/tasks/extract-lessons.xml"
+  search_lessons: "{project-root}/_bmad/qi/tasks/search-lessons.xml"

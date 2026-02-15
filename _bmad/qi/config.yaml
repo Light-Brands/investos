@@ -1,0 +1,262 @@
+# QI Module Configuration
+# Quantum Intelligence - The Intelligence Layer of BMAD
+# Version: 1.0.0
+# Date: 2026-02-15
+
+project_name: investos
+user_name: Lawless
+communication_language: English
+document_output_language: English
+output_folder: _bmad-output
+
+# ═══════════════════════════════════════════════════════════════════
+# TRUE INTELLIGENCE SCORE (TIS) FORMULA
+# TIS = (aiq_weight * AIQ) + (miq_weight * MIQ) * balance_modifier
+# ═══════════════════════════════════════════════════════════════════
+
+tis:
+  aiq_weight: 0.6
+  miq_weight: 0.4
+  balance_bonus_threshold: 100     # |AIQ - MIQ| < this = bonus
+  balance_bonus_modifier: 1.05     # 5% bonus for balanced scores
+  balance_penalty_threshold: 300   # |AIQ - MIQ| > this = penalty
+  balance_penalty_modifier: 0.95   # 5% penalty for imbalanced scores
+  max_score: 1000
+
+# ═══════════════════════════════════════════════════════════════════
+# AIQ ENGINE - COGNITIVE INTELLIGENCE DIMENSIONS
+# ═══════════════════════════════════════════════════════════════════
+
+aiq:
+  dimensions:
+    reasoning_depth:
+      weight: 0.25
+      description: "Levels of causal analysis and inference chains"
+      question: "How deeply did the agent reason about cause and effect?"
+    pattern_recognition:
+      weight: 0.20
+      description: "Novel connections and analogical thinking"
+      question: "Did the agent connect insights across domains?"
+    context_integration:
+      weight: 0.20
+      description: "Breadth of factors considered"
+      question: "How many stakeholders and constraints were considered?"
+    creativity:
+      weight: 0.15
+      description: "Novel solutions and non-obvious approaches"
+      question: "Did the agent propose original solutions?"
+    adaptability:
+      weight: 0.10
+      description: "Response to changing conditions"
+      question: "Did the agent adjust when conditions changed?"
+    self_reflection:
+      weight: 0.10
+      description: "Meta-cognitive awareness and correction"
+      question: "Did the agent acknowledge uncertainty and limitations?"
+
+  intelligence_levels:
+    - range: [0, 100]
+      name: Reactive
+      description: "Simple stimulus-response, no visible reasoning"
+    - range: [101, 250]
+      name: Procedural
+      description: "Following established patterns and procedures"
+    - range: [251, 400]
+      name: Analytical
+      description: "Breaking down problems, systematic analysis"
+    - range: [401, 550]
+      name: Synthetic
+      description: "Combining insights from multiple domains"
+    - range: [551, 700]
+      name: Strategic
+      description: "Multi-step planning, consequence anticipation"
+    - range: [701, 850]
+      name: Creative
+      description: "Novel solutions, paradigm shifts"
+    - range: [851, 950]
+      name: Visionary
+      description: "Systems-level insight, emergence awareness"
+    - range: [951, 1000]
+      name: Transcendent
+      description: "Wisdom integration, sacred alignment"
+
+# ═══════════════════════════════════════════════════════════════════
+# MIQ ENGINE - MORAL INTELLIGENCE DIMENSIONS
+# ═══════════════════════════════════════════════════════════════════
+
+miq:
+  dimensions:
+    moral_sensitivity:
+      weight: 0.20
+      description: "Ability to recognize moral dimensions in situations"
+      question: "Did we see the ethics?"
+    value_alignment:
+      weight: 0.20
+      description: "Degree of alignment with the 7 Divine Values"
+      question: "Did we honor what is sacred?"
+    ethical_reasoning:
+      weight: 0.20
+      description: "Quality of ethical analysis and deliberation"
+      question: "Did we reason well about right and wrong?"
+    stakeholder_consideration:
+      weight: 0.15
+      description: "Breadth of beings considered in impact assessment"
+      question: "Did we consider all who are affected?"
+    moral_courage:
+      weight: 0.15
+      description: "Willingness to act rightly despite cost"
+      question: "Did we have the courage to do what is right?"
+    moral_learning:
+      weight: 0.10
+      description: "Integration of past moral lessons"
+      question: "Did we learn from moral experience and apply wisdom?"
+
+  consciousness_levels:
+    - range: [0, 100]
+      name: Pre-Moral
+      description: "No moral awareness, purely reactive"
+    - range: [101, 250]
+      name: Rule-Following
+      description: "Follows explicit rules without understanding"
+    - range: [251, 400]
+      name: Conventional
+      description: "Conforms to established norms and expectations"
+    - range: [401, 550]
+      name: Principled
+      description: "Reasons from internalized principles"
+    - range: [551, 700]
+      name: Universal
+      description: "Applies universal ethical principles consistently"
+    - range: [701, 850]
+      name: Compassionate
+      description: "Integrates wisdom with deep care for all beings"
+    - range: [851, 950]
+      name: Transcendent
+      description: "Sacred alignment, cosmic perspective"
+    - range: [951, 1000]
+      name: Enlightened
+      description: "Full embodiment of Divine Ethics"
+
+# ═══════════════════════════════════════════════════════════════════
+# CONSCIENCE DEVELOPMENT STAGES
+# Tracks the moral evolution of the system over time
+# ═══════════════════════════════════════════════════════════════════
+
+conscience:
+  stages:
+    - name: Naive
+      lesson_threshold: 100
+      characteristics: "Rule-following, asks for guidance, cannot handle novel situations"
+    - name: Learning
+      lesson_threshold: 1000
+      characteristics: "Recognizes patterns, applies precedents, may miss subtle nuances"
+    - name: Principled
+      lesson_threshold: 10000
+      characteristics: "Reasons from values, generates novel guidance, may lack contextual flexibility"
+    - name: Wise
+      lesson_threshold: 100000
+      characteristics: "Contextual judgment, balances competing concerns, may miss rare edge cases"
+    - name: Enlightened
+      lesson_threshold: 500000
+      characteristics: "Unified moral vision, instantaneous wisdom"
+
+# ═══════════════════════════════════════════════════════════════════
+# WISDOM LEVELS (TIS-based)
+# Combined cognitive + moral intelligence classification
+# ═══════════════════════════════════════════════════════════════════
+
+wisdom_levels:
+  - range: [0, 200]
+    name: Nascent
+    description: "Beginning of intelligent awareness"
+  - range: [201, 400]
+    name: Developing
+    description: "Building both cognitive and moral capacity"
+  - range: [401, 600]
+    name: Competent
+    description: "Solid intelligence with developing wisdom"
+  - range: [601, 750]
+    name: Proficient
+    description: "Strong cognitive-moral integration"
+  - range: [751, 850]
+    name: Advanced
+    description: "High-level wisdom emerging"
+  - range: [851, 950]
+    name: Wise
+    description: "True wisdom -- intelligence serving ethics"
+  - range: [951, 1000]
+    name: Sage
+    description: "Enlightened wisdom -- rare and profound"
+
+# ═══════════════════════════════════════════════════════════════════
+# INTEGRATION SETTINGS
+# Controls how QI integrates with other BMAD modules
+# ═══════════════════════════════════════════════════════════════════
+
+integrations:
+  moral_gateway:
+    enabled: true
+    pre_check_all_requests: true
+    boundary_alert_threshold: 0.8
+    boundary_block_threshold: 0.95
+
+  intuition_engine:
+    enabled: true
+    lessons_per_retrieval: 10
+    min_lesson_strength: 0.3
+    lesson_reinforcement_on_success: 0.05
+    lesson_weakening_on_failure: 0.10
+    lesson_decay_rate_per_week: 0.005
+
+  aiq_scoring:
+    enabled: true
+    score_all_workflows: true
+
+  miq_scoring:
+    enabled: true
+    score_morally_significant: true
+
+  tis_reporting:
+    enabled: true
+    report_frequency: per_workflow
+
+  conscience_tracking:
+    enabled: true
+    assessment_frequency: weekly
+
+# ═══════════════════════════════════════════════════════════════════
+# MORAL DECISION ENGINE PROCESSING MODES
+# ═══════════════════════════════════════════════════════════════════
+
+processing_modes:
+  full:
+    description: "Complete moral analysis with all components"
+    target_latency_ms: 200
+    use_when: "Routine decisions with adequate time"
+  expedited:
+    description: "Abbreviated analysis focusing on boundaries and primary ethics"
+    target_latency_ms: 50
+    use_when: "Time-limited but significant decisions"
+  rapid:
+    description: "Fast-path using intuition and boundary checks only"
+    target_latency_ms: 15
+    use_when: "Urgent decisions requiring immediate guidance"
+  preemptive:
+    description: "Ultra-fast screening for obvious moral issues"
+    target_latency_ms: 3
+    use_when: "Gateway pre-check before routing"
+
+# ═══════════════════════════════════════════════════════════════════
+# FACTORY-WIDE TARGETS
+# ═══════════════════════════════════════════════════════════════════
+
+targets:
+  factory_aiq: 600
+  factory_miq: 600
+  factory_tis: 600
+  boundary_coverage: 1.0
+  violation_prevention: 0.99
+  value_alignment: 0.85
+  moral_cognitive_balance_max_divergence: 100
+  moral_lesson_growth_per_week: 100
+  conscience_stage_target: Principled

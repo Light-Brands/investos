@@ -1,0 +1,201 @@
+# Episode Schema
+# Defines the structure for experience records captured by the Intuition Engine
+# Each workflow execution, decision, or significant interaction becomes an Episode
+# Version: 1.0.0
+
+schema_version: "1.0.0"
+description: "Structured format for capturing experiences that become the raw material for wisdom extraction"
+
+# ═══════════════════════════════════════════════════════════════════
+# EPISODE STRUCTURE
+# ═══════════════════════════════════════════════════════════════════
+
+fields:
+
+  # --- Identification ---
+  id:
+    type: string
+    format: "ep-{module}-{agent}-{YYYY-MM-DD}-{sequence}"
+    example: "ep-bmm-amelia-2026-02-15-001"
+    required: true
+
+  timestamp:
+    type: ISO8601
+    required: true
+
+  session_id:
+    type: string
+    description: "Conversation or workflow session identifier"
+    required: true
+
+  agent_id:
+    type: string
+    description: "The agent that executed this episode"
+    required: true
+
+  module:
+    type: string
+    enum: [core, bmm, ios, aos, gos, sos, qi]
+    required: true
+
+  # --- Context ---
+  context:
+    type: object
+    fields:
+      situation:
+        type: string
+        description: "What was happening - the task or decision at hand"
+        required: true
+      constraints:
+        type: array
+        items: string
+        description: "Limitations, requirements, or boundaries in play"
+      goals:
+        type: array
+        items: string
+        description: "What the agent was trying to achieve"
+      domain:
+        type: string
+        description: "Business area (e.g., token-design, governance, fundraising)"
+      workflow_id:
+        type: string
+        description: "The workflow being executed, if any"
+      prior_episodes:
+        type: array
+        items: string
+        description: "Related past episode IDs"
+
+  # --- Actions ---
+  actions:
+    type: object
+    fields:
+      summary:
+        type: string
+        description: "High-level summary of what was done"
+        required: true
+      key_decisions:
+        type: array
+        items: string
+        description: "Significant choices made during execution"
+      reasoning:
+        type: array
+        items: string
+        description: "Why each key decision was made"
+      alternatives_considered:
+        type: array
+        items: string
+        description: "Options that were evaluated but not chosen"
+      tools_used:
+        type: array
+        items: string
+        description: "Tools, workflows, or resources used"
+
+  # --- Outcomes ---
+  outcomes:
+    type: object
+    fields:
+      result_summary:
+        type: string
+        description: "What actually happened"
+        required: true
+      success_degree:
+        type: number
+        range: [0.0, 1.0]
+        description: "How successful was the outcome (0 = failure, 1 = perfect)"
+        required: true
+      unexpected_effects:
+        type: array
+        items: string
+        description: "Anything that happened that wasn't anticipated"
+      artifacts_produced:
+        type: array
+        items: string
+        description: "Documents, code, or other outputs created"
+
+  # --- Moral Dimensions (if morally significant) ---
+  moral_context:
+    type: object
+    required: false
+    description: "Present only for episodes with moral significance > 0.3"
+    fields:
+      moral_significance:
+        type: number
+        range: [0.0, 1.0]
+        description: "How morally significant is this episode"
+      values_at_stake:
+        type: array
+        items: string
+        description: "Which Divine Values are relevant"
+      ethics_applicable:
+        type: array
+        items: string
+        description: "Which Divine Ethics apply"
+      boundaries_approached:
+        type: array
+        items: string
+        description: "Which Divine Morals were approached"
+      stakeholders_affected:
+        type: array
+        items: string
+        description: "Who is affected by this decision"
+      boundary_proximity:
+        type: object
+        description: "Proximity scores (0.0-1.0) for each relevant boundary"
+
+  # --- Feedback ---
+  feedback:
+    type: object
+    fields:
+      user_satisfaction:
+        type: string
+        enum: [positive, negative, mixed, unknown]
+      user_comments:
+        type: string
+        description: "Direct feedback from the user"
+      self_reflection:
+        type: string
+        description: "Agent's own assessment of how it went"
+        required: true
+      lessons_consulted:
+        type: array
+        items: string
+        description: "Lesson IDs that were retrieved and applied"
+      learning_priority:
+        type: string
+        enum: [low, medium, high, critical]
+        default: medium
+
+# ═══════════════════════════════════════════════════════════════════
+# EPISODE CATEGORIES
+# ═══════════════════════════════════════════════════════════════════
+
+categories:
+  by_outcome:
+    success:
+      range: [0.8, 1.0]
+      treatment: "Extract positive patterns"
+    partial:
+      range: [0.4, 0.8]
+      treatment: "Analyze what limited success"
+    failure:
+      range: [0.0, 0.4]
+      treatment: "Deep dive on what went wrong"
+
+  by_learning_priority:
+    critical: "Boundary violations, novel dilemmas, system failures"
+    high: "Significant moral dimensions, unexpected outcomes"
+    medium: "Standard workflow with learning potential"
+    low: "Routine operations with little novelty"
+
+# ═══════════════════════════════════════════════════════════════════
+# FILE STORAGE CONVENTION
+# ═══════════════════════════════════════════════════════════════════
+
+storage:
+  format: yaml
+  location: "_memory/intuition/episodes/"
+  naming: "{id}.yaml"
+  retention:
+    hot: "30 days (full detail)"
+    warm: "180 days (summarized)"
+    archive: "permanent (lesson references only)"

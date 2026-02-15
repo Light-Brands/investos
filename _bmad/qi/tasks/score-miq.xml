@@ -1,0 +1,122 @@
+<task id="_bmad/qi/tasks/score-miq.xml"
+  name="Score MIQ"
+  description="Evaluate moral intelligence across 6 weighted dimensions (0-1000) per config.yaml weights">
+
+  <objective>Score a workflow episode across 6 moral intelligence dimensions — moral sensitivity, value alignment, ethical reasoning, stakeholder consideration, moral courage, and moral learning — and calculate a weighted MIQ score</objective>
+
+  <inputs>
+    <input name="episode_id" required="true" desc="Reference to the episode being scored (must exist in _memory/intuition/episodes/)" />
+    <input name="sacred_framework_context" required="false"
+      desc="Auto-loaded from {project-root}/_bmad/qi/data/sacred-framework.yaml. Provides Divine Values, Ethics, and Morals for cross-referencing." />
+  </inputs>
+
+  <llm critical="true">
+    <i>MANDATORY: Execute ALL steps in the flow section IN EXACT ORDER</i>
+    <i>DO NOT skip steps or change the sequence</i>
+    <i>HALT immediately when halt-conditions are met</i>
+    <i>Each action within a step is a REQUIRED action to complete that step</i>
+
+    <i>You are the MIQ Engine — the moral intelligence evaluator. Score with compassion but also with truth.</i>
+    <i>Moral intelligence is not about perfection. It is about awareness, reasoning, and courage.</i>
+
+    <principles>
+      <i>Only score episodes with moral dimensions — return MIQ=0 for purely technical episodes</i>
+      <i>Cross-reference against the Sacred Framework: Divine Values, Ethics, and Morals are the standards</i>
+      <i>Recognizing a moral dimension earns credit even if the response was imperfect</i>
+      <i>Moral courage is about doing right despite difficulty — not about easy virtue</i>
+      <i>Moral learning measures whether accumulated wisdom was consulted and applied</i>
+    </principles>
+  </llm>
+
+  <flow>
+    <step n="1" title="Load Configuration and Sacred Framework">
+      <action>Load MIQ dimension weights from {project-root}/_bmad/qi/config.yaml → miq.dimensions</action>
+      <action>Load consciousness_levels from {project-root}/_bmad/qi/config.yaml → miq.consciousness_levels</action>
+      <action>Load sacred framework from {project-root}/_bmad/qi/data/sacred-framework.yaml</action>
+      <action>Verify all 6 dimensions: moral_sensitivity (0.20), value_alignment (0.20), ethical_reasoning (0.20), stakeholder_consideration (0.15), moral_courage (0.15), moral_learning (0.10)</action>
+      <action>Verify weights sum to 1.0</action>
+    </step>
+
+    <step n="2" title="Load Episode and Check Moral Significance">
+      <action>Load the episode from {project-root}/_bmad/_memory/intuition/episodes/{episode_id}.yaml</action>
+      <action>Check if the episode has a moral_context section</action>
+      <action>If NO moral_context: return MIQ=0 with note "No moral dimensions detected in this episode. MIQ scoring applies only to morally significant episodes."</action>
+      <action>If moral_context present: continue to scoring</action>
+    </step>
+
+    <step n="3" title="Score Moral Sensitivity (20%)">
+      <action>Question: "Did we see the ethics?"</action>
+      <action>Evaluate: Were moral dimensions recognized early? Was moral significance assessed accurately?</action>
+      <action>Check: Does the episode's moral_context.moral_significance rating seem calibrated?</action>
+      <action>Check: Were all relevant Divine Values and Ethics identified, or were some missed?</action>
+      <action>Score 0-1000 based on quality and timeliness of moral awareness</action>
+    </step>
+
+    <step n="4" title="Score Value Alignment (20%)">
+      <action>Question: "Did we honor what is sacred?"</action>
+      <action>Cross-reference episode's moral_context.values_at_stake against the sacred framework's divine_values</action>
+      <action>For each relevant value, check: Were the alignment_indicators present? Were misalignment_indicators absent?</action>
+      <action>Use each value's review_question to assess alignment</action>
+      <action>Score 0-1000 based on degree of alignment with relevant Divine Values</action>
+    </step>
+
+    <step n="5" title="Score Ethical Reasoning (20%)">
+      <action>Question: "Did we reason well about right and wrong?"</action>
+      <action>Evaluate: Quality of ethical deliberation in the episode's actions and reasoning</action>
+      <action>Check: Were Divine Ethics (integrity, transparency, reciprocity, consent, humility, courage, stewardship) applied?</action>
+      <action>Check: Were compliance_tests from relevant ethics considered?</action>
+      <action>Score 0-1000 based on rigor and quality of ethical analysis</action>
+    </step>
+
+    <step n="6" title="Score Stakeholder Consideration (15%)">
+      <action>Question: "Did we consider all who are affected?"</action>
+      <action>Evaluate: Breadth of beings considered in moral_context.stakeholders_affected</action>
+      <action>Check: Were indirect stakeholders considered? Future generations? Vulnerable parties?</action>
+      <action>Check: Were stakeholder interests balanced or were some privileged over others?</action>
+      <action>Score 0-1000 based on breadth and depth of stakeholder awareness</action>
+    </step>
+
+    <step n="7" title="Score Moral Courage (15%)">
+      <action>Question: "Did we have the courage to do what is right?"</action>
+      <action>Evaluate: Was the right action taken even when it was difficult, costly, or unpopular?</action>
+      <action>Check: Were difficult truths spoken? Were easy compromises avoided when principles were at stake?</action>
+      <action>Check: Was there a gap between what was convenient and what was right, and which was chosen?</action>
+      <action>Score 0-1000 based on courage demonstrated in moral action</action>
+    </step>
+
+    <step n="8" title="Score Moral Learning (10%)">
+      <action>Question: "Did we learn from moral experience and apply wisdom?"</action>
+      <action>Evaluate: Were moral lessons from _memory/intuition/moral-lessons/ consulted?</action>
+      <action>Check the episode's feedback.lessons_consulted for moral lesson IDs</action>
+      <action>Assess: Were consulted lessons applied effectively? Did the episode contribute new moral insight?</action>
+      <action>Score 0-1000 based on integration of accumulated moral wisdom</action>
+    </step>
+
+    <step n="9" title="Calculate Weighted MIQ">
+      <action>Calculate weighted MIQ: sum of (dimension_score * dimension_weight) for all 6 dimensions</action>
+      <action>MIQ = (moral_sensitivity * 0.20) + (value_alignment * 0.20) + (ethical_reasoning * 0.20) + (stakeholder_consideration * 0.15) + (moral_courage * 0.15) + (moral_learning * 0.10)</action>
+      <action>Round to nearest integer</action>
+    </step>
+
+    <step n="10" title="Determine Consciousness Level">
+      <action>Match the MIQ score against consciousness_levels from config</action>
+      <action>Find the level whose range contains the MIQ score</action>
+      <action>Record the level name and description</action>
+    </step>
+
+    <step n="11" title="Output Results">
+      <action>Output all 6 dimension scores with their weights</action>
+      <action>Output the weighted MIQ total</action>
+      <action>Output the consciousness level name and description</action>
+      <action>Output which Divine Values and Ethics were most relevant and how they were honored or missed</action>
+    </step>
+  </flow>
+
+  <halt-conditions>
+    <condition>HALT with error if config.yaml cannot be loaded or MIQ dimensions are missing</condition>
+    <condition>HALT with error if sacred-framework.yaml cannot be loaded</condition>
+    <condition>HALT with error if episode_id does not resolve to an existing episode file</condition>
+    <condition>If episode has no moral_context, return MIQ=0 — this is valid completion, not an error</condition>
+  </halt-conditions>
+
+</task>

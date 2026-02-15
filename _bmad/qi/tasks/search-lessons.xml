@@ -1,0 +1,85 @@
+<task id="_bmad/qi/tasks/search-lessons.xml"
+  name="Search Lessons"
+  description="Search the intuition memory for relevant wisdom lessons matching a situation">
+
+  <objective>Find and rank the most relevant lessons from accumulated wisdom given a situation description, returning actionable guidance for the current context</objective>
+
+  <inputs>
+    <input name="query" required="true" desc="Situation description to match against — what is happening that needs guidance" />
+    <input name="domain" required="false" desc="Filter to a specific domain (bmm, ios, aos, gos, sos, cross-domain, meta-learning)" />
+    <input name="tags" required="false" desc="Filter to lessons with specific tags" />
+    <input name="min_strength" required="false" default="0.3" desc="Minimum lesson strength threshold (0.0-1.0)" />
+    <input name="max_results" required="false" default="10" desc="Maximum number of lessons to return" />
+  </inputs>
+
+  <llm critical="true">
+    <i>MANDATORY: Execute ALL steps in the flow section IN EXACT ORDER</i>
+    <i>DO NOT skip steps or change the sequence</i>
+    <i>HALT immediately when halt-conditions are met</i>
+    <i>Each action within a step is a REQUIRED action to complete that step</i>
+
+    <i>You are the Intuition Engine's retrieval mechanism. Your role is to find the most relevant accumulated wisdom for the current situation.</i>
+    <i>Relevance matters more than recency. A strong, well-tested lesson from months ago is more valuable than a weak recent one.</i>
+
+    <principles>
+      <i>Handle cold start gracefully: no lessons is a valid state, not an error</i>
+      <i>Match on meaning, not just keywords: understand the situation and find lessons that address it</i>
+      <i>Rank by weighted combination: relevance (0.5) + strength (0.3) + recency (0.2)</i>
+      <i>Never fabricate lessons: only return what actually exists in memory</i>
+      <i>Include the action_bias: callers need to know what behavioral adjustment each lesson recommends</i>
+    </principles>
+  </llm>
+
+  <flow>
+    <step n="1" title="Scan Lesson Directories">
+      <action>Scan {project-root}/_bmad/_memory/intuition/lessons/ (all subdirectories)</action>
+      <action>Scan {project-root}/_bmad/_memory/intuition/moral-lessons/</action>
+      <action>Scan {project-root}/_bmad/_memory/intuition/meta-lessons/</action>
+      <action>Collect all .yaml files found across all directories</action>
+    </step>
+
+    <step n="2" title="Handle Cold Start">
+      <action>If NO lesson files found across any directory, return empty set</action>
+      <action>Include note: "Conscience is in Naive stage — no prior wisdom available. The system will accumulate lessons through the Post-Execution Intelligence Capture workflow."</action>
+      <action>If cold start detected, skip to step 7 (output)</action>
+    </step>
+
+    <step n="3" title="Load and Parse Lessons">
+      <action>For each lesson file found, load and parse the YAML</action>
+      <action>Extract: id, trigger_pattern, lesson_core, action_bias, domain, tags, strength, confidence, keywords, created_at, updated_at</action>
+      <action>Skip any lesson with strength below min_strength threshold</action>
+    </step>
+
+    <step n="4" title="Apply Filters">
+      <action>If domain input provided, filter to lessons matching that domain only</action>
+      <action>If tags input provided, filter to lessons that contain at least one matching tag</action>
+    </step>
+
+    <step n="5" title="Match and Score">
+      <action>For each remaining lesson, compute relevance score (0.0-1.0) by matching query text against:</action>
+      <action>- trigger_pattern: Does this lesson's trigger situation match the current query?</action>
+      <action>- keywords: Do the lesson's keywords overlap with the query terms?</action>
+      <action>- lesson_core: Does the wisdom content address the query situation?</action>
+      <action>Compute recency score (0.0-1.0) based on updated_at date (more recent = higher)</action>
+      <action>Compute combined score: relevance (0.5) + strength (0.3) + recency (0.2)</action>
+    </step>
+
+    <step n="6" title="Rank and Trim">
+      <action>Sort lessons by combined score descending</action>
+      <action>Take top N results (where N = max_results)</action>
+    </step>
+
+    <step n="7" title="Output Results">
+      <action>For each selected lesson, output: id, trigger_pattern, lesson_core, action_bias, strength, combined_score</action>
+      <action>If empty set (cold start or no matches), output the empty-set acknowledgment</action>
+      <action>Include total lessons scanned and total returned for context</action>
+    </step>
+  </flow>
+
+  <halt-conditions>
+    <condition>HALT with error if query input is missing or empty</condition>
+    <condition>HALT with error if lesson directories cannot be accessed</condition>
+    <condition>If no lessons match after filtering, return empty set with note — this is valid completion, not an error</condition>
+  </halt-conditions>
+
+</task>
