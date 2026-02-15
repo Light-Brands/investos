@@ -24,6 +24,8 @@ name,description,module,path
 "document-project","Analyzes and documents brownfield projects by scanning codebase, architecture, and patterns to create comprehensive reference documentation for AI-assisted development","bmm","_bmad/bmm/workflows/document-project/workflow.yaml"
 "generate-project-context","Creates a concise project-context.md file with critical rules and patterns that AI agents must follow when implementing code. Optimized for LLM context efficiency.","bmm","_bmad/bmm/workflows/generate-project-context/workflow.md"
 "qa-automate","Generate tests quickly for existing features using standard test patterns","bmm","_bmad/bmm/workflows/qa/automate/workflow.yaml"
+"ios-project-intake","Import source documents, categorize content, create master digest, identify gaps, and generate project config for downstream IOS workflows","ios","_bmad/ios/workflows/0-intake/project-intake/workflow.md"
+"ios-full-raise-orchestration","Auto-execute all IOS workflows in dependency order with progress tracking, context-aware checkpoints, and session resume capability","ios","_bmad/ios/workflows/0-orchestration/full-raise-orchestration/workflow.md"
 "ios-create-raise-strategy","Create comprehensive capital raise strategy with regulation pathway and investor targeting","ios","_bmad/ios/workflows/1-discovery/create-raise-strategy/workflow.md"
 "ios-create-strategic-foundation","Create strategic foundation with vision, mission, value proposition, and positioning","ios","_bmad/ios/workflows/1-discovery/create-strategic-foundation/workflow.md"
 "ios-market-research-investment","TAM/SAM/SOM analysis and market dynamics for investment context","ios","_bmad/ios/workflows/1-discovery/market-research-investment/workflow.md"
