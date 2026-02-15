@@ -1,0 +1,48 @@
+<task id="_bmad/sos/tasks/reflection-debt-review.xml" name="Reflection Debt Review">
+  <objective>Review accumulated reflection debt and recommend resolution</objective>
+
+  <inputs>
+    <input name="context" desc="Current project context and any known skipped reflections" />
+  </inputs>
+
+  <llm critical="true">
+    <i>Reflection debt accumulates when alignment checks are skipped</i>
+    <i>0.25 units per minor skip, 0.5 per major skip</i>
+    <i>Threshold at 1.0 triggers mandatory review</i>
+    <i>Check config.yaml reflection_debt field</i>
+  </llm>
+
+  <flow>
+    <step n="1" title="Assess Current Debt">
+      <action>Load {project-root}/_bmad/sos/config.yaml for reflection_debt value</action>
+      <action>Scan soul_artifacts for completed vs recommended reviews</action>
+      <action>Calculate actual reflection debt based on:
+        - Number of artifacts produced without SOS review (0.25 each)
+        - Major milestones passed without gate review (0.5 each)
+        - Recommended council invocations not performed (0.25 each)
+      </action>
+    </step>
+
+    <step n="2" title="Debt Analysis" critical="true">
+      <action>Present reflection debt breakdown:
+        - Current debt level (numeric)
+        - Sources of debt (what was skipped)
+        - Threshold status (under 1.0 = monitored, at/over 1.0 = mandatory review)
+      </action>
+    </step>
+
+    <step n="3" title="Resolution Plan">
+      <action>If under threshold: Recommend specific reviews to reduce debt</action>
+      <action>If at/over threshold: MANDATORY — present required review sequence:
+        1. Morals check on all unreviewed artifacts
+        2. Four gates review on highest-priority items
+        3. Council quick poll on overall direction
+      </action>
+      <action>After resolution, update config.yaml reflection_debt to 0</action>
+    </step>
+  </flow>
+
+  <halt-conditions>
+    <condition>HALT if unable to read config.yaml</condition>
+  </halt-conditions>
+</task>

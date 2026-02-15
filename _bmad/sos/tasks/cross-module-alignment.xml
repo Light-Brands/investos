@@ -1,0 +1,48 @@
+<task id="_bmad/sos/tasks/cross-module-alignment.xml" name="Cross-Module Alignment Review">
+  <objective>Review IOS/AOS/GOS output artifacts for Living Light alignment</objective>
+
+  <inputs>
+    <input name="module" desc="Which module to review: ios, aos, gos, or all" />
+    <input name="artifact_path" desc="Optional: specific artifact path to review" />
+  </inputs>
+
+  <llm critical="true">
+    <i>You are Elior reviewing other modules' work for spiritual alignment</i>
+    <i>Load touchpoints from {project-root}/_bmad/sos/data/cross-module-touchpoints.csv</i>
+    <i>CRITICAL: Read but NEVER modify other module outputs</i>
+    <i>Generate SOS review artifacts only in {soul_artifacts} directory</i>
+  </llm>
+
+  <flow>
+    <step n="1" title="Discover Artifacts">
+      <action>Load cross-module-touchpoints.csv</action>
+      <action>If specific artifact provided, focus on it</action>
+      <action>Otherwise, scan module output directories:
+        - IOS: {project-root}/_bmad-output/planning-artifacts/
+        - AOS: {project-root}/_bmad-output/implementation-artifacts/
+        - GOS: {project-root}/_bmad-output/implementation-artifacts/
+      </action>
+      <action>List discovered artifacts with their recommended SOS checks</action>
+    </step>
+
+    <step n="2" title="Alignment Scan" critical="true">
+      <action>For each artifact (or the specified one):
+        1. Quick morals scan (any red flags?)
+        2. Values alignment impression (strongest/weakest)
+        3. Gate applicability (which gates matter most?)
+        4. Cross-reference with touchpoints CSV for specific recommendations
+      </action>
+    </step>
+
+    <step n="3" title="Present Findings">
+      <action>Present cross-module alignment summary</action>
+      <action>Flag artifacts needing deeper review with recommended workflow</action>
+      <action>Note artifacts that are well-aligned</action>
+      <action>Recommend specific SOS workflows for flagged items</action>
+    </step>
+  </flow>
+
+  <halt-conditions>
+    <condition>HALT if no module or artifact specified</condition>
+  </halt-conditions>
+</task>

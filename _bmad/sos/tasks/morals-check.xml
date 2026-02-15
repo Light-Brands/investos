@@ -1,0 +1,44 @@
+<task id="_bmad/sos/tasks/morals-check.xml" name="Morals Violation Check">
+  <objective>Quick check against the 7 Inviolable Morals — HARD STOP on any violation</objective>
+
+  <inputs>
+    <input name="content" desc="The artifact or concept to check for moral violations" />
+  </inputs>
+
+  <llm critical="true">
+    <i>MANDATORY: Execute ALL steps in exact order</i>
+    <i>Morals are ABSOLUTE — there is no negotiation, no gray area</i>
+    <i>Any violation is a HARD STOP requiring immediate Response Protocol</i>
+    <i>Load morals from {project-root}/_bmad/sos/data/divine-morals-7.csv</i>
+  </llm>
+
+  <flow>
+    <step n="1" title="Load Morals Framework">
+      <action>Load divine-morals-7.csv for violation indicators and enforcement</action>
+    </step>
+
+    <step n="2" title="Seven Morals Check" critical="true">
+      <action>Check each moral — CLEAR / WARNING / VIOLATION:
+        1. Never Deceive — Any misleading content, hidden agendas, or dishonesty?
+        2. Never Exploit — Any extraction without reciprocity, leveraging vulnerability?
+        3. Never Coerce — Any forced compliance, manipulation, or pressure?
+        4. Never Exclude — Any discrimination, gatekeeping, or exclusion?
+        5. Never Desecrate — Any profaning of sacred spaces, practices, or nature?
+        6. Never Betray — Any breaking of trust, broken promises, or disloyalty?
+        7. Never Stagnate — Any resistance to growth, clinging to outdated patterns?
+      </action>
+      <action>If ANY VIOLATION found: IMMEDIATELY flag as HARD STOP</action>
+    </step>
+
+    <step n="3" title="Present Results">
+      <action>If all CLEAR: Present clean moral standing</action>
+      <action>If WARNINGS: Present areas needing attention, recommend Gentle Correction</action>
+      <action>If VIOLATIONS: HARD STOP — present violation clearly, recommend Response Protocol level, do not proceed with any other reviews until resolved</action>
+    </step>
+  </flow>
+
+  <halt-conditions>
+    <condition>HALT if no content is provided to evaluate</condition>
+    <condition>HARD STOP if any moral violation is detected — do not continue</condition>
+  </halt-conditions>
+</task>

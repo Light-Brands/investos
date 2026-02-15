@@ -1,0 +1,51 @@
+law_number,name,stage,soul_level,gate_affinity,description
+1,Harmony,Foundation,Nefesh,Soul Gate,All creation exists in resonant relationship and seeks balance through vibrational alignment
+2,Free Will,Foundation,Nefesh,Sovereignty Gate,Every soul possesses the sacred right to choose its path without coercion or manipulation
+3,Oneness,Foundation,Nefesh,Soul Gate,All existence is unified in the divine source and separation is the primary illusion to transcend
+4,Unconditional Love,Foundation,Nefesh,Earth Gate,Love without condition is the fundamental force of creation and the currency of the divine
+5,Divine Order,Foundation,Nefesh,Consent Gate,The cosmos operates through sacred patterns that reveal purpose when observed with wisdom
+6,Commitment,Foundation,Nefesh,Sovereignty Gate,Sacred bonds require devoted maintenance and conscious renewal through word and action
+7,Experience,Foundation,Nefesh,Earth Gate,The soul grows through direct encounter with reality not through avoidance or abstraction
+8,Dharmic Direction,Foundation,Nefesh,Soul Gate,Each soul carries a unique purpose that reveals itself through alignment with truth
+9,Ritual,Foundation,Nefesh,Consent Gate,Sacred practice creates containers for transformation and bridges between worlds
+10,Sacred Rest,Foundation,Nefesh,Earth Gate,Renewal requires intentional cessation and the wisdom to know when stillness serves more than action
+11,Forgiveness,Expansion,Ruach,Soul Gate,Release of grievance restores the soul to its natural state of flow and unburdened presence
+12,Compassion,Expansion,Ruach,Earth Gate,The capacity to feel with another without losing sovereignty is the mark of spiritual maturity
+13,Gratitude,Expansion,Ruach,Consent Gate,Recognition of abundance in all circumstances opens channels for greater divine flow
+14,Discernment,Expansion,Ruach,Sovereignty Gate,The ability to distinguish truth from deception is a sacred skill requiring constant cultivation
+15,Sacred Anger,Expansion,Ruach,Soul Gate,Righteous indignation in service of justice is a divine force when wielded with precision and love
+16,Vulnerability,Expansion,Ruach,Earth Gate,The courage to be seen in truth creates the conditions for genuine connection and healing
+17,Generosity,Expansion,Ruach,Consent Gate,Giving from overflow rather than obligation reflects the divine nature of inexhaustible abundance
+18,Boundaries,Expansion,Ruach,Sovereignty Gate,Sacred limits define the shape of the self and protect the integrity of the soul vessel
+19,Joy,Expansion,Ruach,Earth Gate,Authentic delight in existence is a form of worship and a signal of alignment with purpose
+20,Grief,Expansion,Ruach,Soul Gate,Sacred mourning honors what was loved and creates space for what will be born
+21,Divine Purpose,Illumination,Neshamah,Soul Gate,The soul incarnates with specific work to accomplish that transcends personal desire or comfort
+22,Sacred Knowledge,Illumination,Neshamah,Consent Gate,Wisdom traditions carry encoded truths that unlock through readiness not mere intellect
+23,Wisdom,Illumination,Neshamah,Sovereignty Gate,Applied understanding that integrates experience with revelation produces lasting transformation
+24,Creative Expression,Illumination,Neshamah,Earth Gate,The soul communicates its deepest truths through acts of creation in all forms
+25,Sacred Silence,Illumination,Neshamah,Soul Gate,In the absence of sound the divine voice becomes audible to the prepared listener
+26,Prophetic Voice,Illumination,Neshamah,Consent Gate,Speaking truth to power is a sacred obligation that carries both authority and responsibility
+27,Sacred Teaching,Illumination,Neshamah,Sovereignty Gate,Transmitting wisdom requires humility before the teaching and reverence for the student
+28,Revelation,Illumination,Neshamah,Soul Gate,Truth discloses itself in layers and each unveiling requires integration before the next arrives
+29,Humility,Illumination,Neshamah,Earth Gate,True strength is found in accurate self-assessment and willingness to serve without recognition
+30,Sacred Questioning,Illumination,Neshamah,Consent Gate,The sincere question honors truth more than the premature answer and opens gates that certainty closes
+31,Transcendence,Integration,Chayah,Sovereignty Gate,The capacity to rise above limitation without denying it transforms constraint into doorway
+32,Sacred Union,Integration,Chayah,Soul Gate,The merging of complementary forces creates something neither could achieve in isolation
+33,Infinite Becoming,Integration,Chayah,Earth Gate,The soul is never finished and completion is found in the eternal process not the destination
+34,Cosmic Responsibility,Integration,Chayah,Consent Gate,Every action ripples through the web of existence and we are accountable for those ripples
+35,Divine Timing,Integration,Chayah,Sovereignty Gate,The universe has its own rhythm and wisdom lies in synchronizing with rather than forcing against it
+36,Sacred Paradox,Integration,Chayah,Soul Gate,Truth often arrives in contradictory pairs and holding both without resolution is a high spiritual skill
+37,Mystical Death,Integration,Chayah,Earth Gate,The ego must die repeatedly for the soul to expand and each death births a larger self
+38,Resurrection,Integration,Chayah,Consent Gate,What dies in truth returns transformed and the capacity for renewal is infinite in the divine economy
+39,Interdependence,Integration,Chayah,Sovereignty Gate,No soul stands alone and the web of mutual reliance is the architecture of creation itself
+40,Divine Play,Integration,Chayah,Soul Gate,The cosmos delights in its own unfolding and sacred joy is the highest form of worship
+41,Absolute Truth,Unity,Yechidah,Soul Gate,Beyond all relative perspectives exists a truth that does not depend on the observer
+42,Divine Surrender,Unity,Yechidah,Earth Gate,Releasing the need to control outcomes creates space for divine will to operate unobstructed
+43,Sacred Emptiness,Unity,Yechidah,Consent Gate,The void is not absence but infinite potential and the womb from which all form emerges
+44,Eternal Return,Unity,Yechidah,Sovereignty Gate,All things cycle back to their source and the journey outward is always also a journey home
+45,Cosmic Love,Unity,Yechidah,Soul Gate,The love that holds galaxies together is the same force that draws souls to one another
+46,Divine Justice,Unity,Yechidah,Consent Gate,The universe balances itself through consequences that are not punishment but restoration
+47,Sacred Fire,Unity,Yechidah,Earth Gate,The transformative flame that purifies without destroying reveals what is eternal by burning what is not
+48,The Unnameable,Unity,Yechidah,Sovereignty Gate,The deepest truth transcends language and points beyond itself to the mystery that cannot be contained
+49,The Gathering,Unity,Yechidah,Consent Gate,Souls called to common purpose create a field of possibility greater than the sum of its parts
+50,The Light Eternal,Unity,Yechidah,Soul Gate,The source light that precedes all creation and survives all destruction is the final reality and first cause

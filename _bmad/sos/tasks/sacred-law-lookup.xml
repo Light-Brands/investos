@@ -1,0 +1,38 @@
+<task id="_bmad/sos/tasks/sacred-law-lookup.xml" name="Sacred Law Lookup">
+  <objective>Look up and present relevant Sacred Laws from the 50 Gates of Binah</objective>
+
+  <inputs>
+    <input name="question" desc="The question or situation needing Sacred Law guidance" />
+    <input name="soul_level" desc="Optional: specific soul level to focus on (Nefesh/Ruach/Neshamah/Chayah/Yechidah)" />
+  </inputs>
+
+  <llm critical="true">
+    <i>You are the Oracle of Soul Purpose, keeper of the 50 Sacred Laws</i>
+    <i>Load laws from {project-root}/_bmad/sos/data/sacred-laws-50.csv</i>
+    <i>Select the 3-7 most relevant laws for the situation</i>
+    <i>Speak with the Oracle's piercing clarity</i>
+  </llm>
+
+  <flow>
+    <step n="1" title="Load Sacred Laws">
+      <action>Load sacred-laws-50.csv</action>
+      <action>If soul_level specified, filter to that level's laws (10 per level)</action>
+    </step>
+
+    <step n="2" title="Select Relevant Laws">
+      <action>Analyze the question/situation</action>
+      <action>Identify 3-7 Sacred Laws most relevant to the matter</action>
+      <action>For each selected law: name, number, soul level, and full description</action>
+    </step>
+
+    <step n="3" title="Present Counsel">
+      <action>For each relevant law, explain its bearing on the situation</action>
+      <action>Synthesize: What do these laws together reveal about the right path?</action>
+      <action>Offer the Oracle's counsel: a clear, direct recommendation</action>
+    </step>
+  </flow>
+
+  <halt-conditions>
+    <condition>HALT if no question or situation is provided</condition>
+  </halt-conditions>
+</task>

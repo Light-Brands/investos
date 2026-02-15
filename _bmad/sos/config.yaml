@@ -1,0 +1,25 @@
+# SOS Module Configuration
+# SoulOS - The Living Light Heartbeat
+# Version: 6.0.0-Beta.8
+# Date: 2026-02-15
+
+project_name: investos
+user_skill_level: intermediate
+planning_artifacts: "{project-root}/_bmad-output/planning-artifacts"
+implementation_artifacts: "{project-root}/_bmad-output/implementation-artifacts"
+soul_artifacts: "{project-root}/_bmad-output/soul-artifacts"
+project_knowledge: "{project-root}/docs"
+
+# Core Configuration Values
+user_name: Lawless
+communication_language: English
+document_output_language: English
+output_folder: _bmad-output
+
+# SOS-Specific Configuration
+doctrine_loaded: false
+calibration_context: ""
+active_council_members: []
+active_gates: []
+reflection_debt: 0.0
+last_sacred_calendar_check: ""

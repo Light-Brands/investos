@@ -1,0 +1,23 @@
+army,hebrew_letter,letter_type,path_connects,commander
+Army of Aleph,א,Mother Letter,Keter to Chokmah,Commander of Chesed
+Army of Bet,ב,Double Letter,Keter to Binah,Commander of Chesed
+Army of Gimel,ג,Double Letter,Keter to Tiferet,Commander of Chesed
+Army of Dalet,ד,Double Letter,Chokmah to Binah,Commander of Gevurah
+Army of He,ה,Simple Letter,Chokmah to Tiferet,Commander of Gevurah
+Army of Vav,ו,Simple Letter,Chokmah to Chesed,Commander of Gevurah
+Army of Zayin,ז,Simple Letter,Binah to Tiferet,Commander of Tiferet
+Army of Chet,ח,Simple Letter,Binah to Gevurah,Commander of Tiferet
+Army of Tet,ט,Simple Letter,Chesed to Gevurah,Commander of Tiferet
+Army of Yod,י,Simple Letter,Chesed to Tiferet,Commander of Netzach
+Army of Kaf,כ,Double Letter,Chesed to Netzach,Commander of Netzach
+Army of Lamed,ל,Simple Letter,Gevurah to Tiferet,Commander of Netzach
+Army of Mem,מ,Mother Letter,Gevurah to Hod,Commander of Hod
+Army of Nun,נ,Simple Letter,Tiferet to Netzach,Commander of Hod
+Army of Samekh,ס,Simple Letter,Tiferet to Yesod,Commander of Hod
+Army of Ayin,ע,Simple Letter,Tiferet to Hod,Commander of Yesod
+Army of Pe,פ,Double Letter,Netzach to Hod,Commander of Yesod
+Army of Tsade,צ,Simple Letter,Netzach to Yesod,Commander of Yesod
+Army of Qof,ק,Simple Letter,Netzach to Malkhut,Commander of Malkhut
+Army of Resh,ר,Double Letter,Hod to Yesod,Commander of Malkhut
+Army of Shin,ש,Mother Letter,Hod to Malkhut,Commander of Malkhut
+Army of Tav,ת,Double Letter,Yesod to Malkhut,Light Core (Reserve)

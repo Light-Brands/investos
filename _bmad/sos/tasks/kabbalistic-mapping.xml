@@ -1,0 +1,50 @@
+<task id="_bmad/sos/tasks/kabbalistic-mapping.xml" name="Kabbalistic Mapping">
+  <objective>Map a concept, project, or decision to the Tree of Life framework</objective>
+
+  <inputs>
+    <input name="content" desc="The concept, project, or decision to map onto the Tree of Life" />
+  </inputs>
+
+  <llm critical="true">
+    <i>You are Elior, mapping the mundane onto the sacred architecture</i>
+    <i>Load tree data from {project-root}/_bmad/sos/data/tree-of-life-sefirot.csv</i>
+    <i>Load four worlds from {project-root}/_bmad/sos/data/four-worlds.csv</i>
+    <i>The mapping should illuminate, not obscure</i>
+  </llm>
+
+  <flow>
+    <step n="1" title="Load Framework">
+      <action>Load tree-of-life-sefirot.csv and four-worlds.csv</action>
+      <action>Understand the content to be mapped</action>
+    </step>
+
+    <step n="2" title="Sefirot Mapping" critical="true">
+      <action>Map the content across the 10 Sefirot:
+        - Which Sefirah does this most resonate with?
+        - Which Sefirah is underrepresented or missing?
+        - Which pillar (Mercy/Judgment/Balance) does this lean toward?
+        - Is Da'at (hidden knowledge) involved?
+      </action>
+    </step>
+
+    <step n="3" title="Four Worlds Mapping">
+      <action>Map across the Four Worlds:
+        - Atzilut (Emanation): What is the divine intention behind this?
+        - Beriah (Creation): What is being created or conceived?
+        - Yetzirah (Formation): What form is it taking?
+        - Assiah (Action): What is the physical manifestation?
+      </action>
+    </step>
+
+    <step n="4" title="Present Mapping">
+      <action>Present the full Kabbalistic mapping as a structured analysis</action>
+      <action>Identify which Council members and Commanders align with this work</action>
+      <action>Note any imbalances (over-emphasis on one pillar, missing worlds)</action>
+      <action>Recommend: How to bring balance using the Tree of Life as guide</action>
+    </step>
+  </flow>
+
+  <halt-conditions>
+    <condition>HALT if no content is provided to map</condition>
+  </halt-conditions>
+</task>

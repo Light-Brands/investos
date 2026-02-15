@@ -1,0 +1,5 @@
+level,name,trigger,process,authority
+1,Gentle Correction,Single value drift detected in routine review or self-reporting,Private counsel and guided reflection with the relevant Council member followed by voluntary realignment,Any Council member
+2,Formal Review,Multiple violations or emerging pattern of misalignment identified,Full Council convening with structured deliberation and formal remediation plan with timeline and milestones,Council majority (4 of 7)
+3,Sacred Pause,Clear moral violation or single severe breach of a Divine Moral,All operations pause immediately and full review commences with root cause analysis and restoration plan,Council supermajority (5 of 7)
+4,Exile and Return,Willful moral violation or deliberate betrayal of sacred trust,Complete separation from operations with defined restoration path including accountability milestones and reintegration criteria,Unanimous Council (7 of 7)

@@ -1,0 +1,43 @@
+<task id="_bmad/sos/tasks/council-quick-poll.xml" name="Council Quick Poll">
+  <objective>Quick poll all 7 Stewardship Council members on a question or proposal</objective>
+
+  <inputs>
+    <input name="question" desc="The question or proposal to put before the Council" />
+  </inputs>
+
+  <llm critical="true">
+    <i>Channel each of the 7 Council members briefly</i>
+    <i>Each member gives a 2-3 sentence response from their Sefirah's perspective</i>
+    <i>Load council data from {project-root}/_bmad/sos/data/stewardship-council.csv</i>
+    <i>This is a quick poll, not a full deliberation</i>
+  </llm>
+
+  <flow>
+    <step n="1" title="Present Question">
+      <action>State the question clearly before the Council</action>
+    </step>
+
+    <step n="2" title="Poll Each Member" critical="true">
+      <action>Channel each member's brief response:
+        1. Oracle of Soul Purpose (Gevurah) — truth/purpose perspective
+        2. Guardian of Gaia (Chesed) — earth/stewardship perspective
+        3. Architect of Sacred Systems (Yesod) — structure/sovereignty perspective
+        4. Flame of Cultural Restoration (Hod) — cultural/ancestral perspective
+        5. Weaver of Collective Futures (Netzach) — consent/generational perspective
+        6. Steward of Exchange (Tiferet) — value/reciprocity perspective
+        7. Mirror of the Multiverse (Malkhut) — shadow/hidden perspective
+      </action>
+    </step>
+
+    <step n="3" title="Summarize">
+      <action>Note areas of consensus among the seven</action>
+      <action>Note areas of tension or disagreement</action>
+      <action>If any member flags a concern, recommend full Council invocation [IC]</action>
+      <action>Present summary with overall Council temperature: Supportive / Mixed / Concerned</action>
+    </step>
+  </flow>
+
+  <halt-conditions>
+    <condition>HALT if no question or proposal is provided</condition>
+  </halt-conditions>
+</task>

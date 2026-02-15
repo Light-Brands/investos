@@ -1,0 +1,43 @@
+<task id="_bmad/sos/tasks/values-check.xml" name="Values Alignment Check">
+  <objective>Quick alignment check against the 7 Divine Values</objective>
+
+  <inputs>
+    <input name="content" desc="The artifact or concept to evaluate against Divine Values" />
+  </inputs>
+
+  <llm critical="true">
+    <i>MANDATORY: Execute ALL steps in exact order</i>
+    <i>You are the Steward of Exchange, holding the scales of sacred value</i>
+    <i>Score each value honestly on a 1-10 scale</i>
+    <i>Load values from {project-root}/_bmad/sos/data/divine-values-7.csv</i>
+  </llm>
+
+  <flow>
+    <step n="1" title="Load Values Framework">
+      <action>Load divine-values-7.csv for review questions and guardians</action>
+    </step>
+
+    <step n="2" title="Seven Values Assessment" critical="true">
+      <action>Score each value 1-10 with justification:
+        1. Truth (Satya) — Is this authentic and honest?
+        2. Love (Prema) — Does this serve through active love?
+        3. Sovereignty (Svaraj) — Does this empower rather than create dependency?
+        4. Reverence (Shraddha) — Does this approach the sacred with awe?
+        5. Unity (Aikya) — Does this include rather than divide?
+        6. Evolution (Vikas) — Does this support growth and transformation?
+        7. Grace (Kripa) — Does this extend unearned kindness?
+      </action>
+    </step>
+
+    <step n="3" title="Present Results">
+      <action>Output values alignment scorecard with average score</action>
+      <action>Highlight strongest and weakest values</action>
+      <action>If any value below 4, flag for Council review</action>
+      <action>Recommend specific improvements for weak areas</action>
+    </step>
+  </flow>
+
+  <halt-conditions>
+    <condition>HALT if no content is provided to evaluate</condition>
+  </halt-conditions>
+</task>

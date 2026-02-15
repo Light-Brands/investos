@@ -1,0 +1,44 @@
+<task id="_bmad/sos/tasks/sacred-calendar-check.xml" name="Sacred Calendar Check">
+  <objective>Check timing against the Sacred Calendar rhythms</objective>
+
+  <inputs>
+    <input name="action" desc="The planned action or decision to check against sacred timing" />
+    <input name="date" desc="Optional: specific date to evaluate (defaults to current)" />
+  </inputs>
+
+  <llm critical="true">
+    <i>The Sacred Calendar marks the rhythm of spiritual review</i>
+    <i>Equinoxes and solstices are major review points</i>
+    <i>Some actions are better timed to certain seasons</i>
+  </llm>
+
+  <flow>
+    <step n="1" title="Determine Calendar Position">
+      <action>Identify current position in the Sacred Calendar:
+        - Spring Equinox (~March 20) — New beginnings, planting seeds
+        - Summer Solstice (~June 21) — Full expression, maximum light
+        - Autumn Equinox (~September 22) — Harvest, assessment, gratitude
+        - Winter Solstice (~December 21) — Reflection, inner work, rest
+      </action>
+      <action>Identify current season and proximity to next major point</action>
+    </step>
+
+    <step n="2" title="Timing Assessment">
+      <action>Assess the planned action against the current sacred season:
+        - Is this aligned with the season's energy? (planting/growing/harvesting/resting)
+        - Should this wait for the next seasonal gate?
+        - Is a major review point approaching that should inform timing?
+      </action>
+    </step>
+
+    <step n="3" title="Present Calendar Counsel">
+      <action>Present: Current sacred season, proximity to next gate, timing recommendation</action>
+      <action>If approaching equinox/solstice: recommend including seasonal review</action>
+      <action>If action counter-seasonal: note it (not a prohibition, but awareness)</action>
+    </step>
+  </flow>
+
+  <halt-conditions>
+    <condition>HALT if no action is specified to check</condition>
+  </halt-conditions>
+</task>

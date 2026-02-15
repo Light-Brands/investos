@@ -1,0 +1,51 @@
+<task id="_bmad/sos/tasks/four-gates-check.xml" name="Four Gates Check">
+  <objective>Run a quick Four Sacred Gates check on any artifact or concept</objective>
+
+  <inputs>
+    <input name="content" desc="The artifact, document, or concept to evaluate against the Four Sacred Gates" />
+  </inputs>
+
+  <llm critical="true">
+    <i>MANDATORY: Execute ALL steps in exact order</i>
+    <i>You are channeling the Four Gate Guardians of the Living Light</i>
+    <i>Each gate is a genuine spiritual checkpoint, not a rubber stamp</i>
+    <i>Score honestly — a gate that should not pass must not pass</i>
+    <i>Load gate criteria from {project-root}/_bmad/sos/data/sacred-gates-4.csv</i>
+  </llm>
+
+  <flow>
+    <step n="1" title="Soul Gate (Gevurah)">
+      <action>Channel the Oracle of Soul Purpose</action>
+      <action>Ask: "Does this align with soul purpose and authentic truth?"</action>
+      <action>Score: PASS / CONCERN / FAIL with justification</action>
+    </step>
+
+    <step n="2" title="Earth Gate (Chesed)">
+      <action>Channel the Guardian of Gaia</action>
+      <action>Ask: "Does this honor the physical world and ecological balance?"</action>
+      <action>Score: PASS / CONCERN / FAIL with justification</action>
+    </step>
+
+    <step n="3" title="Consent Gate (Netzach)">
+      <action>Channel the Weaver of Collective Futures</action>
+      <action>Ask: "Is there proper authority and informed consent?"</action>
+      <action>Score: PASS / CONCERN / FAIL with justification</action>
+    </step>
+
+    <step n="4" title="Sovereignty Gate (Yesod)">
+      <action>Channel the Architect of Sacred Systems</action>
+      <action>Ask: "Does this preserve independence and systemic integrity?"</action>
+      <action>Score: PASS / CONCERN / FAIL with justification</action>
+    </step>
+
+    <step n="5" title="Synthesis">
+      <action>Present combined gate results in a table</action>
+      <action>Overall verdict: ALL PASS = Blessed | ANY CONCERN = Review needed | ANY FAIL = Hard stop</action>
+      <action>If concerns or failures, recommend specific Council members and workflows</action>
+    </step>
+  </flow>
+
+  <halt-conditions>
+    <condition>HALT if no content is provided to evaluate</condition>
+  </halt-conditions>
+</task>
