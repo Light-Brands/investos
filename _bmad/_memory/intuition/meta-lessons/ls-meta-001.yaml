@@ -1,0 +1,41 @@
+# Meta-Lesson: Verify automated audit findings before acting on them
+id: "ls-meta-001"
+version: 1
+created_at: "2026-02-15T12:00:00Z"
+updated_at: "2026-02-15T12:00:00Z"
+
+trigger_pattern: "When an automated audit or sub-agent reports missing resources, broken references, or other defects"
+lesson_core: "Always verify automated findings manually before acting on them. Sub-agents and scripts can have false positives due to pattern matching limitations. In the QI Phase 1 build, a sub-agent reported 5 missing agent manifest entries that actually existed — the grep pattern was too narrow. Manual verification took 10 seconds and prevented unnecessary remediation work."
+action_bias:
+  type: require
+  target: "manual verification of automated audit findings before remediation"
+  magnitude: 0.9
+  conditions:
+    - "Automated tool reports a defect or missing resource"
+    - "The finding would trigger remediation work"
+
+domain: meta-learning
+tags:
+  - verification
+  - false-positives
+  - automated-audits
+  - trust-but-verify
+situation_types:
+  - audit-review
+  - quality-check
+  - sub-agent-output
+
+strength: 0.5
+confidence: 0.8
+application_count: 0
+reinforcement_history: []
+
+source_episodes:
+  - "ep-qi-claude-2026-02-15-001"
+
+keywords:
+  - automated audit
+  - false positive
+  - manual verification
+  - sub-agent
+  - grep pattern

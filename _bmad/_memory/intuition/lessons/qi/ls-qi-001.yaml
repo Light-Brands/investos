@@ -1,0 +1,40 @@
+# Lesson: Read all reference patterns before writing any code
+id: "ls-qi-001"
+version: 1
+created_at: "2026-02-15T12:00:00Z"
+updated_at: "2026-02-15T12:00:00Z"
+
+trigger_pattern: "When implementing new artifacts that must follow established patterns in a framework with multiple conventions"
+lesson_core: "Read ALL reference pattern files in parallel before writing any new code. This prevents rework from pattern mismatches and ensures consistency across the ecosystem. In the QI Phase 1 build, reading 7 reference files upfront (XML task, MD step-file workflow, YAML+instructions workflow, agent definition, config, schemas) meant zero rework across 15 new files."
+action_bias:
+  type: require
+  target: "parallel reading of all reference patterns before implementation"
+  magnitude: 0.8
+  conditions:
+    - "Building new artifacts that must match existing framework patterns"
+    - "Multiple pattern types exist in the codebase"
+
+domain: qi
+tags:
+  - pattern-matching
+  - implementation-efficiency
+  - framework-consistency
+  - parallel-reads
+situation_types:
+  - framework-extension
+  - multi-file-implementation
+
+strength: 0.5
+confidence: 0.7
+application_count: 0
+reinforcement_history: []
+
+source_episodes:
+  - "ep-qi-claude-2026-02-15-001"
+
+keywords:
+  - reference patterns
+  - parallel reading
+  - framework consistency
+  - zero rework
+  - implementation order
