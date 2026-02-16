@@ -1,0 +1,42 @@
+# Lesson: Commit generated learning artifacts immediately, don't leave uncommitted
+id: "ls-core-001"
+version: 1
+created_at: "2026-02-16T04:30:00Z"
+updated_at: "2026-02-16T04:30:00Z"
+
+trigger_pattern: "After generating episodes, lessons, or other learning artifacts through QI workflows or system reflection processes"
+lesson_core: "Commit learning artifacts to git immediately after creation, not at end of session or 'when convenient'. Uncommitted files are vulnerable to loss during troubleshooting, config resets, or system maintenance. Even though no actual data loss occurred in this episode (the '8 lessons' was a counting error), the investigation revealed that IF lessons had existed uncommitted, they would have been lost during the plugin troubleshooting cleanup. Commit immediately = preserve learning."
+action_bias:
+  type: require
+  target: "immediate git commit after lesson/episode creation"
+  magnitude: 0.95
+  conditions:
+    - "New lesson YAML created"
+    - "New episode YAML created"
+    - "QI workflow completes with artifacts"
+
+domain: core
+tags:
+  - git-hygiene
+  - data-preservation
+  - learning-integrity
+  - commit-discipline
+situation_types:
+  - post-lesson-extraction
+  - post-episode-capture
+  - qi-workflow-completion
+
+strength: 0.5
+confidence: 0.8
+application_count: 0
+reinforcement_history: []
+
+source_episodes:
+  - "ep-qi-troubleshooting-2026-02-16-002"
+
+keywords:
+  - immediate commit
+  - preserve learning
+  - git discipline
+  - uncommitted vulnerability
+  - learning artifacts

@@ -1,0 +1,42 @@
+# Meta-Lesson: Verify measurement methods before assuming data loss or corruption
+id: "ls-meta-002"
+version: 1
+created_at: "2026-02-16T04:30:00Z"
+updated_at: "2026-02-16T04:30:00Z"
+
+trigger_pattern: "When observed system state doesn't match expected state or previous reports (e.g., 'I thought we had 8 lessons but now I see 3'), before concluding data loss, corruption, or system failure"
+lesson_core: "First verify that the measurement method is consistent and correct. In the troubleshooting episode, Quinn reported '8 lessons' in multiple sessions but git showed only 3. Before concluding 5 lessons were lost, should have verified: HOW was the original count of 8 obtained? The investigation revealed the counting method was flawed (counting directories instead of files), not the data. Verify measurement before assuming failure."
+action_bias:
+  type: require
+  target: "measurement method verification before data loss investigation"
+  magnitude: 0.85
+  conditions:
+    - "Reported state conflicts with observed state"
+    - "Previous session claimed different count/status than current"
+    - "About to investigate potential data loss or corruption"
+
+domain: meta-learning
+tags:
+  - measurement-verification
+  - false-positive-prevention
+  - investigation-methodology
+  - root-cause-analysis
+situation_types:
+  - state-discrepancy
+  - data-integrity-investigation
+  - troubleshooting
+
+strength: 0.5
+confidence: 0.9
+application_count: 0
+reinforcement_history: []
+
+source_episodes:
+  - "ep-qi-troubleshooting-2026-02-16-002"
+
+keywords:
+  - verify measurement
+  - method before data
+  - false data loss
+  - counting error
+  - investigation methodology

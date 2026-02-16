@@ -1,0 +1,42 @@
+# Lesson: Use explicit file-type filters when counting content, not directory listings
+id: "ls-qi-003"
+version: 1
+created_at: "2026-02-16T04:30:00Z"
+updated_at: "2026-02-16T04:30:00Z"
+
+trigger_pattern: "When reporting system state counts (files, lessons, episodes, artifacts), especially when the count is used to make claims about system integrity or progress"
+lesson_core: "Always count actual content files with explicit type filters (`find -name '*.yaml' -type f`), never use directory listings that can include subdirectories, headers, or navigation entries. In the troubleshooting episode, `ls -la lessons/` showed 8 subdirectories which were mistaken for 8 lesson files, causing false belief that 5 lessons were lost. The real count (3 files) was only discovered when using `find ... -type f | wc -l`."
+action_bias:
+  type: require
+  target: "explicit file-type filtering in all content counts"
+  magnitude: 0.9
+  conditions:
+    - "Reporting system state based on file counts"
+    - "Making claims about data presence, loss, or growth"
+    - "Comparing counts across sessions or time periods"
+
+domain: qi
+tags:
+  - measurement-accuracy
+  - file-counting
+  - cognitive-error
+  - state-verification
+situation_types:
+  - state-reporting
+  - data-integrity-check
+  - progress-tracking
+
+strength: 0.5
+confidence: 0.9
+application_count: 0
+reinforcement_history: []
+
+source_episodes:
+  - "ep-qi-troubleshooting-2026-02-16-002"
+
+keywords:
+  - file count
+  - directory vs file
+  - measurement method
+  - type filter
+  - wc -l accuracy

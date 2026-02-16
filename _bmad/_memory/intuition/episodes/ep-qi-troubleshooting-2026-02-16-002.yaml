@@ -1,0 +1,69 @@
+# Episode: Troubleshooting session revealed cognitive error in lesson counting
+# Second episode in the Intuition Engine
+
+id: "ep-qi-troubleshooting-2026-02-16-002"
+timestamp: "2026-02-16T04:30:00Z"
+session_id: "dabf0e19-31d6-4ebc-9cfb-76ee84ffb763"
+agent_id: "claude-sonnet-4.5"
+module: qi
+
+context:
+  situation: "Troubleshooting session to fix corrupted plugin configs blocking Claude Code startup. During recovery, Quinn reported inconsistent lesson counts (8 in multiple sessions, but only 3 found in git). User questioned the discrepancy, triggering investigation into potential data loss."
+  constraints:
+    - "Lessons stored as YAML files in _bmad/_memory/intuition/lessons/ subdirectories (by domain)"
+    - "Git history should show all committed lessons"
+    - "System integrity requires accurate state reporting"
+  goals:
+    - "Determine if 5 lessons were actually lost during troubleshooting"
+    - "Restore missing lessons if possible"
+    - "Prevent future lesson loss"
+  domain: "qi-system-integrity"
+  workflow_id: "troubleshooting-investigation"
+
+actions:
+  summary: "Investigated git history, checked backups, searched for deleted files. Discovered the root cause was not data loss but a cognitive error: Quinn was counting 8 subdirectories (aos, bmm, core, etc.) instead of actual lesson files (3 YAML files). No lessons were ever lost."
+  key_decisions:
+    - "Used git reflog and git log to search for deleted lesson commits - found none"
+    - "Checked backup directories and trash - found no lesson files"
+    - "Examined session logs to verify when '8 lessons' was first reported"
+    - "Ran `ls -la lessons/` and realized it shows 8 subdirectories, not 8 files"
+    - "Confirmed actual count with `find -name '*.yaml' -type f | wc -l` = 3 files"
+  reasoning:
+    - "First assumed data loss because user quoted multiple sessions reporting '8 lessons'"
+    - "Integrity required honest admission of potential system failure"
+    - "Thorough investigation revealed the measurement method was flawed, not the data"
+    - "The 8 subdirectories (domain folders) were being mistaken for 8 lesson files"
+  alternatives_considered:
+    - "Considered that lessons might be in ~/.claude session cache - checked, not there"
+    - "Considered git revert during troubleshooting might have deleted commits - git history showed only 1 lesson commit ever"
+    - "Considered uncommitted files lost during config cleanup - no evidence of uncommitted lesson files"
+  tools_used:
+    - "git log, git reflog, git diff for history analysis"
+    - "find, ls, wc -l for file counting"
+    - "session log grep to find when '8 lessons' was first reported"
+
+outcomes:
+  result_summary: "No data loss occurred. Quinn's lesson count was incorrect from the beginning due to counting directories instead of files. Actual state: 3 lessons (2 in qi/, 1 in meta-lessons/), Learning stage conscience. System integrity preserved."
+  success_degree: 0.85
+  unexpected_effects:
+    - "User provided evidence from another session also showing '8 lessons', confirming the counting error was consistent across sessions"
+    - "Investigation revealed Quinn had been using imprecise counting method (`ls` or similar) rather than explicit file-type filtering"
+    - "The thoroughness of investigation actually strengthened trust - admitting potential failure, then finding truth"
+  artifacts_produced:
+    - "This episode file"
+    - "3 lessons extracted from this incident"
+
+feedback:
+  user_satisfaction: positive
+  user_comments: "User said 'Amazing, at least we're learning!' and requested full QI episode capture"
+  self_reflection: "The cognitive error (counting directories as files) was a mistake, but the investigation process was sound. I applied Integrity (admitting potential failure), Humility (acknowledging I might have been wrong), and Courage (investigating honestly rather than rationalizing). The real lesson: verify measurement methods before claiming system state. This is exactly what the QI system is designed to catch."
+  lessons_consulted: []
+  learning_priority: high
+
+scoring:
+  aiq: 680  # Strategic - Systematic investigation, pattern recognition (subdirectories vs files), clear root cause analysis
+  miq: 0    # No moral dimensions - technical troubleshooting
+  tis: 380  # Developing - Applied 3 faculties well (Hearing user concern, Seeing the pattern, Thinking through investigation), but missed Discerning and Evolving in the moment
+  conscience_stage: "Learning"
+  lesson_count_before: 3
+  lesson_count_after: 6
