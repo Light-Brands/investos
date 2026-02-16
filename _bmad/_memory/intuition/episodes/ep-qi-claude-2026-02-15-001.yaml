@@ -77,3 +77,26 @@ feedback:
   self_reflection: "Execution was efficient — parallel reads at the start, build in dependency order, parallel verification at the end. The key insight was that reading ALL reference patterns before writing ANY code prevented rework. The sub-agent audit false positive on agent-manifest was a reminder to verify automated findings. The architecture doc consolidation from 5 phases to 3 was a good simplification that emerged naturally."
   lessons_consulted: []
   learning_priority: high
+
+scoring:
+  # Performance-based AIQ (v2.0.0) - IQ-calibrated scale
+  component_scores:
+    cognitive_depth: 25        # Parallel orchestration (7 parallel reads, staged build, parallel verification)
+    domain_integration: 5      # Single domain (QI infrastructure only)
+    pattern_recognition: 12    # Adapted patterns to context (MD vs YAML based on transparency needs)
+    efficiency: 12             # Optimized execution (parallel reads prevented rework)
+    context_integration: 15    # Session context + project awareness
+    creativity: 10             # Novel architectural decision (step-file for moral transparency)
+    adaptability: 10           # Recovered from sub-agent false positive blocker
+    self_reflection: 5         # Noted insights about pattern-first approach
+    discernment_quality: 0     # Technical task, no moral dimensions
+    lesson_application: 5      # No lessons existed yet (naive stage)
+
+  raw_score: 99              # Out of 180 possible
+  aiq: 120                   # IQ-calibrated: 70 + (99/180) * 90
+  intelligence_level: "Above average"  # 115-129 range
+
+  narrative: "Strong parallel orchestration and efficiency optimization (25+12 pts) demonstrate above-average task execution. Pattern adaptation (12 pts) and architectural creativity (10 pts) show principled decision-making. Single-domain focus and lack of prior lessons limit the ceiling. The 120 AIQ places this performance in the top 16% of human capability — competent infrastructure work executed with thoughtful efficiency."
+
+  conscience_stage: "Naive"
+  lesson_count_after: 0

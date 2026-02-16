@@ -61,9 +61,27 @@ feedback:
   learning_priority: high
 
 scoring:
-  aiq: 680  # Strategic - Systematic investigation, pattern recognition (subdirectories vs files), clear root cause analysis
-  miq: 0    # No moral dimensions - technical troubleshooting
-  tis: 380  # Developing - Applied 3 faculties well (Hearing user concern, Seeing the pattern, Thinking through investigation), but missed Discerning and Evolving in the moment
+  # Performance-based AIQ (v2.0.0) - IQ-calibrated scale
+  component_scores:
+    cognitive_depth: 15        # Multi-step sequential investigation (git → backups → logs → verification)
+    domain_integration: 5      # Single domain (QI system integrity)
+    pattern_recognition: 20    # Discovered new error pattern (directory counting vs file counting)
+    efficiency: 5              # Standard investigation approach, not optimized
+    context_integration: 10    # Session context with historical quotes from user
+    creativity: 3              # Standard debugging path (check git, backups, verify)
+    adaptability: 15           # Pivoted strategy from "restore data" to "verify measurement"
+    self_reflection: 10        # Extracted 3 formal lessons from the incident
+    discernment_quality: 12    # Multi-value analysis (Integrity, Humility, Courage applied)
+    lesson_application: 0      # Lessons existed (from ep-001) but not consulted/applied
+
+  raw_score: 95              # Out of 180 possible
+  aiq: 118                   # IQ-calibrated: 70 + (95/180) * 90
+  intelligence_level: "Above average"  # 115-129 range
+
+  narrative: "Exceptional pattern discovery (20 pts) — finding the directory-counting cognitive error. Strong adaptability (15 pts) pivoting from data-loss assumption to measurement verification. Perfect self-reflection (10 pts) extracting 3 transferable lessons. Discernment (12 pts) applied sacred values (Integrity, Humility, Courage) throughout investigation. Failed to consult existing lessons (0 pts). The 118 AIQ reflects solid investigative intelligence with a critical metacognitive breakthrough."
+
+  miq: 0                     # No moral dimensions - technical troubleshooting
+  tis: 380                   # (Deprecated - retained for historical continuity)
   conscience_stage: "Learning"
   lesson_count_before: 3
   lesson_count_after: 6
