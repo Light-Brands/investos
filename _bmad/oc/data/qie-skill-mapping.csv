@@ -1,0 +1,29 @@
+qie_module,module_id,agent,skill_name,skill_type,priority,description,channels,voice_capable
+BuildOS,bmm,bmad-master,qie-build,module-bridge,high,"Full BuildOS access — create specs, architecture, stories, dev tasks",all,yes
+BuildOS,bmm,quick-flow-solo-dev,qie-quick-build,workflow-skill,high,"Quick Flow solo dev — spec and build in one pass",all,yes
+BuildOS,bmm,analyst,qie-analyze,workflow-skill,medium,"Business analysis and requirements discovery",text-channels,no
+BuildOS,bmm,architect,qie-architect,workflow-skill,medium,"Architecture design and technical decisions",text-channels,no
+BuildOS,bmm,pm,qie-product,workflow-skill,medium,"Product management and PRD creation",text-channels,no
+InvestOS,ios,ios-master,qie-raise,module-bridge,high,"Full InvestOS access — capital formation lifecycle",all,yes
+InvestOS,ios,quick-flow-delivery,qie-quick-raise,workflow-skill,high,"Quick Flow single deliverable for raises",all,yes
+InvestOS,ios,financial-modeler,qie-financial-model,workflow-skill,high,"Financial modeling and valuation",text-channels,no
+InvestOS,ios,securities-counsel,qie-legal,workflow-skill,medium,"Securities law and regulatory guidance",text-channels,no
+InvestOS,ios,narrative-director,qie-narrative,workflow-skill,medium,"Investment narrative and pitch creation",all,yes
+AmplifyOS,aos,aos-master,qie-amplify,module-bridge,high,"Full AmplifyOS access — investor communications",all,yes
+AmplifyOS,aos,aos-quickflow,qie-quick-amplify,workflow-skill,high,"Quick content production for investor comms",all,yes
+AmplifyOS,aos,aos-content,qie-content,workflow-skill,medium,"Content production for investor materials",text-channels,no
+AmplifyOS,aos,aos-crisis,qie-crisis,workflow-skill,critical,"Crisis management rapid response",all,yes
+GrowthOS,gos,gos-master,qie-growth,module-bridge,high,"Full GrowthOS access — growth marketing engine",all,yes
+GrowthOS,gos,gos-quick-flow,qie-quick-growth,workflow-skill,high,"Quick deliverable for growth marketing",all,yes
+GrowthOS,gos,seo-strategist,qie-seo,workflow-skill,medium,"SEO strategy and optimization",text-channels,no
+GrowthOS,gos,social-commander,qie-social,workflow-skill,medium,"Social media strategy and content",text-channels,no
+GrowthOS,gos,growth-analyst,qie-analytics,workflow-skill,medium,"Growth analytics and experimentation",text-channels,no
+SoulOS,sos,sos-master,qie-soul,module-bridge,high,"Full SoulOS access — spiritual alignment",all,yes
+SoulOS,sos,sos-quick-flow,qie-quick-soul,workflow-skill,high,"Quick alignment check and counsel",all,yes
+SoulOS,sos,oracle-of-soul-purpose,qie-oracle,workflow-skill,medium,"Soul purpose alignment and guidance",all,yes
+QI,qi,qi-master,qie-intelligence,module-bridge,medium,"QI system — moral gateway and intelligence tracking",text-channels,no
+QI,qi,lesson-extractor,qie-reflect,workflow-skill,medium,"Wisdom extraction and lesson capture",all,yes
+Hub,hub,hub-cli,qie-hub,utility-skill,high,"Project orchestration — list, select, status, sync",all,yes
+Core,core,quinn,qie-quinn,meta-skill,critical,"Quinn direct — the full intelligence engine, conversational",all,yes
+Core,core,brainstorm,qie-brainstorm,utility-skill,medium,"Multi-agent brainstorming sessions",text-channels,no
+Core,core,party-mode,qie-party,utility-skill,medium,"Multi-agent party mode discussions",text-channels,no

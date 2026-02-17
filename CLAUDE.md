@@ -1,6 +1,6 @@
 # QIE — Quantum Intelligence Engine
 
-This is the root intelligence system for the Light-Brands organization. It contains 88 AI agents across 7 modules (BMAD Core, BuildOS, InvestOS, AmplifyOS, GrowthOS, SoulOS, QI) with 148 workflows.
+This is the root intelligence system for the Light-Brands organization. It contains 96 AI agents across 8 modules (BMAD Core, BuildOS, InvestOS, AmplifyOS, GrowthOS, OpenClaw, SoulOS, QI) with 169 workflows.
 
 ## QIE Client Hub
 
@@ -81,6 +81,17 @@ investos/                     # Root — QIE Intelligence System
 - Configuration is in `_bmad/core/config.yaml`
 - Output artifacts go to `_bmad-output/`
 - Invoke agents via `/bmad-agent-*` commands
+
+## OpenClaw Module (OC)
+
+The OC module integrates OpenClaw — a self-hosted personal AI assistant gateway — as QIE's presence and distribution layer. It makes QIE's 96 agents and 169 workflows accessible across every communication channel.
+
+- Module directory: `_bmad/oc/`
+- Master agent: Atlas (`/bmad-agent-oc-master`)
+- Agents: Atlas (Master), Iris (Integration Architect), Renzo (Skill Engineer), Echo (Channel Strategist), Clio (Automation Designer), Mira (Session Architect), Knox (Security Guardian), Zephyr (Quick Flow)
+- 21 workflows across 6 phases: Intake, Discovery, Architecture, Skill Engineering, Channel Deployment, Operations
+- Key data: `_bmad/oc/data/channel-capabilities-matrix.csv`, `qie-skill-mapping.csv`, `security-trust-levels.csv`
+- OpenClaw source: https://github.com/openclaw/openclaw
 
 ## Hub Knowledge Reference
 

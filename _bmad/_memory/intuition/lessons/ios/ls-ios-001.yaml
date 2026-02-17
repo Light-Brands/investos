@@ -1,0 +1,77 @@
+# Lesson: Google Sheets financial models via MCP must be 100% formula-driven with Month 1-N labeling
+id: "ls-ios-001"
+version: 1
+created_at: "2026-02-16T19:30:00Z"
+updated_at: "2026-02-16T19:30:00Z"
+
+trigger_pattern: "When building or updating a financial model in Google Sheets via the MCP Google Sheets API (sheets_update_values, sheets_batch_update_values, sheets_append_values)"
+lesson_core: |
+  Three non-negotiable standards for financial models built via MCP:
+
+  1. FORMULA-ONLY DERIVED CELLS: Every cell that derives from other data MUST use a formula
+     (=reference or =calculation), never a static value. The MCP uses valueInputOption:
+     USER_ENTERED which interprets = prefix as live formulas. Static values create dead data
+     that silently becomes wrong as assumptions change. The Assumptions tab is the ONLY tab
+     where raw input values are acceptable — every other tab must formula-reference back to
+     Assumptions or to other formula-driven tabs.
+
+  2. MONTH 1-N LABELING (NOT CALENDAR MONTHS): Column headers must use Month 1, Month 2...
+     Month 12 for Year 1, Month 13-24 for Year 2, etc. — never Jan, Feb, Mar or calendar
+     month names. This makes the model time-portable: investors can be told "we are on Month 7"
+     regardless of when the company started. No relabeling needed when the fiscal year starts
+     in a non-January month or when the model is presented at different times.
+
+  3. YEAR-OVER-YEAR GROWTH COLUMNS: Every monthly/annual data section must include YoY growth
+     rate columns (% change from same month in prior year once Year 2+ data exists). This
+     answers the investor's core question — "Is it accelerating?" — without requiring them
+     to calculate it. Growth rates should be formulas: =IF(PriorYearCell=0,"N/A",(CurrentCell-PriorYearCell)/ABS(PriorYearCell))
+
+  Origin: Building the Eliana Nutraceuticals 12-tab model required three full passes to convert
+  static values to formulas. The calendar-month labeling created unnecessary coupling to a
+  specific start date. These standards prevent both problems from recurring.
+
+action_bias:
+  type: require
+  target: "formula-driven cells, Month 1-N headers, and YoY growth columns in all MCP-built financial models"
+  magnitude: 1.0
+  conditions:
+    - "Building a financial model in Google Sheets via MCP"
+    - "Updating or extending an existing MCP-built financial model"
+    - "Creating any quantitative deliverable in Google Sheets via MCP"
+
+domain: ios
+tags:
+  - financial-modeling
+  - google-sheets-mcp
+  - formula-architecture
+  - investor-readiness
+  - month-labeling
+  - yoy-growth
+  - mcp-best-practices
+situation_types:
+  - financial-model-creation
+  - spreadsheet-construction
+  - investor-materials
+  - quantitative-deliverables
+
+strength: 0.8
+confidence: 0.95
+application_count: 0
+reinforcement_history: []
+
+source_episodes:
+  - "eliana-nutraceuticals-financial-model-2026-02-15"
+
+keywords:
+  - formula
+  - static values
+  - google sheets
+  - MCP
+  - USER_ENTERED
+  - month labeling
+  - Month 1-12
+  - year over year
+  - YoY growth
+  - investor-portable
+  - financial model
+  - InvestOS

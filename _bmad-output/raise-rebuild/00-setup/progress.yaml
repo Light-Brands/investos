@@ -1,0 +1,181 @@
+# Raise Rebuild - Progress Tracker
+# Updated: 2026-02-14
+# Mark sessions as: pending | in_progress | complete | skipped
+
+phase_0:
+  setup:
+    status: complete
+    output: 00-setup/platform-content-map.md
+    completed_at: "2026-02-14"
+    notes: "149 platform files mapped across 6 categories"
+
+phase_1:
+  stream_1_story_vision:
+    status: pending
+    output: 01-digests/01-story-vision-digest.md
+    files_to_read: 8
+    depends_on: []
+  stream_2_opportunity_market:
+    status: pending
+    output: 01-digests/02-opportunity-market-digest.md
+    files_to_read: 10
+    depends_on: []
+  stream_3_assets_team:
+    status: pending
+    output: 01-digests/03-assets-team-digest.md
+    files_to_read: 12
+    depends_on: []
+  stream_4_analysis_financials:
+    status: pending
+    output: 01-digests/04-analysis-financials-digest.md
+    files_to_read: 17
+    depends_on: []
+  stream_5_data_room_counsel:
+    status: pending
+    output: 01-digests/05-data-room-counsel-digest.md
+    files_to_read: 72
+    depends_on: []
+
+phase_1_5:
+  consistency_analysis:
+    status: pending
+    output: 02-analysis/platform-consistency-analysis.md
+    depends_on: [stream_1, stream_2, stream_3, stream_4, stream_5]
+
+phase_2:
+  investment_thesis:
+    status: pending
+    output: 02-analysis/investment-thesis.md
+    depends_on: [consistency_analysis]
+  positioning_framework:
+    status: pending
+    output: 02-analysis/raise-positioning-framework.md
+    depends_on: [investment_thesis]
+
+phase_3:
+  foundation:
+    p3_1a_raise_strategy:
+      status: pending
+      workflow: ios-create-raise-strategy
+      depends_on: [positioning_framework]
+    p3_1b_strategic_foundation:
+      status: pending
+      workflow: ios-create-strategic-foundation
+      depends_on: [positioning_framework]
+    p3_1c_market_research:
+      status: pending
+      workflow: ios-market-research-investment
+      depends_on: [positioning_framework]
+    p3_1d_competitive_analysis:
+      status: pending
+      workflow: ios-competitive-analysis
+      depends_on: [positioning_framework]
+  financial:
+    p3_2a_financial_model:
+      status: pending
+      workflow: ios-create-financial-model
+      depends_on: [p3_1a_raise_strategy]
+    p3_2b_valuation_report:
+      status: pending
+      workflow: ios-create-valuation-report
+      depends_on: [p3_1a_raise_strategy]
+    p3_2c_cap_table:
+      status: pending
+      workflow: ios-model-cap-table
+      depends_on: [p3_1a_raise_strategy]
+    p3_2d_staffing_model:
+      status: pending
+      workflow: ios-create-staffing-model
+      depends_on: [p3_1a_raise_strategy]
+  legal:
+    p3_3a_entity_structure:
+      status: pending
+      workflow: ios-create-entity-structure
+      depends_on: [p3_1a_raise_strategy]
+    p3_3b_compliance_routing:
+      status: pending
+      workflow: ios-regulatory-compliance-routing
+      depends_on: [p3_1a_raise_strategy]
+    p3_3c_investment_docs:
+      status: pending
+      workflow: ios-create-investment-docs
+      depends_on: [p3_2a_financial_model, p3_3a_entity_structure]
+    p3_3d_deal_structure:
+      status: pending
+      workflow: ios-deal-structure
+      depends_on: [p3_2a_financial_model, p3_3a_entity_structure]
+  targeting:
+    p3_4a_investor_targeting:
+      status: pending
+      workflow: ios-investor-targeting
+      depends_on: [p3_1d_competitive_analysis]
+    p3_4b_tier_routing:
+      status: pending
+      workflow: ios-tier-routing
+      depends_on: [p3_4a_investor_targeting]
+    p3_4c_engagement_plan:
+      status: pending
+      workflow: ios-create-engagement-plan
+      depends_on: [p3_4b_tier_routing]
+  materials:
+    p3_5a_brand_voice:
+      status: pending
+      workflow: aos-brand-voice-setup
+      depends_on: [p3_1b_strategic_foundation]
+    p3_5b_investor_deck:
+      status: pending
+      workflow: aos-create-investor-deck
+      depends_on: [p3_5a_brand_voice, p3_2a_financial_model]
+    p3_5c_offering_circular:
+      status: pending
+      workflow: aos-create-offering-circular
+      depends_on: [p3_3c_investment_docs, p3_5a_brand_voice]
+    p3_5d_financial_package:
+      status: pending
+      workflow: aos-financial-content-package
+      depends_on: [p3_2b_valuation_report, p3_5a_brand_voice]
+    p3_5e_investor_segmentation:
+      status: pending
+      workflow: aos-investor-segmentation
+      depends_on: [p3_4a_investor_targeting, p3_5a_brand_voice]
+  data_room:
+    p3_6a_create_data_room:
+      status: pending
+      workflow: ios-create-data-room
+      depends_on: [p3_5b_investor_deck, p3_5c_offering_circular]
+    p3_6b_investor_narrative:
+      status: pending
+      workflow: ios-create-investor-narrative
+      depends_on: [p3_6a_create_data_room]
+    p3_6c_operational_blueprint:
+      status: pending
+      workflow: ios-create-operational-blueprint
+      depends_on: [p3_2d_staffing_model]
+  platform:
+    p3_7a_plan_platform:
+      status: pending
+      workflow: ios-plan-investor-platform
+      depends_on: [p3_6a_create_data_room]
+    p3_7b_brand_guidelines:
+      status: pending
+      workflow: ios-create-brand-guidelines
+      depends_on: [p3_5a_brand_voice]
+
+phase_4:
+  validation:
+    v1_cross_references: { status: pending, task: ios-validate-cross-references }
+    v2_financial_model: { status: pending, task: ios-validate-financial-model }
+    v3_readiness_scorecard: { status: pending, task: ios-investor-readiness-scorecard }
+    v4_quality_check: { status: pending, task: ios-quality-check }
+    v5_offering_review: { status: pending, task: aos-offering-document-review }
+    v6_final_gate: { status: pending, task: aos-final-gate-review }
+    v7_disclosure_review: { status: pending, task: aos-disclosure-review }
+    v8_adversarial_review: { status: pending, task: review-adversarial-general }
+    v9_editorial_structure: { status: pending, task: editorial-review-structure }
+    v10_editorial_prose: { status: pending, task: editorial-review-prose }
+  readiness_score:
+    status: pending
+    workflow: ios-investor-readiness
+    target: 80
+  package_assembly:
+    status: pending

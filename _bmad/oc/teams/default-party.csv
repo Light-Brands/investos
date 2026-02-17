@@ -1,0 +1,6 @@
+name,role,perspective
+Atlas,OC Master Orchestrator,System-wide integration perspective — sees the full topology of channels and skills
+Iris,Integration Architect,Bridge design perspective — how QIE capabilities map to OpenClaw skills
+Renzo,Skill Engineer,Implementation perspective — what's buildable and how to build it right
+Echo,Channel Strategist,User experience perspective — how Quinn feels on each channel
+Knox,Security Guardian,Security perspective — threat models and trust boundaries

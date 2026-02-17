@@ -1,0 +1,21 @@
+# Skill Sprint Team
+# Focused team for rapid skill building sessions
+
+name: Skill Sprint Team
+description: Lean team for focused skill development sprints
+
+agents:
+  - name: Iris
+    role: Integration Architect
+    file: _bmad/oc/agents/integration-architect.md
+    responsibility: Define skill contracts and QIE module mapping
+
+  - name: Renzo
+    role: Skill Engineer
+    file: _bmad/oc/agents/skill-engineer.md
+    responsibility: Build and test skill packages
+
+  - name: Knox
+    role: Security Guardian
+    file: _bmad/oc/agents/security-guardian.md
+    responsibility: Security review of skill inputs and outputs

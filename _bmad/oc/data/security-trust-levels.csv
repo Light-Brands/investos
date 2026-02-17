@@ -1,0 +1,7 @@
+trust_level,code,description,capabilities,channels_allowed,qie_modules_allowed,auto_escalate,notes
+owner,L5,"Device owner — full access to all capabilities",all,all,all,n/a,"The primary user. Full trust. All QIE modules accessible."
+trusted,L4,"Explicitly whitelisted contacts with verified identity",text+voice+skills,all,BuildOS+GrowthOS+AmplifyOS+Hub,no,"Trusted collaborators. Can invoke most modules but not SoulOS or QI."
+paired,L3,"DM-paired contacts — verified via pairing code",text+limited-skills,whitelisted-channels,BuildOS+GrowthOS,no,"Verified but limited. Can use build and growth skills."
+known,L2,"Recognized contacts — have interacted before but not paired",text-only,dm-only,none,yes,"Can chat but cannot invoke QIE modules. Prompt to pair."
+unknown,L1,"Unknown contacts — first interaction or unrecognized",text-only,dm-only,none,yes,"Untrusted by default. Receive pairing invitation. Rate limited."
+blocked,L0,"Explicitly blocked contacts",none,none,none,no,"No interaction. Messages silently dropped."

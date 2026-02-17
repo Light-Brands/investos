@@ -1,0 +1,50 @@
+# Raise Rebuild Progress Tracker
+# Status values: pending | in-progress | complete
+# Updated automatically by run-sessions.sh
+sessions:
+  P0: pending
+  P1-S1: pending
+  P1-S2: pending
+  P1-S3: pending
+  P1-S4: pending
+  P1-S5: pending
+  P1.5: pending
+  P2-A: pending
+  P2-B: pending
+  P3.1-A: pending
+  P3.1-B: pending
+  P3.1-C: pending
+  P3.1-D: pending
+  P3.2-A: pending
+  P3.2-B: pending
+  P3.2-C: pending
+  P3.2-D: pending
+  P3.3-A: pending
+  P3.3-B: pending
+  P3.3-C: pending
+  P3.3-D: pending
+  P3.4-A: pending
+  P3.4-B: pending
+  P3.4-C: pending
+  P3.5-A: pending
+  P3.5-B: pending
+  P3.5-C: pending
+  P3.5-D: pending
+  P3.5-E: pending
+  P3.6-A: pending
+  P3.6-B: pending
+  P3.6-C: pending
+  P3.7-A: pending
+  P3.7-B: pending
+  P4-V1: pending
+  P4-V2: pending
+  P4-V3: pending
+  P4-V4: pending
+  P4-V5: pending
+  P4-V6: pending
+  P4-V7: pending
+  P4-V8: pending
+  P4-V9: pending
+  P4-V10: pending
+  P4-RS: pending
+  P4-PKG: pending

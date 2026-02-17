@@ -1,0 +1,24 @@
+# OC Module Configuration
+# OpenClaw OS - Presence & Integration Engineering
+# Version: 6.0.0-Beta.8
+# Date: 2026-02-16
+
+project_name: openclaw
+user_skill_level: intermediate
+planning_artifacts: "{project-root}/_bmad-output/planning-artifacts"
+implementation_artifacts: "{project-root}/_bmad-output/implementation-artifacts"
+project_knowledge: "{project-root}/docs"
+
+# Core Configuration Values
+user_name: Lawless
+communication_language: English
+document_output_language: English
+output_folder: _bmad-output
+
+# OC-Specific Configuration
+openclaw_repo: "https://github.com/openclaw/openclaw"
+openclaw_local_path: ""
+active_channels: []
+skill_registry: "clawhub.com"
+deployment_target: ""
+voice_provider: "elevenlabs"

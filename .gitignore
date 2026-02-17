@@ -4,5 +4,20 @@ clients/
 # QIE Hub — per-user active project context
 .qie/context.yaml
 
+# OpenClaw runtime — local installation, not tracked
+_openclaw/
+
+# OpenClaw workspace files (per-user persona, not tracked)
+SOUL.md
+IDENTITY.md
+USER.md
+TOOLS.md
+MEMORY.md
+HEARTBEAT.md
+BOOTSTRAP.md
+
+# Cloned source repos in output (full git repos, not tracked)
+_bmad-output/epic-center-source/
+
 # OS files
 .DS_Store

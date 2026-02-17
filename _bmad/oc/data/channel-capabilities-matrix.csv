@@ -1,0 +1,13 @@
+channel,sdk,text,rich_text,media,voice,reactions,threads,buttons,cards,typing_indicator,read_receipts,group_support,max_message_length,notes
+whatsapp,baileys,yes,limited,yes,yes,yes,no,yes,no,yes,yes,yes,4096,"Most widely used messaging platform globally. Business API available."
+telegram,grammy,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,4096,"Rich bot API with inline keyboards, commands, and media groups."
+slack,bolt,yes,yes,yes,no,yes,yes,yes,yes,yes,no,yes,40000,"Enterprise-grade. Rich block kit for interactive messages."
+discord,discord.js,yes,yes,yes,yes,yes,yes,yes,yes,yes,no,yes,2000,"Community-oriented. Embeds, slash commands, components."
+signal,signal-cli,yes,limited,yes,no,yes,no,no,no,yes,yes,yes,2000,"Privacy-focused. Limited bot capabilities but strong encryption."
+imessage,bluebubbles,yes,limited,yes,no,yes,no,no,no,yes,yes,yes,20000,"Apple ecosystem only. Requires BlueBubbles bridge."
+teams,teams-sdk,yes,yes,yes,no,yes,yes,yes,yes,yes,no,yes,28000,"Microsoft enterprise. Adaptive cards for rich interactions."
+matrix,matrix-sdk,yes,yes,yes,no,yes,yes,no,no,yes,yes,yes,65536,"Federated protocol. Self-hostable. Strong encryption."
+google-chat,google-api,yes,yes,yes,no,no,yes,yes,yes,no,no,yes,4096,"Google Workspace integration. Cards v2 for rich messages."
+webchat,built-in,yes,yes,yes,yes,yes,no,yes,yes,yes,no,no,unlimited,"OpenClaw native web interface. Full capability."
+voice,elevenlabs,no,no,no,yes,no,no,no,no,no,no,no,n/a,"Voice-only channel. Wake word, speech-to-text, text-to-speech."
+zalo,zalo-sdk,yes,limited,yes,no,yes,no,yes,no,yes,no,yes,2000,"Popular in Vietnam. Business API available."

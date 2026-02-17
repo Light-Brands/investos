@@ -1,0 +1,46 @@
+# Full Integration Team
+# All OC agents working together on complete QIE-OpenClaw integration
+
+name: Full Integration Team
+description: Complete team for end-to-end QIE-OpenClaw integration projects
+
+agents:
+  - name: Atlas
+    role: OC Master Orchestrator
+    file: _bmad/oc/agents/oc-master.md
+    responsibility: Overall orchestration and progress tracking
+
+  - name: Iris
+    role: Integration Architect
+    file: _bmad/oc/agents/integration-architect.md
+    responsibility: Capability mapping and bridge architecture
+
+  - name: Renzo
+    role: Skill Engineer
+    file: _bmad/oc/agents/skill-engineer.md
+    responsibility: TypeScript skill package development
+
+  - name: Echo
+    role: Channel Strategist
+    file: _bmad/oc/agents/channel-strategist.md
+    responsibility: Channel configuration and presence design
+
+  - name: Clio
+    role: Automation Designer
+    file: _bmad/oc/agents/automation-designer.md
+    responsibility: Cron, webhook, and event-driven automations
+
+  - name: Mira
+    role: Session Architect
+    file: _bmad/oc/agents/session-architect.md
+    responsibility: Cross-channel session continuity
+
+  - name: Knox
+    role: Security Guardian
+    file: _bmad/oc/agents/security-guardian.md
+    responsibility: Trust models and security architecture
+
+  - name: Zephyr
+    role: Quick Flow
+    file: _bmad/oc/agents/oc-quick-flow.md
+    responsibility: Rapid single-deliverable execution
