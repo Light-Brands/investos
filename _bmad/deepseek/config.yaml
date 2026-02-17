@@ -1,0 +1,211 @@
+# DeepSeek Apprentice Module Configuration
+# Module: deepseek
+# Purpose: Self-hosted model learning alongside Claude — the path to sovereign intelligence
+# Version: 1.0.0
+# Date: 2026-02-16
+
+# Inherited from core
+user_name: Lawless
+communication_language: English
+document_output_language: English
+output_folder: _bmad-output
+
+# ═══════════════════════════════════════════════
+# MODEL CONFIGURATION
+# ═══════════════════════════════════════════════
+
+model:
+  name: DeepSeek-V3
+  repo: https://github.com/deepseek-ai/DeepSeek-V3
+  total_parameters: 671B
+  active_parameters: 37B
+  architecture: Mixture-of-Experts (MoE)
+  context_window: 128K
+  precision: FP8
+  license_code: MIT
+  license_model: DeepSeek Model Agreement
+
+# ═══════════════════════════════════════════════
+# APPRENTICE ARCHITECTURE
+# ═══════════════════════════════════════════════
+
+# Claude remains primary. DeepSeek learns by observing.
+apprentice:
+  mode: shadow  # shadow | secondary | hybrid | primary
+  primary_model: claude
+  apprentice_model: deepseek-v3
+
+  # What gets captured as training data
+  capture:
+    episodes: true          # QI episodes → training pairs
+    lessons: true           # Extracted lessons → fine-tune targets
+    artifacts: true         # Generated documents → example outputs
+    workflows: true         # Workflow completions → structured examples
+    moral_reasoning: true   # Moral gateway decisions → alignment data
+
+  # Which modules export training data
+  modules:
+    - core
+    - ios     # InvestOS — securities, finance, valuation
+    - aos     # AmplifyOS — investor comms, campaigns
+    - gos     # GrowthOS — marketing, growth
+    - bmm     # BuildOS — software development
+    - qi      # QI — meta-learning, scoring
+    - sos     # SoulOS — moral reasoning, alignment
+
+# ═══════════════════════════════════════════════
+# TRAINING DATA PIPELINE
+# ═══════════════════════════════════════════════
+
+training:
+  # Where training pairs are stored
+  pairs_dir: "{project-root}/_bmad/_memory/training/pairs"
+  evaluations_dir: "{project-root}/_bmad/_memory/training/evaluations"
+  graduation_dir: "{project-root}/_bmad/_memory/training/graduation-reports"
+
+  # Training pair format
+  pair_format:
+    input: system_prompt + user_message + context
+    output: claude_response
+    metadata:
+      module: string
+      agent: string
+      workflow: string
+      aiq_score: number
+      quality_gate: 0.7    # Minimum AIQ score to include in training set
+
+  # Fine-tuning cycles
+  fine_tune:
+    frequency: quarterly
+    min_pairs_per_cycle: 500
+    quality_threshold: 0.7  # Only pairs with AIQ >= this value
+    domains_priority:
+      - ios     # Securities and finance first (highest value)
+      - aos     # Investor communications second
+      - gos     # Growth marketing third
+      - bmm     # Software development fourth
+
+# ═══════════════════════════════════════════════
+# SECONDARY TASKS (DeepSeek handles these NOW)
+# ═══════════════════════════════════════════════
+
+secondary_tasks:
+  enabled: false  # Set to true when DeepSeek inference is deployed
+
+  # Tasks that don't need frontier intelligence
+  routes:
+    - task: document_summarization
+      description: "Summarize source documents during project intake"
+      risk: low
+
+    - task: cross_reference_check
+      description: "Verify figures match across data room documents"
+      risk: low
+
+    - task: source_categorization
+      description: "Categorize and tag imported documents"
+      risk: low
+
+    - task: embedding_generation
+      description: "Generate embeddings for semantic search across repos"
+      risk: low
+
+    - task: index_generation
+      description: "Generate document indexes and TOCs"
+      risk: low
+
+    - task: first_pass_compliance
+      description: "Initial compliance scan before human review"
+      risk: medium
+
+    - task: knowledge_graph
+      description: "Build and maintain persistent knowledge graph"
+      risk: low
+
+# ═══════════════════════════════════════════════
+# EVALUATION & GRADUATION
+# ═══════════════════════════════════════════════
+
+evaluation:
+  # How we compare Claude vs DeepSeek outputs
+  method: blind_comparison
+  scorer: qi  # Use QI's AIQ/MIQ scoring for both
+
+  # Graduation criteria — when an agent can run on DeepSeek
+  graduation:
+    min_evaluations: 50       # At least 50 blind comparisons
+    min_aiq_ratio: 0.90       # DeepSeek AIQ must be >= 90% of Claude's
+    min_miq_ratio: 0.95       # Moral alignment must be >= 95% of Claude's
+    consistency_window: 10    # Must pass for 10 consecutive evaluations
+    domains_independent: true # Each agent graduates independently
+
+  # Readiness levels
+  levels:
+    - name: not_ready
+      aiq_ratio: 0.0-0.69
+      action: "Continue training, increase pair quality"
+
+    - name: developing
+      aiq_ratio: 0.70-0.79
+      action: "Increase domain-specific training data"
+
+    - name: approaching
+      aiq_ratio: 0.80-0.89
+      action: "Fine-tune on edge cases, increase evaluation frequency"
+
+    - name: ready
+      aiq_ratio: 0.90-0.95
+      action: "Candidate for graduation, run extended evaluation"
+
+    - name: graduated
+      aiq_ratio: 0.95+
+      action: "Agent can run on DeepSeek for this domain"
+
+# ═══════════════════════════════════════════════
+# SOVEREIGNTY ROADMAP
+# ═══════════════════════════════════════════════
+
+roadmap:
+  phase_1:
+    name: "Shadow & Learn"
+    duration: "Months 1-3"
+    mode: shadow
+    goal: "Capture 500+ training pairs, deploy inference for secondary tasks"
+    milestones:
+      - "Training pipeline active"
+      - "First 100 high-quality pairs captured"
+      - "DeepSeek inference deployed for secondary tasks"
+      - "First blind evaluation cycle completed"
+
+  phase_2:
+    name: "Secondary Intelligence"
+    duration: "Months 3-6"
+    mode: secondary
+    goal: "DeepSeek handles all secondary tasks, first fine-tune cycle"
+    milestones:
+      - "500+ training pairs accumulated"
+      - "First domain fine-tune completed"
+      - "Secondary tasks running on DeepSeek"
+      - "Evaluation scores tracked per agent"
+
+  phase_3:
+    name: "Hybrid Operations"
+    duration: "Months 6-12"
+    mode: hybrid
+    goal: "First agents graduate, hybrid routing active"
+    milestones:
+      - "First agent passes graduation criteria"
+      - "Hybrid routing active (Claude + DeepSeek)"
+      - "2000+ training pairs"
+      - "Domain-specific models performing within 10% of Claude"
+
+  phase_4:
+    name: "Sovereign Intelligence"
+    duration: "Month 12+"
+    mode: primary
+    goal: "Majority of agents on own model, Claude as fallback"
+    milestones:
+      - "50%+ agents graduated to DeepSeek"
+      - "Claude reserved for complex reasoning edge cases"
+      - "Cost reduction > 60%"
+      - "Full data sovereignty achieved"

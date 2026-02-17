@@ -1,0 +1,4 @@
+role,agent,responsibilities
+orchestrator,deepseek-master,"Pipeline coordination, roadmap tracking, fine-tune cycle management"
+curator,training-curator,"Training data extraction, quality gating, domain balancing, moral pair extraction"
+evaluator,evaluation-analyst,"Blind comparisons, graduation assessment, readiness tracking"

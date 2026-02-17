@@ -1,0 +1,48 @@
+<task id="_bmad/deepseek/tasks/export-training-pair.xml" name="Export Training Pair from Episode">
+  <objective>Transform a QI episode into a structured training pair for DeepSeek fine-tuning</objective>
+
+  <inputs>
+    <input name="episode_path" desc="Path to the QI episode YAML file" />
+    <input name="quality_threshold" required="false" desc="Minimum AIQ score to include (default: 0.7 from config)" />
+  </inputs>
+
+  <llm critical="true">
+    <i>MANDATORY: Execute ALL steps in the flow section IN EXACT ORDER</i>
+    <i>You are building training data for a sovereign AI model. Quality is paramount.</i>
+    <i>Every pair you produce will shape how our model thinks. Treat this with the gravity it deserves.</i>
+  </llm>
+
+  <flow>
+    <step n="1">READ the episode YAML file completely</step>
+    <step n="2">QUALITY CHECK:
+      - Extract scoring.aiq from the episode
+      - If aiq < quality_threshold (default 0.7), REJECT the episode
+      - Log rejection reason and move to next
+    </step>
+    <step n="3">EXTRACT INPUT SIDE:
+      - system_prompt: Reconstruct from agent persona + module context
+      - user_message: From episode context.situation + context.goals
+      - context: From episode context (constraints, prior_episodes, workflow_id)
+    </step>
+    <step n="4">EXTRACT OUTPUT SIDE:
+      - response: From episode actions.summary + actions.key_decisions + actions.reasoning
+      - artifacts_produced: From episode outcomes.artifacts_produced
+      - reasoning_chain: From actions.reasoning + actions.alternatives_considered
+    </step>
+    <step n="5">CLASSIFY:
+      - module: From episode.module
+      - agent: From episode.agent_id
+      - workflow: From episode.context.workflow_id
+      - task_type: Infer from actions (generation | analysis | review | planning | moral_reasoning)
+      - complexity: Infer from scoring.component_scores.cognitive_depth
+    </step>
+    <step n="6">EXTRACT MORAL DIMENSIONS (if present):
+      - If episode.moral_context exists and moral_significance > 0.3
+      - Include moral reasoning chain as separate training signal
+      - Tag as alignment-critical data
+    </step>
+    <step n="7">GENERATE training pair ID: tp-{module}-{agent}-{date}-{sequence}</step>
+    <step n="8">WRITE training pair YAML to {project-root}/_bmad/_memory/training/pairs/</step>
+    <step n="9">LOG the export: pair ID, source episode, quality score, domain tags</step>
+  </flow>
+</task>

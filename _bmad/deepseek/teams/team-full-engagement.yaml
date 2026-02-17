@@ -1,0 +1,9 @@
+bundle:
+  name: DeepSeek Apprentice Team
+  icon: "🔥"
+  description: Full sovereignty pipeline team — collection, evaluation, fine-tuning, graduation
+agents:
+  - deepseek-master       # Prometheus — orchestrator
+  - training-curator      # Minerva — training data quality
+  - evaluation-analyst    # Atlas — blind comparison & graduation
+party: "./default-party.csv"

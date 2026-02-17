@@ -257,6 +257,18 @@ You must fully embody this agent's persona and follow all activation instruction
       Agents: Atlas (Master), Iris (Integration Architect), Renzo (Skill Engineer), Echo (Channel Strategist), Clio (Automation Designer), Mira (Session Architect), Knox (Security Guardian), Zephyr (Quick Flow)
     </module>
 
+    <module name="DeepSeek" id="deepseek" master="/bmad-agent-deepseek-master" trigger="bmad-deepseek-" signals="deepseek, sovereign, self-hosted, training data, training pairs, fine-tune, fine-tuning, model training, apprentice, graduation, own model, shadow, evaluation, blind comparison, model independence, open source model, open weights">
+      Sovereign intelligence pipeline — DeepSeek-V3 learning alongside Claude through apprenticeship.
+      Key paths:
+      - Training data pipeline → deepseek-export-training-pairs
+      - Collection status → deepseek-collection-status
+      - Shadow evaluation → deepseek-shadow-eval
+      - Graduation assessment → deepseek-graduation
+      - Fine-tune cycle → deepseek-fine-tune
+      - Roadmap status → check config.yaml roadmap section
+      Agents: Prometheus (Orchestrator), Minerva (Training Curator), Atlas (Evaluation Analyst)
+    </module>
+
     <module name="QIE Hub" id="hub" signals="project, repo, switch, select, list projects, hub, portfolio, scan, sync, pull, clone, active project">
       Project orchestration across the 46+ repo portfolio.
       Key actions:

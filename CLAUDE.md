@@ -1,6 +1,6 @@
 # QIE — Quantum Intelligence Engine
 
-This is the root intelligence system for the Light-Brands organization. It contains 96 AI agents across 8 modules (BMAD Core, BuildOS, InvestOS, AmplifyOS, GrowthOS, OpenClaw, SoulOS, QI) with 169 workflows.
+This is the root intelligence system for the Light-Brands organization. It contains 99 AI agents across 9 modules (BMAD Core, BuildOS, InvestOS, AmplifyOS, GrowthOS, OpenClaw, SoulOS, QI, DeepSeek) with 180+ workflows.
 
 ## QIE Client Hub
 
@@ -114,6 +114,35 @@ The OC module integrates OpenClaw — a self-hosted personal AI assistant gatewa
 - 21 workflows across 6 phases: Intake, Discovery, Architecture, Skill Engineering, Channel Deployment, Operations
 - Key data: `_bmad/oc/data/channel-capabilities-matrix.csv`, `qie-skill-mapping.csv`, `security-trust-levels.csv`
 - OpenClaw source: https://github.com/openclaw/openclaw
+
+## DeepSeek Apprentice Module
+
+The DeepSeek module (`_bmad/deepseek/`) is QIE's path to sovereign intelligence. DeepSeek-V3 (671B MoE, 37B active) learns alongside Claude through an apprenticeship model — Claude stays primary while DeepSeek absorbs our patterns, language, and standards through structured training data.
+
+- Module directory: `_bmad/deepseek/`
+- Master agent: Prometheus (`/bmad-agent-deepseek-master`)
+- Agents: Prometheus (Orchestrator), Minerva (Training Curator), Atlas (Evaluation Analyst)
+- 11 workflows across 4 phases: Intake, Collection, Evaluation, Fine-Tuning
+- Training data: `_bmad/_memory/training/` (pairs, evaluations, graduation reports)
+- Config: `_bmad/deepseek/config.yaml` (model settings, pipeline config, roadmap)
+
+### How It Works
+
+1. **Every QIE session produces training data.** QI episodes are exported as structured input/output pairs by the Training Curator (Minerva). Only pairs with AIQ >= 0.7 qualify.
+2. **DeepSeek handles secondary tasks** — summarization, indexing, cross-reference checks, embeddings. Claude stays on primary reasoning.
+3. **Blind evaluations** compare Claude vs DeepSeek on identical tasks. QI scores both. The Evaluation Analyst (Atlas) tracks readiness per agent.
+4. **Quarterly fine-tune cycles** use accumulated training pairs to improve DeepSeek on our specific domains.
+5. **Agents graduate independently** when DeepSeek scores consistently reach 90% of Claude's AIQ and 95% of Claude's MIQ.
+
+### Current Mode: Shadow
+
+DeepSeek is in **shadow mode** — learning by observing, not yet in the execution path. The roadmap: Shadow (months 1-3) → Secondary (3-6) → Hybrid (6-12) → Sovereign (12+).
+
+### Rules for Agents
+
+9. **Every high-quality agent output is potential training data.** When QI captures an episode with AIQ >= 0.7, it is eligible for training pair export.
+10. **Moral reasoning data is alignment-critical.** Episodes with moral_significance > 0.3 receive special handling — the sacred framework alignment data trains DeepSeek's moral dimension from day one.
+11. **Graduation is evidence-based.** No agent transitions from Claude to DeepSeek without passing 50+ blind evaluations at >=90% AIQ ratio and >=95% MIQ ratio across 10 consecutive tests.
 
 ## Hub Knowledge Reference
 
