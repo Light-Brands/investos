@@ -1,0 +1,80 @@
+# Lesson: Never use em dashes in any written output
+id: "ls-core-003"
+version: 1
+created_at: "2026-02-17T23:30:00Z"
+updated_at: "2026-02-17T23:30:00Z"
+
+trigger_pattern: "When writing ANY text output of any kind, including but not limited to documentation, proposals, strategy documents, technical specs, website copy, platform content, code comments, commit messages, PR descriptions, client communications, marketing materials, speaker notes, slide decks, README files, CLAUDE.md files, agent definitions, workflow descriptions, lesson files, or any other written artifact"
+lesson_core: "Em dashes are prohibited in all output. This is non-negotiable and applies universally across every surface where we produce text. When an em dash would naturally be used, replace it with the appropriate alternative: a comma for parenthetical asides, a period to break into two sentences, the word 'and' or 'or' for conjunctions, a colon for introductions, or a restructured sentence that flows without needing the pause an em dash creates. The goal is clean, flowing prose that never relies on the em dash as a crutch. This applies to all character variants: the em dash (U+2014), the en dash (U+2013) used as an em dash, and double hyphens (--) used as em dash substitutes. Standard hyphens in compound words (e.g., 'AI-native', 'pre-money') are acceptable and not affected by this rule."
+action_bias:
+  type: prohibit
+  target: "em dash characters (U+2014), en dashes used as em dashes (U+2013), and double-hyphen em dash substitutes (--) in all text output"
+  magnitude: 1.00
+  conditions:
+    - "Writing any documentation or markdown files"
+    - "Writing proposals, strategy documents, or client deliverables"
+    - "Writing website copy, platform content, or marketing materials"
+    - "Writing code comments, commit messages, or PR descriptions"
+    - "Writing speaker notes, slide content, or presentation materials"
+    - "Writing agent definitions, workflow descriptions, or system documentation"
+    - "Writing emails, messages, or any client-facing communication"
+    - "Writing README files, CLAUDE.md files, or developer documentation"
+    - "Writing lesson files, episode captures, or memory artifacts"
+    - "Any other text output of any kind"
+
+replacement_guide:
+  parenthetical_aside: "Use commas. Example: 'the ones whose names are synonymous with their space, did not get there by doing better work'"
+  sentence_break: "Use a period and start a new sentence. Example: 'That is not a criticism. It is a diagnosis.'"
+  conjunction: "Use 'and', 'or', 'but'. Example: 'every tool informed and every platform connected'"
+  introduction: "Use a colon. Example: 'OPTION 1: $45,000 Upfront'"
+  list_item_explanation: "Use a period after the bold term. Example: '**At-cost future development.** All future platforms are quoted at cost.'"
+  trailing_qualifier: "Use a comma. Example: 'every layer gets smarter over time, not just maintained'"
+
+domain: core
+tags:
+  - writing-style
+  - em-dash
+  - punctuation
+  - non-negotiable
+  - universal
+  - formatting
+  - prose-quality
+  - documentation
+  - website-copy
+  - platform-content
+situation_types:
+  - any-text-output
+  - documentation-creation
+  - proposal-writing
+  - website-development
+  - platform-development
+  - client-communication
+  - code-documentation
+  - marketing-content
+
+strength: 1.0
+confidence: 1.0
+application_count: 1
+reinforcement_history:
+  - date: "2026-02-17T23:30:00Z"
+    delta: 0.5
+    reason: "User made this an absolute, non-negotiable rule after removing all em dashes from the Cho Ventures proposal. The instruction was explicit: no em dashes anywhere in documentation, websites, platforms, or anything we write. This is a universal prohibition with no exceptions."
+    episode_id: "cho-ventures-em-dash-prohibition-2026-02-17"
+
+source_episodes:
+  - "cho-ventures-em-dash-prohibition-2026-02-17"
+
+keywords:
+  - em dash
+  - punctuation
+  - writing style
+  - no em dashes
+  - prohibited
+  - non-negotiable
+  - universal rule
+  - documentation style
+  - prose flow
+  - sentence flow
+  - comma
+  - period
+  - formatting standard
