@@ -47,74 +47,90 @@ The start of the larger ecosystem that follows.
 
 ---
 
-**How it works:**
+**The Ecosystem Map:**
 
 ```mermaid
 graph TB
-    subgraph PERSONAL["Personal Brand"]
-        TC[Tony Cho]
-        BOOK[Book Platform]
+    CV[<b>CHOVERSE</b><br/>AI-Native Central Hub<br/>Coherence & Communication]
+
+    subgraph NORTH["PERSONAL BRAND"]
+        direction LR
+        TC[Tony Cho<br/>Brand Platform]
+        BOOK[Book Launch]
         COURSE[Online Course]
-        SPEAK[Speaking & Media]
+        SPEAK[Speaking &<br/>Media]
     end
 
-    subgraph REALESTATE["Real Estate"]
-        FOC[Future of Cities]
-        M1[Metro 1 Commercial]
-        PHX[PHX-JAX District]
+    subgraph EAST["REAL ESTATE"]
+        direction TB
+        FOC[Future of<br/>Cities]
+        M1[Metro 1<br/>Commercial]
+        PHX[PHX-JAX<br/>District]
     end
 
-    subgraph REGEN["Regenerative"]
-        CCRL[ChoZen Center]
-        CZIP[ChoZen IP]
-        HUB[Climate + Innovation HUB]
+    subgraph SOUTH["REGENERATIVE"]
+        direction LR
+        CCRL[ChoZen<br/>Center]
+        CZIP[ChoZen<br/>IP]
+        HUB[Climate +<br/>Innovation HUB]
     end
 
-    subgraph PHILANTHROPY["Philanthropy"]
-        CFF[Cho Family Foundation]
-        XCLF[Ximena Cho Legacy Fund]
-        FOP[Friends of PHXJAX]
+    subgraph WEST["PHILANTHROPY"]
+        direction TB
+        CFF[Cho Family<br/>Foundation]
+        XCLF[Ximena Cho<br/>Legacy Fund]
+        FOP[Friends of<br/>PHXJAX]
     end
 
-    subgraph INFRA["Infrastructure"]
-        CVF[Cho Ventures Family Office]
-    end
+    CVF[Cho Ventures<br/>Family Office]
 
-    CV[CHOVERSE<br/>Central Hub]
+    CV <--> TC
+    CV <--> BOOK
+    CV <--> COURSE
+    CV <--> SPEAK
 
-    TC --> CV
-    BOOK --> CV
-    COURSE --> CV
-    SPEAK --> CV
-    FOC --> CV
-    M1 --> CV
-    PHX --> CV
-    CCRL --> CV
-    CZIP --> CV
-    HUB --> CV
-    CFF --> CV
-    XCLF --> CV
-    FOP --> CV
-    CVF --> CV
+    CV <--> FOC
+    CV <--> M1
+    CV <--> PHX
 
-    CV --> CATEGORY[Tony Cho =<br/>Regenerative Development]
+    CV <--> CCRL
+    CV <--> CZIP
+    CV <--> HUB
 
-    style CV fill:#7B68EE,stroke:#5A4BC7,color:#fff,stroke-width:4px
-    style CATEGORY fill:#FFD700,stroke:#B8960F,color:#000,stroke-width:3px
+    CV <--> CFF
+    CV <--> XCLF
+    CV <--> FOP
+
+    CV <--> CVF
+
+    CV -.->|Category<br/>Ownership| OUTCOME[Tony Cho =<br/>Regenerative<br/>Development]
+
+    style CV fill:#7B68EE,stroke:#5A4BC7,color:#fff,stroke-width:6px,font-size:14px
+    style OUTCOME fill:#FFD700,stroke:#B8960F,color:#000,stroke-width:4px,font-size:13px
+
     style TC fill:#4A90D9,stroke:#2C5F8A,color:#fff
     style BOOK fill:#4A90D9,stroke:#2C5F8A,color:#fff
     style COURSE fill:#4A90D9,stroke:#2C5F8A,color:#fff
     style SPEAK fill:#4A90D9,stroke:#2C5F8A,color:#fff
+
     style FOC fill:#2E8B57,stroke:#1D5E3A,color:#fff
     style M1 fill:#2E8B57,stroke:#1D5E3A,color:#fff
     style PHX fill:#2E8B57,stroke:#1D5E3A,color:#fff
+
     style CCRL fill:#20B2AA,stroke:#178A80,color:#fff
     style CZIP fill:#20B2AA,stroke:#178A80,color:#fff
     style HUB fill:#20B2AA,stroke:#178A80,color:#fff
+
     style CFF fill:#DA70D6,stroke:#9B4D97,color:#fff
     style XCLF fill:#DA70D6,stroke:#9B4D97,color:#fff
     style FOP fill:#DA70D6,stroke:#9B4D97,color:#fff
+
     style CVF fill:#CD853F,stroke:#8B5E2B,color:#fff
+
+    style NORTH fill:#0d1b3e,stroke:#4A90D9,color:#88bbff
+    style EAST fill:#0d2e1a,stroke:#2E8B57,color:#66ff88
+    style SOUTH fill:#0d2e2c,stroke:#20B2AA,color:#88ffee
+    style WEST fill:#2e0d2c,stroke:#DA70D6,color:#ff88ff
 ```
 
 **All your projects in one place. Coherence across everything.**
