@@ -63,7 +63,6 @@ The people who own categories don't get there by doing better work.
 They get there by building ecosystems that make their work **impossible to ignore**.
 
 Look at the names that own their spaces:
-- **Vishen Lakhiani** built **Mindvalley** and became the **face of Personal Transformation**.
 - Elon Musk built Tesla as the **face of sustainable transportation**.
 - Yvon Chouinard built Patagonia and became the **face of environmental capitalism**.
 
@@ -71,9 +70,7 @@ They built visible, unified ecosystems that **proved the category existed** and 
 
 **That's what we build for you.**
 
-**ChoVerse is your Mindvalley.**
-
-The platform that becomes living proof that Regenerative Development is a category, and Tony Cho is the person who owns it.
+ChoVerse becomes the platform that is living proof that Regenerative Development is a category, and Tony Cho is the person who owns it.
 
 ```
 ┌─────────────────────────────────────────────────┐

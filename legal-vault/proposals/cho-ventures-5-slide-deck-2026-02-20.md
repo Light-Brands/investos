@@ -33,10 +33,6 @@ What they should see: **"Tony Cho = Regenerative Development"**
 
 ## SLIDE 2: THE SOLUTION
 
-**ChoVerse is the Mindvalley for Regenerative Development.**
-
----
-
 **What is ChoVerse?**
 
 Your AI-native central hub.
@@ -108,25 +104,17 @@ Not 15 disconnected sites with no communication. One AI-native hub that keeps ev
 ---
 
 **SPEAKER NOTES:**
-- "ChoVerse is the Mindvalley for Regenerative Development."
-- Pause.
 - "What is ChoVerse? Your AI-native central hub."
 - "Where you place all your projects. Designed to keep coherence across your entire ecosystem."
 - "Streamlines communication between all entities."
 - Point to diagram. "Here's how it works."
-- "All 15 projects flowing through one hub. Everything stays aligned."
+- "All projects flowing through one hub. Everything stays aligned."
 - "This is what makes you the face of Regenerative Development."
 - Move on.
 
 ---
 
 ## SLIDE 3: WHAT IT LOOKS LIKE
-
-**Vishen owns Personal Transformation.**
-
-**You own Regenerative Development.**
-
----
 
 **When you own the category:**
 
@@ -149,9 +137,7 @@ Not 15 disconnected sites with no communication. One AI-native hub that keeps ev
 ---
 
 **SPEAKER NOTES:**
-- "Vishen owns Personal Transformation. You own Regenerative Development."
-- Pause. Let that land.
-- "Here's what that looks like."
+- "Let me show you what it looks like when you own the category."
 - Read each bullet. Don't elaborate.
 - Pause at the transformation line.
 - "That's what we build."
