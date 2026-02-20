@@ -39,7 +39,9 @@ What they should see: **"Tony Cho = Regenerative Development"**
 
 **What is ChoVerse?**
 
-Where you place all your projects.
+Your AI-native central hub.
+
+Where you place all your projects. Designed to keep coherence across your entire ecosystem and streamline communication between all entities.
 
 The start of the larger ecosystem that follows.
 
@@ -115,19 +117,20 @@ graph TB
     style CVF fill:#CD853F,stroke:#8B5E2B,color:#fff
 ```
 
-**All your projects in one place. The larger ecosystem builds from here.**
+**All your projects in one place. Coherence across everything.**
 
-Not 15 disconnected sites. One place where everything lives and grows.
+Not 15 disconnected sites with no communication. One AI-native hub that keeps everything aligned.
 
 ---
 
 **SPEAKER NOTES:**
 - "ChoVerse is the Mindvalley for Regenerative Development."
 - Pause.
-- "What is ChoVerse? Simple. It's where you place all your projects."
-- "The start of the larger ecosystem that follows."
+- "What is ChoVerse? Your AI-native central hub."
+- "Where you place all your projects. Designed to keep coherence across your entire ecosystem."
+- "Streamlines communication between all entities."
 - Point to diagram. "Here's how it works."
-- "All 15 projects. One place. Everything builds from here."
+- "All 15 projects flowing through one hub. Everything stays aligned."
 - "This is what makes you the face of Regenerative Development."
 - Move on.
 
