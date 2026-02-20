@@ -97,25 +97,25 @@ One ecosystem that **proves** the category exists and shows who owns it.
 
 ## SLIDE 4: HOW WE BUILD IT
 
-**45 days. 4 stages. Done.**
+**60 days. 4 stages. Done.**
 
 | Stage | Days | What Happens |
 |-------|------|--------------|
-| **1. Foundation** | 1-15 | ChoVerse + Tony Brand + Future of Cities |
-| **2. Integration** | 16-30 | Connect all 15 entities |
-| **3. Capital Ready** | 31-45 | Deploy InvestOS |
-| **4. Activate** | 46+ | Fire AmplifyOS, raise begins |
+| **1. Foundation** | 1-20 | ChoVerse + Tony Brand + Future of Cities |
+| **2. Integration** | 21-40 | Connect all 15 entities |
+| **3. Capital Ready** | 41-60 | Deploy InvestOS |
+| **4. Activate** | 61+ | Fire AmplifyOS, raise begins |
 
-**Day 45:** Category ownership infrastructure live.
+**Day 60:** Category ownership infrastructure live.
 
-**Week 10:** $12M raise-ready.
+**Week 12:** $12M raise-ready.
 
 ---
 
 **SPEAKER NOTES:**
-- "45 days. 4 stages. Done."
+- "60 days. 4 stages. Done."
 - Walk through the table quickly. Don't linger.
-- "Day 45: infrastructure live. Week 10: raise-ready."
+- "Day 60: infrastructure live. Week 12: raise-ready."
 - Move to the deal.
 
 ---

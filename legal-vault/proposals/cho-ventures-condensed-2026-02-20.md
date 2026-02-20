@@ -99,19 +99,19 @@ Not 15 disconnected projects. One movement. And you're the face of it.
 
 ## 4. THE STAGES: INFRASTRUCTURE IS EVERYTHING
 
-### Stage 1: Foundation (Days 1-15)
+### Stage 1: Foundation (Days 1-20)
 Build ChoVerse Hub + Tony Personal Brand + Future of Cities
 
-### Stage 2: Ecosystem Integration (Days 16-30)
+### Stage 2: Ecosystem Integration (Days 21-40)
 Connect all 15 entities into the ChoVerse system
 
-### Stage 3: Capital Readiness (Days 31-45)
+### Stage 3: Capital Readiness (Days 41-60)
 Deploy InvestOS — make the ecosystem investable
 
-### Stage 4: Activation (Day 46+)
+### Stage 4: Activation (Day 61+)
 Fire AmplifyOS — turn infrastructure into movement and capital
 
-**Timeline:** 45 days to capital-ready. 10 weeks total to $12M raise readiness.
+**Timeline:** 60 days to capital-ready. 12 weeks total to $12M raise readiness.
 
 **Why infrastructure first?**
 
@@ -179,7 +179,7 @@ Here's the structure:
 - All 15 entity portals integrated
 - InvestOS (capital readiness infrastructure)
 - AmplifyOS (activation engine)
-- 45-day build timeline
+- 60-day build timeline
 - $12M raise readiness
 
 ### Why We Recommend Equity-Aligned:
@@ -225,7 +225,7 @@ You have the work. You have the track record. You have the vision.
 
 We have the infrastructure that makes you the category owner.
 
-**The timeline:** 45 days to build ChoVerse and position you as the face of Regenerative Development.
+**The timeline:** 60 days to build ChoVerse and position you as the face of Regenerative Development.
 
 **The investment:** $40K to start. 90% deferred until the $12M raise moves forward.
 
