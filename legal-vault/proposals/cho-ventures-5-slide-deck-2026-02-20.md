@@ -33,7 +33,7 @@ What they should see: **"Tony Cho = Regenerative Development"**
 
 ## SLIDE 2: THE SOLUTION
 
-**ChoVerse is your Mindvalley.**
+**ChoVerse is the Mindvalley for Regenerative Development.**
 
 The platform that makes you the face of Regenerative Development.
 
