@@ -63,8 +63,9 @@ The people who own categories don't get there by doing better work.
 They get there by building ecosystems that make their work **impossible to ignore**.
 
 Look at the names that own their spaces:
-- Elon Musk built Tesla as the **face of sustainable transportation**.
-- Yvon Chouinard built Patagonia and became the **face of environmental capitalism**.
+- **Vishen Lakhiani** built **Mindvalley** and became the **face of Personal Transformation**.
+- **Elon Musk** built Tesla as the **face of sustainable transportation**.
+- **Yvon Chouinard** built Patagonia and became the **face of environmental capitalism**.
 
 They built visible, unified ecosystems that **proved the category existed** and showed who defined it.
 
