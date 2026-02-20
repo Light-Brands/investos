@@ -3,30 +3,37 @@
 
 ---
 
-## SLIDE 1: THE PROBLEM
+## SLIDE 1: THE GOAL
 
-**You have 15 entities. Nobody sees the category.**
+**Tony Cho = Universe of Regenerative Development**
 
-15+ projects across real estate, climate, arts, philanthropy.
+That's the arc we're creating.
+
+---
+
+**The Problem:**
+
+You have 15+ entities across real estate, climate, arts, philanthropy.
 
 All of it real. None of it connected.
 
 Right now, people see: **"Interesting projects"**
 
-What they should see: **"Tony Cho = Regenerative Development"**
+What they need to see: **"Tony Cho = Regenerative Development"**
 
 ---
 
-**The gap is not the work.**
-
-**The gap is: nobody sees you as the category owner.**
+**The gap is not the work. The gap is: nobody sees you as the category owner.**
 
 ---
 
 **SPEAKER NOTES:**
-- Don't explain the problem. He knows it.
-- Just name it clearly: "15 entities. Nobody sees the category."
-- Pause. "The gap is not the work. The gap is: nobody sees you as the category owner."
+- "The goal is simple: Tony Cho = Universe of Regenerative Development."
+- "That's the arc we're creating."
+- Pause.
+- "The problem: you have 15+ entities. All real. None connected."
+- "Right now, people see interesting projects. What they need to see is you as the category owner."
+- "The gap is not the work. The gap is: nobody sees you as the category owner."
 - Move on.
 
 ---
@@ -35,11 +42,15 @@ What they should see: **"Tony Cho = Regenerative Development"**
 
 **What is ChoVerse?**
 
-Your AI-native central hub.
+An AI-native Regenerative Development Hub for the entire ecosystem.
 
-Where you place all your projects. Designed to keep coherence across your entire ecosystem and streamline communication between all entities.
+Starting with Tony's well-established infrastructure as the pillars for each category.
 
-The start of the larger ecosystem that follows.
+Designed to keep coherence across your entire ecosystem and streamline communication between all entities.
+
+**ChoVerse will become the heartbeat of Regenerative Development globally.**
+
+Making Tony Cho synonymous with Regenerative Development.
 
 ---
 
@@ -97,19 +108,20 @@ mindmap
         Community Support
 ```
 
-**All your projects in one place. Coherence across everything.**
+**The hub for Regenerative Development globally.**
 
-Not 15 disconnected sites with no communication. One AI-native hub that keeps everything aligned.
+Not 15 disconnected sites. One AI-native hub that becomes the heartbeat of the entire movement.
 
 ---
 
 **SPEAKER NOTES:**
-- "What is ChoVerse? Your AI-native central hub."
-- "Where you place all your projects. Designed to keep coherence across your entire ecosystem."
-- "Streamlines communication between all entities."
+- "What is ChoVerse? An AI-native Regenerative Development Hub for the entire ecosystem."
+- "Starting with your well-established infrastructure as the pillars."
+- "ChoVerse will become the heartbeat of Regenerative Development globally."
+- "Making Tony Cho synonymous with Regenerative Development."
 - Point to diagram. "Here's how it works."
-- "All projects flowing through one hub. Everything stays aligned."
-- "This is what makes you the face of Regenerative Development."
+- "All your entities flowing through one hub. Everything stays aligned."
+- "This isn't just your hub. This becomes THE hub for regenerative development."
 - Move on.
 
 ---
