@@ -35,11 +35,17 @@ What they should see: **"Tony Cho = Regenerative Development"**
 
 **ChoVerse is the Mindvalley for Regenerative Development.**
 
-The platform that makes you the face of Regenerative Development.
+---
+
+**What is ChoVerse?**
+
+Where you place all your projects.
+
+The start of the larger ecosystem that follows.
 
 ---
 
-**How ChoVerse interconnects everything:**
+**How it works:**
 
 ```mermaid
 graph TB
@@ -109,19 +115,20 @@ graph TB
     style CVF fill:#CD853F,stroke:#8B5E2B,color:#fff
 ```
 
-**One hub. All 15 entities connected. Every platform intelligent.**
+**All your projects in one place. The larger ecosystem builds from here.**
 
-Not 15 disconnected sites. One ecosystem that **proves** the category exists and shows who owns it.
+Not 15 disconnected sites. One place where everything lives and grows.
 
 ---
 
 **SPEAKER NOTES:**
-- "ChoVerse is your Mindvalley."
-- Pause. Let that land.
-- "The platform that makes you the face of Regenerative Development."
+- "ChoVerse is the Mindvalley for Regenerative Development."
+- Pause.
+- "What is ChoVerse? Simple. It's where you place all your projects."
+- "The start of the larger ecosystem that follows."
 - Point to diagram. "Here's how it works."
-- "Personal brand. Real estate. Regenerative initiatives. Philanthropy. All flowing through one central hub."
-- "Everything connected. Everything intelligent. Everything proving you own the category."
+- "All 15 projects. One place. Everything builds from here."
+- "This is what makes you the face of Regenerative Development."
 - Move on.
 
 ---
